@@ -1,0 +1,1 @@
+{"dimensions":{"num_rows":1,"num_cols":2},"cost_vector":[1,2],"constraint_matrix_A":{"columns":[[0],[0]]},"has_base_constraints":true,"base_constraints":{"num_bases":1,"num_constraints":2,"D_matrix":{"rows":[[0,0],[0,1]]},"lower_bounds_d1":[0,1],"upper_bounds_d2":[0,1]}}

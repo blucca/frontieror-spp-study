@@ -1,0 +1,21 @@
+{
+  "decision": "STOP new issue/reproducer; known issue coverage",
+  "exact_issue_searches": 1,
+  "search_results": 87,
+  "incomplete_results": false,
+  "primary_existing_issue": 3606,
+  "same_version_maintainer_reproduced_issue": 3314,
+  "existing_issues_open": true,
+  "latest_release": "v1.16.0",
+  "latest_release_published": "2026-11-11T14:57:20Z",
+  "current_latest_clique_time_checks": {
+    "checkLimits": false,
+    "checkTimeLimit": false
+  },
+  "native_runs": 0,
+  "installs": 0,
+  "external_sends": 0,
+  "new_issue": 0,
+  "new_core_pr": 0,
+  "reproducer_draft": 0
+}
