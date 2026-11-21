@@ -1,11 +1,12 @@
-# Version source ledger
+# Source/version ledger
 
-- `v1/main/solve.py`: original complete six-case entry, unchanged14,659B.
-- `v2/main/solve.py`: large-hole LNS candidate; full large4 external60s STOP.
-- `v2_1/main/solve.py`: presolve-off candidate; full large4 external60s STOP.
-- `v3/main/solve.py`: deadline-bounded daemon API candidate, awaiting complete
-  nine-run release gate in the local preparation checkpoint.
+| Version | Full release gate | Source |
+|---|---|---|
+| v1 | Six cases + Base + seed extension passed; original snapshot | [entry](v1/main/solve.py) |
+| v2 | STOP: large4 process killed after60s; 5 prior runs passed | [candidate](v2/main/solve.py) |
+| v2.1, presolve off | STOP: large4 process killed after60s; 5 prior runs passed | [candidate](v2_1/main/solve.py) |
+| **v3, current** | **9/9 complete runs PASS** | [entry](v3/main/solve.py) |
 
-At this preparation checkpoint, public Main remains v1. Historical source and
-failed-candidate results are independent from promoted Main scores. Baseline
-scripts copied under v1 preserve their original helper import layout.
+Current `main/solve.py` and v3 archive are byte-identical. v1's complete original
+repo replay is also fixed at commit `45a576cf0d6df9cc0ed935f93c5c1e8040e70d59`.
+All earlier sources, candidate failures and measured solutions remain distinct.

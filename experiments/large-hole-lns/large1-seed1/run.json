@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "algorithm": "main",
+  "seed": 1,
+  "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "536ed9aca6862bb76592b6879a9ac5b87c2499c69030e67b13e99c41f725d3d9",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round711-frontier-large-hole-probe/probe.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+    "--output",
+    "/data/workspace/temp/round711-frontier-large-hole-probe/large1-seed1/solution.json",
+    "--time-limit",
+    "60",
+    "--seed",
+    "1"
+  ],
+  "algorithm_external_wall_seconds": 6.083113057014998,
+  "algorithm_exit_code": 0,
+  "algorithm_cpu_user_seconds": 5.948841,
+  "algorithm_cpu_system_seconds": 0.12330899999999999,
+  "algorithm_max_rss_kib": 293824,
+  "metrics": {
+    "method": "6s pure-Python incumbent-preserving large-hole LNS initialization",
+    "seed": 1,
+    "probe_budget_seconds": 6,
+    "objective": 1334,
+    "cold_objective": 2833,
+    "cold": {
+      "status": "FEASIBLE",
+      "nodes": 9168,
+      "columns": 14988,
+      "min_row_degree": 1798,
+      "seconds": 0.3936824460106436,
+      "branch_order": "independent random + coverage + scarcity; cost-free"
+    },
+    "lns": {
+      "holes": 10,
+      "improvements": 1,
+      "nodes": 252087,
+      "improvement_trace": [
+        [
+          0.6222340030071791,
+          1334
+        ]
+      ],
+      "hole_seconds_cap": 0.6
+    },
+    "internal_seconds": 6.012405011017108
+  },
+  "objective": 1334,
+  "selected_count": 25,
+  "independent_exact_feasible": true,
+  "official_numpy_feasible": true,
+  "output_bytes": 169093,
+  "worker_end_to_end_seconds": 6.322721483011264,
+  "total_cpu_seconds": 6.477844999999999,
+  "max_rss_kib": 293824
+}

@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "algorithm": "main",
+  "seed": 1,
+  "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "50b3b33f14aeb9dbf8db6a312320498cd4d98d9c60313705c46589ba2fe66d54",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round711-frontier-lns-probe/probe.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+    "--output",
+    "/data/workspace/temp/round711-frontier-lns-probe/large1-seed1/solution.json",
+    "--time-limit",
+    "60",
+    "--seed",
+    "1"
+  ],
+  "algorithm_external_wall_seconds": 6.032746111013694,
+  "algorithm_exit_code": 0,
+  "algorithm_cpu_user_seconds": 5.980156,
+  "algorithm_cpu_system_seconds": 0.027992,
+  "algorithm_max_rss_kib": 54548,
+  "metrics": {
+    "method": "6s pure-Python incumbent-preserving LNS initialization",
+    "seed": 1,
+    "probe_budget_seconds": 6,
+    "objective": 2833,
+    "cold_objective": 2833,
+    "cold": {
+      "status": "FEASIBLE",
+      "nodes": 9168,
+      "columns": 14988,
+      "min_row_degree": 1798,
+      "seconds": 0.3719028980121948,
+      "branch_order": "independent random + coverage + scarcity; cost-free"
+    },
+    "lns": {
+      "holes": 6259,
+      "improvements": 0,
+      "nodes": 12625,
+      "improvement_trace": [],
+      "hole_seconds_cap": 0.08
+    },
+    "internal_seconds": 5.991394632990705
+  },
+  "objective": 2833,
+  "selected_count": 28,
+  "independent_exact_feasible": true,
+  "official_numpy_feasible": true,
+  "output_bytes": 169110,
+  "worker_end_to_end_seconds": 6.256813166983193,
+  "total_cpu_seconds": 6.395466999999999,
+  "max_rss_kib": 54548
+}

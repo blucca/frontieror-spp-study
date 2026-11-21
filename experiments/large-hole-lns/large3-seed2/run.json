@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "algorithm": "main",
+  "seed": 2,
+  "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "536ed9aca6862bb76592b6879a9ac5b87c2499c69030e67b13e99c41f725d3d9",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round711-frontier-large-hole-probe/probe.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+    "--output",
+    "/data/workspace/temp/round711-frontier-large-hole-probe/large3-seed2/solution.json",
+    "--time-limit",
+    "60",
+    "--seed",
+    "2"
+  ],
+  "algorithm_external_wall_seconds": 6.1317470150243025,
+  "algorithm_exit_code": 0,
+  "algorithm_cpu_user_seconds": 5.970451,
+  "algorithm_cpu_system_seconds": 0.111985,
+  "algorithm_max_rss_kib": 432220,
+  "metrics": {
+    "method": "6s pure-Python incumbent-preserving large-hole LNS initialization",
+    "seed": 2,
+    "probe_budget_seconds": 6,
+    "objective": 350,
+    "cold_objective": 2096,
+    "cold": {
+      "status": "FEASIBLE",
+      "nodes": 31,
+      "columns": 14970,
+      "min_row_degree": 617,
+      "seconds": 0.004200440016575158,
+      "branch_order": "independent random + coverage + scarcity; cost-free"
+    },
+    "lns": {
+      "holes": 16,
+      "improvements": 7,
+      "nodes": 284805,
+      "improvement_trace": [
+        [
+          0.1420696819841396,
+          1059
+        ],
+        [
+          0.1672184199851472,
+          831
+        ],
+        [
+          0.21223744697635993,
+          537
+        ],
+        [
+          0.2932825129828416,
+          497
+        ],
+        [
+          0.982177130994387,
+          427
+        ],
+        [
+          1.0817476559896022,
+          362
+        ],
+        [
+          2.9946669719938654,
+          350
+        ]
+      ],
+      "hole_seconds_cap": 0.6
+    },
+    "internal_seconds": 6.008998610981507
+  },
+  "objective": 350,
+  "selected_count": 23,
+  "independent_exact_feasible": true,
+  "official_numpy_feasible": true,
+  "output_bytes": 169081,
+  "worker_end_to_end_seconds": 6.331620242999634,
+  "total_cpu_seconds": 6.457319999999999,
+  "max_rss_kib": 432220
+}

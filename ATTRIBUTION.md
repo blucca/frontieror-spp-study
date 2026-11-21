@@ -61,3 +61,12 @@ queue adapts only public clone paths/output paths and allowed CPU IDs;
 the original measured queue is retained as an audit artifact. The isolated
 dynamic probe source changes only compatible-support value ordering and is
 separate from frozen Main and its full-run scores.
+
+## Main v3 and historical candidates
+
+The independent v3 Python entry adds input-derived large-hole repair and reuses
+the existing highspy daemon solve API for the application deadline. Original v1,
+rejected v2/v2.1 and all complete/failed measurements remain archived. Frozen
+source bytes are retained; the portable v3 queue changes clone/output paths only.
+The one-entry source ZIP carries the repository MIT notice in its archive comment.
+No data/reference solutions or compiled controls enter that ZIP.

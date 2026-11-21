@@ -1,0 +1,9 @@
+{"case": "tiny", "seed": 1, "status": "PASS", "objective": 16, "wall": 0.46715584202320315}
+{"case": "large2", "seed": 1, "status": "PASS", "objective": 229, "wall": 0.6675635899882764}
+{"case": "base-k2", "seed": 1, "status": "PASS", "objective": 2, "wall": 0.4668045220023487}
+{"case": "large1", "seed": 1, "status": "PASS", "objective": 1334, "wall": 55.34810869098874}
+{"case": "large3", "seed": 1, "status": "PASS", "objective": 240, "wall": 55.249792366987094}
+{"case": "large4", "seed": 1, "status": "PASS", "objective": 331, "wall": 55.45502651500283}
+{"case": "large5", "seed": 1, "status": "PASS", "objective": 180, "wall": 55.39532479798072}
+{"case": "large3", "seed": 2, "status": "PASS", "objective": 350, "wall": 55.25801999599207}
+{"case": "large3", "seed": 3, "status": "PASS", "objective": 416, "wall": 55.27665819498361}

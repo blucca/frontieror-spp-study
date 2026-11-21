@@ -1,192 +1,110 @@
-# Measured results — all six cases and paired seeds, 2026-11-21
+# Complete Main v3 results — 2026-11-21
 
-Minimize cost. Original seed-1 batch: nine serial complete runs.
-The paired-seed extension adds six serial runs, detailed below.
-`main` is Python Main v1; `highs` is cold full sparse HiGHS 1.15.1;
-`cpsat` is cold full Boolean CP-SAT 9.15.6755. Both baselines start with zero hints.
-All original seed1 runs below: **exit 0, complete all-M schema, independent exact PASS,
-original NumPy 2.5.3 PASS, external resource PASS**.
+Recorded queue **DONE,9/9 PASS**: all exit0, original NumPy2.5.3 checker,
+independent exact/full-M schema and external resource gates pass. Six default
+seed cases, one K2 fixture and hard3 seeds2/3; no baselines were rerun.
 
-| Method | Case | Cost | Bound | Algorithm wall s | Whole + checkers s | CPU s | RSS MiB | Solver status |
-|---|---|---:|---:|---:|---:|---:|---:|---|
-| main | tiny | 16 | 16 | 0.167641 | 0.365805 | 0.543126 | 41.289 | Optimal |
-| main | large2 | 229 | 229 | 0.366396 | 0.616579 | 0.799591 | 50.992 | Optimal |
-| main | large3 | 240 | 56 | 54.954974 | 55.225060 | 56.352242 | 355.359 | TimeLimit |
-| highs | tiny | 16 | 16 | 0.215640 | 0.416706 | 0.560556 | 40.355 | Optimal |
-| highs | large2 | 229 | 229 | 0.368268 | 0.617526 | 0.783628 | 50.340 | Optimal |
-| highs | large3 | 453 | 56 | 54.942631 | 55.224484 | 55.920506 | 575.965 | TimeLimit |
-| cpsat | tiny | 16 | 16 | 0.968695 | 1.169159 | 1.271880 | 111.293 | OPTIMAL |
-| cpsat | large2 | 229 | 229 | 1.069195 | 1.318375 | 1.482579 | 119.816 | OPTIMAL |
-| cpsat | large3 | 968 | -13243 | 55.021688 | 55.280589 | 107.462051 | 429.020 | FEASIBLE |
+| Case | Seed | Cost | Bound | Algorithm wall s | Whole + checkers s | CPU s | RSS MiB | Native outcome |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| tiny | 1 | 16 | 16 | 0.217999 | 0.467156 | 0.590667 | 41.746 | Optimal |
+| large2 | 1 | 229 | 229 | 0.417634 | 0.667564 | 0.875652 | 53.352 | Optimal |
+| base-k2 | 1 | 2 | 2 | 0.217126 | 0.466805 | 0.616815 | 41.910 | Optimal |
+| large1 | 1 | 1334 | 16 | 54.985205 | 55.348109 | 57.257099 | 555.129 | TimeLimit |
+| large3 | 1 | 240 | 56 | 54.936619 | 55.249792 | 56.514192 | 389.148 | TimeLimit |
+| large4 | 1 | 331 | — | 55.098064 | 55.455027 | 97.723530 | 440.000 | MAIN_DEADLINE_FALLBACK; native pending |
+| large5 | 1 | 180 | — | 54.953254 | 55.395325 | 93.374085 | 911.262 | TimeLimit |
+| large3 | 2 | 350 | 56 | 54.952694 | 55.258020 | 56.349423 | 794.438 | TimeLimit |
+| large3 | 3 | 416 | 56 | 54.955500 | 55.276658 | 56.197017 | 784.383 | TimeLimit |
 
-`TimeLimit`/`FEASIBLE` on hard3 report incumbents at the deadline; tiny/easy
-are optimal. CP-SAT's reported hard lower bound is -13243; positive costs
-supply a separate valid bound of 0. Main's hard HiGHS gap is 76.6667%.
-Seed-1 Main 240 versus matched HiGHS 453 is -47.0199%; versus CP-SAT 968
-is -75.2066%. The subsequent paired seeds show materially smaller aggregate
-advantage and a loss on seed3. Tiny/easy have no cost gain.
+Queue wall333.597378s /CPU419.604271s. Complete
+original state, stdout/stderr, all-M witnesses and checker outputs:
+[`results/2026-11-21/v3/`](results/2026-11-21/v3/).
 
-## Paired hard seeds — include the losing seed
+**large4:** Main writes its prior verified331 while the native task remains
+pending; metadata explicitly has MAIN_DEADLINE_FALLBACK,
+native_result_available=false,force_exit=true. Its native status, bound and
+gap are absent. The successful whole Main process and both checkers are the
+measured acceptance result. **large5:** Main180 is feasible with a returned
+TimeLimit status and no finite bound; it is not labeled optimal. The old cold
+HiGHS180 remains an independent optimal reference under the same envelope.
 
-| Hard3 seed | Python v1 family cost | Cold HiGHS1.15.1 cost | Paired cost difference |
+## Reused matched-version cold baselines
+
+| Case | Main v3 | Cold HiGHS1.15.1 | Cold CP-SAT9.15.6755 |
 |---|---:|---:|---:|
-| 1, retained original | 240 | 453 | -213 |
-| 2 | 411 | 440 | -29 |
-| 3 | 510 | 337 | +173 |
+| tiny | 16 optimal | 16 optimal | 16 optimal |
+| large1 | 1334 feasible | 3541 | 1832 |
+| large2 | 229 optimal | 229 optimal | 229 optimal |
+| large3 | 240 feasible | 453 | 968 |
+| large4 | 331 feasible | no feasible witness | no feasible witness |
+| large5 | 180 feasible | 180 optimal | no feasible witness |
 
-Python v1 wins 2/3 pairs, with costs ranging 240–510; cold HiGHS ranges
-337–453. Mean costs: 387 versus 410; medians: 411 versus 440. These are three
-fixed-seed outcomes on one hard instance, with substantial variability.
-Seed1 is the original run, retained without rerunning. Seeds2/3 use the same
-mechanism with CLI seed exposure only: cold DFS seed=seed, pool DFS seed=
-104729*seed, and HiGHS random_seed=seed, also paired in the cold baseline.
-CP-SAT remains a seed1 comparator; no extra CP-SAT seeds were executed.
+Baselines: highspy1.15.1, OR-Tools9.15.6755, NumPy2.5.3, same measured host,
+2 allowed CPUs,4GiB AS,55s internal/60s external including both checkers.
+Baseline search is synchronous, cold, zero hints; original run records remain
+under `results/2026-11-21/{highs,cpsat,holdouts}/`. The source/helper snapshot
+is archived under versions/v1 and the original public commit45a576cf.
+Three cold entries (large4 HiGHS/CP-SAT, large5 CP-SAT) actually exit2 with no
+whole feasible witness; resource gates pass, costs/checker verdicts are absent.
+The complete original baseline/old-Main record is retained in
+[`versions/v1/RESULTS.md`](versions/v1/RESULTS.md).
 
-The six extension runs (including Main seed2 tiny/easy scope checks) all passed
-the original NumPy2.5.3 checker, independent exact/schema and resource gates:
+## Paired hard3 seeds and historical v1
 
-| Algorithm | Seed | Case | Cost | Bound | Algorithm wall s | Whole + checkers s | CPU s | RSS MiB |
-|---|---:|---|---:|---:|---:|---:|---:|---:|
-| main | 2 | tiny | 16 | 16 | 0.217826 | 0.468037 | 0.598384 | 41.301 |
-| main | 2 | large2 | 229 | 229 | 0.417656 | 0.718850 | 0.856303 | 51.258 |
-| main | 2 | large3 | 411 | 56 | 54.936359 | 55.228884 | 56.020568 | 486.242 |
-| highs | 2 | large3 | 440 | 56 | 54.948176 | 55.226839 | 56.322061 | 493.914 |
-| main | 3 | large3 | 510 | 56 | 54.940845 | 55.229736 | 55.937137 | 362.301 |
-| highs | 3 | large3 | 337 | 56 | 54.946824 | 55.237365 | 56.163017 | 593.891 |
+| Hard3 seed | Main v3 | Retained Main v1 | Cold HiGHS1.15.1 |
+|---|---:|---:|---:|
+| 1 | 240 | 240 | 453 |
+| 2 | 350 | 411 | 440 |
+| 3 | 416 | 510 | 337 |
 
-Full source diff and replay CLI: [`experiments/paired-seeds/`](experiments/paired-seeds/).
-Raw state, logs, full-M witnesses and checker outputs:
-[`results/2026-11-21/paired-seeds/`](results/2026-11-21/paired-seeds/).
+v3 wins2/3 against cold HiGHS, losing seed3. This is one case/three fixed
+seeds; v1's original observations remain explicit. large1 v1's2833 lost to
+CP-SAT1832; v3's1334 is lower than both cold baselines. Small-hole LNS gave
+zero gain, while the subsequent input-only global/large holes supplied the
+observed1334. Those first-stage probe records are separate from full runs.
 
-## Remaining originally held-out public cases
+## Rejected release candidates and deadline defect
 
-Exact official large1/4/5 inputs were retrieved at pinned revision
-`ef42a2eac13595453f986d9df0b62e86e75ab596`, without reference solutions.
-All nine planned full runs completed; six whole solutions passed both checkers,
-while three cold baseline entries failed to produce a feasible witness in the
-fixed internal budget. The frozen Main and baseline sources are unchanged.
+v2 and presolve-off v2.1 each pass tiny/easy/K2/large1/hard3seed1, then their
+large4 native process fails to return before the external60s gate and is killed.
+Queue status isSTOP; last persisted run status isSTARTED, worker_exit_code=-9,
+whole60.005864s/60.007880s respectively. Neither completes its9-run release
+gate. Both frozen sources and complete partial queues are retained under
+`versions/{v2,v2_1}/` and `results/2026-11-21/{v2,v2_1}/`.
 
-| Case | Algorithm | Cost | Bound | Algorithm wall s | Whole + checkers s | CPU s | RSS MiB | Outcome |
-|---|---|---:|---:|---:|---:|---:|---:|---|
-| large1 | main | 2833 | 16 | 54.932730 | 55.233721 | 57.026484 | 272.941 | TimeLimit |
-| large1 | highs | 3541 | 16 | 54.929407 | 55.231090 | 57.568810 | 225.477 | TimeLimit |
-| large1 | cpsat | 1832 | -11754 | 55.029474 | 55.327146 | 105.980164 | 877.918 | FEASIBLE |
-| large4 | main | 331 | — | 54.972294 | 55.278832 | 101.384608 | 122.645 | TimeLimit |
-| large4 | highs | — | — | 54.973851 | 55.053874 | 97.874926 | 117.000 | FAILED: no feasible witness |
-| large4 | cpsat | — | — | 54.979845 | 55.027460 | 104.519375 | 588.953 | FAILED: no feasible witness |
-| large5 | main | 180 | 180 | 50.885859 | 51.249692 | 86.444243 | 187.320 | Optimal |
-| large5 | highs | 180 | 180 | 51.432757 | 51.807921 | 86.126349 | 181.613 | Optimal |
-| large5 | cpsat | — | — | 55.026297 | 55.087803 | 105.220707 | 658.887 | FAILED: no feasible witness |
+The existing upstream [#3314](https://github.com/ERGO-Code/HiGHS/issues/3314)
+and [#3606](https://github.com/ERGO-Code/HiGHS/issues/3606) were open when
+checked2026-11-21; they cover native soft-time-limit overruns, including1.15.1.
+The short presolve-off diagnostic returned, but its subsequent full release
+gate still failed. v3 removes that option override and reuses the existing
+daemon API with the application deadline. Original triage/diagnostic files:
+[`experiments/native-time-limit/`](experiments/native-time-limit/).
+No upstream fix, new issue or new core PR is claimed or created.
 
-- **large1:** CP-SAT1832 is substantially better than Main2833; HiGHS3541
-  is the weaker observed baseline on this case. All three results are feasible.
-- **large4:** Main331 passes both full checkers. Cold HiGHS and CP-SAT exit2
-  with `has no whole feasible solution` (CP-SAT `UNKNOWN`) after approximately
-  55 s; both remain inside time/memory bounds. They have no solution, objective,
-  or checker verdict. Costs are displayed as absent, with no zero-cost imputation.
-  Main retains its initial full-pool cold cover; its full-HiGHS reported bound is absent.
-- **large5:** Main and cold HiGHS both prove optimal180, bounds180/gap0.
-  CP-SAT exits2 with `UNKNOWN` and no whole witness within its search budget.
-- Queue outcome `DONE_WITH_NEGATIVE_RESULTS`: 9/9 executed, no skipped runs,
-  whole489.428 s / CPU803.099 s. Each run keeps its raw outcome instead of
-  stopping the comparison at the first ordinary cold-baseline failure.
+## Data, environment and reference boundaries
 
-Full original failed entries and stderr:
-[`holdouts/large4/highs/`](results/2026-11-21/holdouts/large4/highs/),
-[`holdouts/large4/cpsat/`](results/2026-11-21/holdouts/large4/cpsat/),
-[`holdouts/large5/cpsat/`](results/2026-11-21/holdouts/large5/cpsat/).
-Source receipts and replay queue: [`experiments/holdouts/`](experiments/holdouts/).
-The three held-out density-pool probes reported `EXHAUSTED`; final Main costs
-remain their initial full-pool cold covers. No held-out cost improvement came
-from the cheap pool. The complete seed1 benchmark collection now has 18 runs: Main6/6 feasible,
-HiGHS5/6 feasible and CP-SAT4/6 feasible. Quality remains case-dependent.
+All six complete official public JSONs, schemas and original checker are
+unchanged; source URLs/retrieval/pinned revisions/byte hashes are in
+[`source/manifest.json`](source/manifest.json), with CC BY4.0 attribution.
+large1/4/5 use pinned ef42a2eac13595453f986d9df0b62e86e75ab596 and no new
+reference downloads. All six cases have N30/100,M25/15000,K0; the K2 fixture
+is separate from case scores.
 
-## Complete data and validation
+Measured Python3.13.5/Linux6.18.54/glibc2.41; advertised Main images use
+Python3.12/3.14. Core solver/NumPy versions match; ancillary differences include
+pandas3.1.1/3.0.6,absl-py2.5.1/2.5.0,python-dateutil4.0.0/2.9.0.post0.
+Full initial package/source environment is in `results/2026-11-21/runtime/`.
+CPU model/cache topology was not captured. OS rusage gives summed CPU and
+maximum individual-process RSS, not summed concurrent process memory.
 
-| Case | Rows N | Original columns M | Coverage nnz | Active Base rows K |
-|---|---:|---:|---:|---:|
-| tiny | 30 | 25 | 132 | 0 |
-| large1 | 100 | 15000 | 187822 | 0 |
-| large2 (easy) | 100 | 15000 | 17816 | 0 |
-| large3 (hard) | 100 | 15000 | 67522 | 0 |
-| large4 | 100 | 15000 | 323670 | 0 |
-| large5 | 100 | 15000 | 516521 | 0 |
+Author Gurobi references remain evaluation-only: large2 optimal229,
+runtime_seconds0.033720/runtime0.26; large3 feasible207,bound76,
+runtime_seconds3600.005044/runtime3600.83. Their original hardware is outside
+the downloaded fields; hard reference uses about1h, versus this55s internal
+budget. Current hard3seed1 cost240 is15.942% above207. Baseline witnesses,
+reference JSONs and cover-exchange analyses never become cold algorithm inputs.
+Historical C++294/HiGHS1.16.0/oldCP-SAT9.14.6206 remain independent controls.
 
-The separate synthetic Base contract passed: `num_bases=1`, K=2, N=1, M=2,
-native model rows=3, selected `[1]`, cost 2, algorithm wall 0.217020 s,
-whole/checkers wall 0.468079 s, exit 0, both checkers PASS. Full raw assertion:
-[`results/2026-11-21/base-contract/`](results/2026-11-21/base-contract/).
-
-Each successful-run directory includes `solution.json`, `run.json`, exact/original checker
-JSON, stdout/stderr and checker logs. Controller state, journals and install
-receipts are under [`results/2026-11-21/runtime/`](results/2026-11-21/runtime/).
-Exact unrounded results: [`results/summary.json`](results/summary.json).
-`verify_replay.py` recomputes archived exact witnesses and checks the recorded
-official verdicts; the recorded original-checker execution remains in the logs.
-
-## Timing and environment
-
-- Linux x86_64, kernel `6.18.54-instabox`, glibc 2.41; four host CPUs,
-  measured worker affinity `[0,1]`. CPU model and cache topology were not
-  captured in the experiment record.
-- Python **3.13.5**, GCC 14.2.0 interpreter build. Advertised Main images:
-  Python 3.12 / 3.14. This is a same-host research envelope measurement.
-- Exact core wheels: **highspy 1.15.1 / OR-Tools 9.15.6755 / NumPy 2.5.3**.
-  Runtime HiGHS also reports 1.15.1. Published runtime contract:
-  [Main submission format](https://frontieror-challenge.com/docs/main/submission-format),
-  retrieved 2026-11-21. Full ancillary versions and dependencies
-  are in [version-gate.json](results/2026-11-21/runtime/version-gate.json).
-  Measured/advertised ancillary differences include pandas 3.1.1/3.0.6,
-  absl-py 2.5.1/2.5.0 and python-dateutil 4.0.0/2.9.0.post0.
-- Each worker: 2-CPU affinity, `RLIMIT_AS=4 GiB`, `RLIMIT_CPU=120 s`;
-  algorithm at most 55 s internal, external whole worker/checkers at most 60 s.
-  HiGHS uses two threads; CP-SAT two workers; Python DFS one executing thread.
-- Algorithm wall includes startup, JSON, model/probes, solve and full output.
-  Whole wall also includes worker startup and both checkers. OS rusage supplies
-  total CPU and max RSS; RSS is a maximum process value, not a summed process
-  memory peak. Build/search metrics remain separately recorded in raw logs.
-- Core wheel installation passed in 2.284927 s, with no compilation or
-  interpreter download. Cumulative experiment files 381,924,837 bytes at that
-  gate, below its 629,145,600-byte cap. Virtualenv/wheels are omitted from git.
-
-## Published reference — separate evaluation
-
-Original public Gurobi solution fields, on the authors' original hardware:
-
-| Case | Cost | Bound | Status | `runtime_seconds` | `runtime` |
-|---|---:|---:|---|---:|---:|
-| large2 | 229 | 229 | optimal | 0.033720 | 0.26 |
-| large3 | 207 | 76 | feasible | 3600.005044 | 3600.83 |
-
-The original hardware/interpreter configuration is outside the downloaded
-solution fields. These are author references, with a much longer hard-run
-budget, kept separate from paired runtime comparisons. Main 240 is 15.9420%
-above reference207. Reference hard gap: 63.2850%. The references were absent
-from the cold input directory and were used for evaluation only.
-
-## Historical controls and negative observations
-
-Old native HiGHS 1.16.0 / CP-SAT 9.14.6206 / C++294 belong to the
-[separate control record](controls/README.md), with their own versions,
-checker NumPy and timing envelopes. Historical failed/nondominant probes are
-retained there. Main's matched comparator is 453, and Main's score is 240.
-The C++294 and old HiGHS296 comparison is a historical one-seed experiment.
-
-## Isolated dynamic-scarcity insight — probe-only
-
-The unchanged hard3 density pool was probed with current-compatible row support
-in branch ordering, instead of initial support. Six-second dynamic seeds1/2/3
-yield TIME_LIMIT / cost328 / cost328. Both covers pass complete exact/NumPy
-checks; seed1 has no witness and loses the original static probe's cost252 cover.
-This changes which two of three seeds find a pool cover; it supplies no new
-full-Main score. Minimal source/diff and original receipts are preserved at
-[`experiments/dynamic-scarcity/`](experiments/dynamic-scarcity/).
-
-## Fixed-pool OSS probe negatives — separate six-second scope
-
-Restricted-objective HiGHS1.15.1 and cost-free CP-SAT9.15.6755 each used the
-same1706-column/100-original-row hard3 pool, seed1. Both reported NO_COVER
-within a six-second first stage (HiGHS TimeLimit/bound56; CP-SAT UNKNOWN),
-exit2, with no complete witness. These original small diagnostic sources and
-full stdout/run receipts are kept under
-[`experiments/restricted-pool/`](experiments/restricted-pool/).
+Probe-only dynamic-scarcity and restricted-pool OSS negatives remain under
+`experiments/`, separately scored. Formal registration/submission actions and
+spending are0; the artifact is a public research replay.

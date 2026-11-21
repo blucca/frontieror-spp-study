@@ -10,6 +10,7 @@ import argparse
 from fractions import Fraction
 import json
 import math
+import os
 import random
 import sys
 
@@ -82,7 +83,11 @@ def finite(value):
     return float(value) if math.isfinite(value) else None
 
 
-def highs_solve(data, deadline, incumbent=None):
+class HighsDeadline(Exception):
+    """Native soft-limit overrun; the Main entry writes its prior valid incumbent."""
+
+
+def highs_solve(data, deadline, incumbent=None, seed=1, bounded=False):
     """Full original sparse MILP, including K=num_constraints Base ranges."""
     begin = time.monotonic()
     import highspy
@@ -114,7 +119,7 @@ def highs_solve(data, deadline, incumbent=None):
     h = highspy.Highs()
     h.setOptionValue("output_flag", False)
     h.setOptionValue("threads", 2)
-    h.setOptionValue("random_seed", 1)
+    h.setOptionValue("random_seed", seed)
     status = h.passModel(lp)
     if status == highspy.HighsStatus.kError:
         raise ValueError("highspy full sparse model rejected")
@@ -129,12 +134,25 @@ def highs_solve(data, deadline, incumbent=None):
     remaining = max(0.001, deadline - time.monotonic() - 0.15)
     h.setOptionValue("time_limit", remaining)
     search = time.monotonic()
-    run_status = h.run()
+    if bounded:
+        # HiGHS #3606/#3314: some presolve/root loops omit time checks. Reuse
+        # its existing daemon solve API; never read a live solver solution.
+        h.startSolve()
+        done, run_status = h.wait(max(0.0, deadline - time.monotonic()))
+        if not done:
+            raise HighsDeadline({"solver":"highspy", "solver_version":h.version(), "seed":seed,
+                                 "threads":2, "model_columns":m, "model_rows":n+k,
+                                 "model_nnz":len(indices), "model_scope":"full_original",
+                                 "run_status":"MAIN_DEADLINE_FALLBACK", "native_result_available":False,
+                                 "warm_status":warm_status, "model_build_seconds":build,
+                                 "search_seconds":time.monotonic()-search})
+    else:
+        run_status = h.run()
     info, sol = h.getInfo(), h.getSolution()
     chosen = [j for j, v in enumerate(sol.col_value) if v > 0.5] if sol.value_valid else None
     if chosen is not None and not exact_cover(data, chosen):
         chosen = None
-    metrics = {"solver": "highspy", "solver_version": h.version(), "threads": 2, "seed": 1,
+    metrics = {"solver": "highspy", "solver_version": h.version(), "threads": 2, "seed": seed,
                "model_columns": m, "model_rows": n + k, "model_nnz": len(indices), "model_scope": "full_original",
                "model_status": str(h.getModelStatus()), "run_status": str(run_status), "warm_status": warm_status,
                "model_build_seconds": build, "search_seconds": time.monotonic() - search,
@@ -146,7 +164,7 @@ class ProbeLimit(Exception):
     pass
 
 
-def bitset_probe(data, candidates, deadline, seed, cutoff=math.inf):
+def bitset_probe(data, candidates, deadline, seed, cutoff=math.inf, target=None, price_order=False):
     """First better cover. Pool filtering controls cost; branching favors feasibility."""
     n, _, _, _ = dimensions(data)
     original = data["constraint_matrix_A"]["columns"]
@@ -156,15 +174,19 @@ def bitset_probe(data, candidates, deadline, seed, cutoff=math.inf):
     for p, j in enumerate(candidates):
         for r in original[j]:
             adj[r] |= 1 << p
-    if any(not row for row in adj):
+    target = (1 << n) - 1 if target is None else target
+    active_rows = [r for r in range(n) if target & (1 << r)]
+    if any(not adj[r] for r in active_rows):
         return None, {"status": "EMPTY_ROW", "nodes": 0, "columns": len(candidates)}
     degrees = [a.bit_count() for a in adj]
-    minimum = min(degrees)
+    minimum = min(degrees[r] for r in active_rows)
     rng = random.Random(seed)
     ranks, conflicts = [], []
     for j in candidates:
         rows = original[j]
-        ranks.append(rng.random() + 0.35 * len(rows) + minimum * sum(1.0 / degrees[r] for r in rows))
+        noise = rng.random()
+        ranks.append(-((costs[j] + 0.5) / len(rows)) * (0.8 + 0.4 * noise) if price_order
+                     else noise + 0.35 * len(rows) + minimum * sum(1.0 / degrees[r] for r in rows))
         clash = 0
         for r in rows:
             clash |= adj[r]
@@ -216,13 +238,49 @@ def bitset_probe(data, candidates, deadline, seed, cutoff=math.inf):
         return None
     status = "EXHAUSTED"
     try:
-        found = dfs((1 << n) - 1, (1 << len(candidates)) - 1, [], 0)
+        found = dfs(target, (1 << len(candidates)) - 1, [], 0)
         if found is not None:
             status = "FEASIBLE"
     except ProbeLimit:
         found, status = None, "TIME_LIMIT"
     return found, {"status": status, "nodes": nodes, "columns": len(candidates), "min_row_degree": minimum,
                    "seconds": time.monotonic() - began, "branch_order": "independent random + coverage + scarcity; cost-free"}
+
+
+def lns_cover(data, best, ordered, deadline, seed=1):
+    """K0 positive-cost exact-cover incumbent-preserving large holes, <=600 ms each.
+
+    Replaces only whole incumbent columns. All candidate columns are contained
+    in the removed union; untouched rows keep exactly their original cover.
+    Partial repairs use true cost cutoff and price-prioritized value order.
+    No generic neighborhood framework or side-constraint relaxation is used.
+    """
+    n, _, k, _ = dimensions(data)
+    assert k == 0 and all(c > 0 for c in data['cost_vector']) and exact_cover(data, best)
+    masks = [sum(1 << r for r in rows) for rows in data['constraint_matrix_A']['columns']]
+    rng = random.Random(15485863 * seed)
+    holes = improvements = nodes = 0
+    trace = []
+    while time.monotonic() < deadline - 0.02 and len(best) > 1:
+        size = len(best) if holes % 2 == 0 else rng.randrange(max(2, math.ceil(.75 * len(best))), len(best)+1)
+        removed = rng.sample(best, size)
+        hole = 0
+        for j in removed: hole |= masks[j]
+        # Small holes exposed only the existing cover in the measured native
+        # family. Alternate global and 75%-100% incumbent-column unions; .6s
+        # includes rebuilding the input-only bitset graph, then strict repair.
+        candidates = [j for j in ordered if not masks[j] & ~hole]
+        bound = cost(data, removed)
+        found, metrics = bitset_probe(data, candidates, min(deadline, time.monotonic()+0.6),
+                                     rng.randrange(1, 2**31), bound, target=hole, price_order=True)
+        holes += 1; nodes += metrics['nodes']
+        if found is not None:
+            old = set(removed)
+            updated = [j for j in best if j not in old] + found
+            assert exact_cover(data, updated) and cost(data,updated) < cost(data,best), 'whole incumbent-preserving strict repair'
+            best = updated; improvements += 1
+            trace.append([time.monotonic()-START, cost(data,best)])
+    return best, {'holes':holes,'improvements':improvements,'nodes':nodes,'improvement_trace':trace,'hole_seconds_cap':0.6}
 
 
 def density_pool(data, ordered):
@@ -253,7 +311,7 @@ def density_pool(data, ordered):
                              "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"}
 
 
-def solve(data, deadline):
+def solve(data, deadline, seed=1):
     n, m, k, _ = dimensions(data)
     costs, cols = data["cost_vector"], data["constraint_matrix_A"]["columns"]
     best, trace, probes = None, [], {}
@@ -273,24 +331,37 @@ def solve(data, deadline):
             best = [singleton[r] for r in range(n)]
             probes["cold"] = {"status": "SINGLETON_COVER", "columns": len(ordered)}
         elif ordered:
-            best, probes["cold"] = bitset_probe(data, ordered, min(deadline, time.monotonic() + 2), 1)
+            best, probes["cold"] = bitset_probe(data, ordered, min(deadline, time.monotonic() + 2), seed)
         if best is not None:
             trace.append([time.monotonic() - START, cost(data, best), "pure_python_cold"])
         if m > 3 * n and sum(map(len, cols)) > 2 * m and ordered and time.monotonic() < deadline - 1:
             pool, probes["pool"] = density_pool(data, ordered)
-            found, probes["density_probe"] = bitset_probe(data, pool, min(deadline - 1, time.monotonic() + 6), 104729,
+            found, probes["density_probe"] = bitset_probe(data, pool, min(deadline - 1, time.monotonic() + 6), 104729 * seed,
                                                         cost(data, best) if best is not None else math.inf)
             if found is not None:
                 best = found
                 trace.append([time.monotonic() - START, cost(data, best), "density_pool_basin"])
-    candidate, metrics = highs_solve(data, deadline, best)
+            elif best is not None and time.monotonic() < deadline - 1:
+                # A cheap pool can be infeasible or search-limited. Repair the
+                # input-derived incumbent with global/large unions instead of
+                # small holes that contain only its own original columns.
+                best, probes['lns_fallback'] = lns_cover(data, best, ordered,
+                                                        min(deadline-1, time.monotonic()+6), seed)
+                trace.extend([t, v, 'large_hole_lns'] for t, v in probes['lns_fallback']['improvement_trace'])
+    force_exit = False
+    try:
+        candidate, metrics = highs_solve(data, deadline, best, seed, bounded=True)
+    except HighsDeadline as error:
+        if best is None:
+            raise
+        candidate, metrics, force_exit = None, error.args[0], True
     if candidate is not None and (best is None or cost(data, candidate) < cost(data, best)):
         best = candidate
         trace.append([time.monotonic() - START, cost(data, best), "warm_full_highs"])
     if best is None:
         raise ValueError("no whole feasible solution within internal budget")
-    return best, {"method": "pure Python bitset basin + warm full sparse highspy", "probes": probes,
-                  "improvement_trace": trace, "highs": metrics}
+    return best, {"method": "pure Python basin/large-hole LNS + warm full sparse highspy", "probes": probes,
+                  "improvement_trace": trace, "highs": metrics, "force_exit": force_exit}
 
 
 def cli_args():
@@ -299,6 +370,7 @@ def cli_args():
     parser.add_argument("--instance", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--time-limit", type=float, required=True)
+    parser.add_argument("--seed", type=int, default=1)
     args = parser.parse_args()
     if args.problem != "hoffman1993" or args.time_limit <= 0:
         raise ValueError("hoffman1993 and a positive time limit required")
@@ -309,11 +381,17 @@ def main():
     args = cli_args()
     deadline = START + max(0.01, min(55.0, args.time_limit - 5.0))
     data = read_instance(args.instance)
-    chosen, metrics = solve(data, deadline)
+    chosen, metrics = solve(data, deadline, args.seed)
     solution = write_solution(data, chosen, args.output)
     metrics.update(objective=solution["objective_value"], selected_count=len(chosen), internal_seconds=time.monotonic() - START,
                    internal_budget_seconds=max(0.01, min(55.0, args.time_limit - 5.0)))
     print(json.dumps({"metrics": metrics}, allow_nan=False), flush=True)
+    if metrics.get("force_exit"):
+        # The output file is already closed, exact-checked, and stdout flushed.
+        # Native missed its soft limit; exit the entire process before its daemon
+        # or C++ shutdown can wait. This branch returns only our prior incumbent.
+        sys.stderr.flush()
+        os._exit(0)
     return 0
 
 
@@ -322,4 +400,8 @@ if __name__ == "__main__":
         sys.exit(main())
     except Exception as error:
         print(json.dumps({"failure": type(error).__name__ + ": " + str(error)}), file=sys.stderr, flush=True)
+        if isinstance(error, HighsDeadline):
+            # No input-derived cover exists. Record a bounded failed instance.
+            sys.stderr.flush()
+            os._exit(2)
         sys.exit(2)

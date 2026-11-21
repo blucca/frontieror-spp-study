@@ -1,0 +1,10 @@
+{
+  "version": "v3",
+  "source_sha256": "eb3f39141b36c7768961f707c464ab1a481e0fe14f69ddca9580f41d972a9ea9",
+  "source_bytes": 19474,
+  "zip_bytes": 7458,
+  "entry": "hoffman1993/solve.py",
+  "entry_count": 1,
+  "acceptance": "all9 native runs DONE/PASS",
+  "formal_submission": false
+}

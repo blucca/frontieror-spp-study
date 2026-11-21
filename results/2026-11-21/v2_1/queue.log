@@ -1,0 +1,6 @@
+{"case": "tiny", "seed": 1, "status": "PASS", "objective": 16, "wall": 0.4684671520080883}
+{"case": "large2", "seed": 1, "status": "PASS", "objective": 229, "wall": 0.7189731569960713}
+{"case": "base-k2", "seed": 1, "status": "PASS", "objective": 2, "wall": 0.46834815200418234}
+{"case": "large1", "seed": 1, "status": "PASS", "objective": 1334, "wall": 55.59500167600345}
+{"case": "large3", "seed": 1, "status": "PASS", "objective": 240, "wall": 55.25082314698375}
+{"case": "large4", "seed": 1, "status": "STARTED", "objective": null, "wall": 60.00787978299195}

@@ -1,70 +1,57 @@
-# Main v1 mechanism
+# Main v3 mechanism and exact deadline contract
 
-The frozen entry is [`main/solve.py`](main/solve.py), 14,659 bytes,
-SHA-256 `262cc89ce7daf833bf168bf5db4dafc3d46ae88e182ef5feaf2fe558890dd58b`.
-It uses Python only: standard-library bitsets and a Python `highspy` call.
-The entry has no subprocess, compiler, network call or auxiliary input.
-Historical C++ programs live exclusively under `controls/`.
-The same frozen entry has now been tested on all six official public cases.
+Frozen source: `main/solve.py`,19474B, SHA-256
+`eb3f39141b36c7768961f707c464ab1a481e0fe14f69ddca9580f41d972a9ea9`. Python-only, no subprocess solver/compiler/network or auxiliary
+algorithm input. Historical C++ is confined to independent controls.
 
-## Cold basin, then full optimization
+1. Validate the full instance and all M original columns/costs. For K=0,
+   N<=256 and positive costs, cheapest identical-cover deduplication supports
+   a bounded first cold exact cover; a complete singleton cover is used when
+   available. This cover is validated before it can become an output.
+2. Preserve v1's input-derived density pool: row-degree goal ceil(2logN),
+   support-prefix x4 within10%-20% of canonical columns, density ties included.
+   An exact partition of density<=theta columns costs at most theta*N.
+   A cost-free-ranking bitset probe gets at most6s; seed is104729*CLI seed.
+3. When that pool gives no new cover and an incumbent exists, use at most6s
+   of strict, incumbent-preserving large-hole LNS. Alternate all incumbent
+   columns with random75%-100% column unions. Only candidate columns wholly
+   within the removed row union enter repair. Each hole gets at most0.6s,
+   including graph rebuild. Price-prioritized ordering and the removed true
+   cost cutoff guide repair; accept only a strictly cheaper whole exact cover.
+   Untouched rows retain the incumbent. Failed/timed-out repair keeps it.
+4. Warm-start the full original HiGHS model: all M columns, all N+K rows,
+   K=base.num_constraints ranges, two threads, matching seed. On the Main
+   path use the package's existing daemon `startSolve()` API and wait only
+   until the absolute process deadline. Baseline `bounded=False` remains
+   synchronous. The v1 measured helper and adapters remain archived.
+5. A completed native task may supply a better independently feasible cover.
+   A still-pending task raises the deadline condition without reading live
+   native solution/info. Main validates its prior cover, writes all M values,
+   closes JSON, flushes stdout/stderr, then exits the whole process with
+   `os._exit(0)`. Pending-native metrics carry no optimum, gap or bound.
+   With no prior whole cover, it emits a bounded failure and exits2.
 
-1. Read every original column and cost; validate sorted unique in-range row
-   coverage and the full dimensions. Build all `M` binary output entries.
-2. For `K=0`, `N<=256`, and strictly positive costs, keep the cheapest index per
-   identical coverage. Empty columns are excluded from the exploratory pool.
-   Use a cheapest singleton cover when available; otherwise a bounded full-pool
-   Algorithm-X-style bitset DFS finds a first exact cover.
-3. Sort by cost per covered row. Find a support prefix attaining
-   `ceil(2*log(N))` degree per row when available. Thicken that prefix by a
-   factor of four, within an input-derived 10%–20% column quantile, including
-   ties at its density threshold. If an exact partition uses only columns with
-   density `cost/coverage <= theta`, its cost is at most `theta*N`.
-4. Probe this pool for up to six seconds using fewest-compatible-row branching;
-   branch ranking combines an independent fixed RNG, coverage and scarcity.
-   Branch ranking is cost-free; the incumbent cost supplies a pruning cutoff.
-   A pool timeout keeps the existing incumbent.
-5. Feed the legal cover to `highspy.setSolution`, then solve the **full original
-   model**, with all `M` columns and all `N+K` rows, for the remaining time.
-   Deduplication/pool restrictions affect only the probe, not this model.
-   Preserve the best independently feasible incumbent and write full JSON.
+The entry deadline is min(55,time_limit-5) from startup. Cold/pool ranking
+preserves v1's RNG+coverage+scarcity rule. Large-hole repair uses true costs;
+its generic bitset log's historical “cost-free” label is not its value-order
+definition. Source `price_order=True` and the LNS function specify that order.
 
-The supplied CLI uses `min(55, time_limit-5)` seconds from process startup.
-HiGHS gets two threads and seed 1; cold and pool DFS RNG seeds are 1 and
-104729. Fixed seeds and wall-based cutoffs describe this v1 observation.
+## Observed progression and boundaries
 
-## Constraints and checkers
+Small-hole large1 probe:2833→2833,6259 holes,12625 nodes, no improvement.
+The separate global/large-hole first-stage probe improved2833→1334; v3 keeps
+1334 in the full pipeline. Hard3 seed1 still uses the successful original
+density basin252 then full refinement240. Seeds2/3 finish350/416; seed3 remains
+worse than cold HiGHS337. Neither a timed-out pool nor a partial hole supplies
+an output witness. Historical and probe-only experiments stay separately scored.
 
-Every coverage row enforces `sum(x_j for j covering row)=1`, each `x_j` is
-binary, and the objective is `sum(cost_j*x_j)`. Active Base constraints use
-`K=base_constraints.num_constraints`, with all K lower/upper ranges from D.
-`num_bases` is a separate schema quantity. With Base constraints, larger N or
-costs outside the positive probe scope, the full sparse HiGHS path is used.
+The large4 full native task is pending at Main's deadline. Cost331 is the
+earlier exact cover, not a live backend result or an optimality claim.
+An independent12s diagnostic measured12.060s algorithm /12.408s including
+both checkers, with the same prior-cover deadline fallback. The local delayed-
+backend tiny simulation passed objective16/all25 variables/exit0.
 
-The independent exact checker recomputes every row, all M binary values,
-selected/vector consistency, objective and K Base rows using rational arithmetic.
-The original FrontierOR checker is an unchanged, separate NumPy process.
-The synthetic Base fixture has `num_bases=1`, `num_constraints=2`, N=1, M=2;
-its second Base row forces column 1, objective 2, and three native model rows.
-That fixture tests the fallback contract; it is separate from benchmark scores.
-
-## Observed seed-1 hard-instance path
-
-Full cold cover 2138 → thickness pool 1,706 columns, theta=5.333333, minimum
-row degree 64 → legal pool cover 252 after 572,584 DFS nodes / 4.932 s →
-full 15,000-column HiGHS cost 240 after 49.727 s search, final bound 56.
-The three improvement timestamps and complete metrics are in
-[`results/2026-11-21/main/large3/algorithm.stdout.log`](results/2026-11-21/main/large3/algorithm.stdout.log).
-
-The exploratory entropy script models independent uniform hyperedges conditioned
-on size. It supplies a heuristic expectation, not the actual cover count of
-these structured airline instances; measured pool outcomes drive the replay.
-
-## Seed exposure and stability observation
-
-The separate [`experiments/paired-seeds/main/solve.py`](experiments/paired-seeds/main/solve.py)
-exposes `--seed` and passes it to cold DFS, HiGHS and pool DFS (104729*seed).
-The full [source diff](experiments/paired-seeds/source-change.diff) records this
-parameterization; the frozen entry above stays byte-identical. Extra hard costs
-411/510 versus paired cold HiGHS440/337 demonstrate sensitivity to seed and
-bounded pool-search outcomes. The publication retains the losing seed3.
+Original NumPy2.5.3 and independent rational whole-witness checkers validate
+coverage, exact objective, selected/vector consistency, all M binary values
+and all K Base rows. The separate K2 fixture has num_bases1, num_constraints2,
+three native rows, selected column1/objective2; it passes the v3 native gate.

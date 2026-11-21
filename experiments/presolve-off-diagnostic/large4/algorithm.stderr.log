@@ -1,0 +1,51 @@
+{"stage": "solve_begin", "t": 0.06097430599038489}
+{"stage": "probe_build_begin", "t": 0.07665458499104716, "candidates": 14999, "deadline": 2.0766368249896914}
+{"stage": "probe_build_done", "t": 0.18304074899060652}
+{"stage": "probe_build_begin", "t": 1.90956829598872, "candidates": 1517, "deadline": 7.9095568459888455}
+{"stage": "probe_build_done", "t": 1.9162086249853019}
+{"stage": "lns_begin", "t": 1.9301702450029552, "deadline": 7.9178894750075415}
+{"stage": "probe_build_begin", "t": 1.9329687639838085, "candidates": 14999, "deadline": 2.532956514012767}
+{"stage": "probe_build_done", "t": 2.0351275779830758}
+{"stage": "hole_end", "t": 2.53569860899006, "holes": 1, "nodes": 15361, "status": "TIME_LIMIT"}
+{"stage": "probe_build_begin", "t": 2.5388426980061922, "candidates": 956, "deadline": 3.138830048003001}
+{"stage": "probe_build_done", "t": 2.541405487980228}
+{"stage": "hole_end", "t": 2.5649132870021276, "holes": 2, "nodes": 3492, "status": "EXHAUSTED"}
+{"stage": "probe_build_begin", "t": 2.5677087169897277, "candidates": 14999, "deadline": 3.167696836986579}
+{"stage": "probe_build_done", "t": 2.669768880994525}
+{"stage": "hole_end", "t": 3.171602440997958, "holes": 3, "nodes": 15233, "status": "TIME_LIMIT"}
+{"stage": "probe_build_begin", "t": 3.1746861599967815, "candidates": 14999, "deadline": 3.774674819986103}
+{"stage": "probe_build_done", "t": 3.2769857439852785}
+{"stage": "hole_end", "t": 3.778656123991823, "holes": 4, "nodes": 15489, "status": "TIME_LIMIT"}
+{"stage": "probe_build_begin", "t": 3.781713773991214, "candidates": 14999, "deadline": 4.381700733996695}
+{"stage": "probe_build_done", "t": 3.8844169880030677}
+{"stage": "hole_end", "t": 4.381840797985205, "holes": 5, "nodes": 15361, "status": "TIME_LIMIT"}
+{"stage": "probe_build_begin", "t": 4.384659028000897, "candidates": 332, "deadline": 4.984648798010312}
+{"stage": "probe_build_done", "t": 4.385505298007047}
+{"stage": "hole_end", "t": 4.3861544679966755, "holes": 6, "nodes": 108, "status": "EXHAUSTED"}
+{"stage": "probe_build_begin", "t": 4.387193367991131, "candidates": 14999, "deadline": 4.987188277998939}
+{"stage": "probe_build_done", "t": 4.483842262008693}
+{"stage": "hole_end", "t": 4.988673811982153, "holes": 7, "nodes": 15361, "status": "TIME_LIMIT"}
+{"stage": "probe_build_begin", "t": 4.991658791986993, "candidates": 956, "deadline": 5.59164736198727}
+{"stage": "probe_build_done", "t": 4.994257612008369}
+{"stage": "hole_end", "t": 5.01835617100005, "holes": 8, "nodes": 3492, "status": "EXHAUSTED"}
+{"stage": "probe_build_begin", "t": 5.020872659981251, "candidates": 14999, "deadline": 5.620863390009617}
+{"stage": "probe_build_done", "t": 5.116536844987422}
+{"stage": "hole_end", "t": 5.6229135140019935, "holes": 9, "nodes": 15745, "status": "TIME_LIMIT"}
+{"stage": "probe_build_begin", "t": 5.625894144002814, "candidates": 231, "deadline": 6.225883294013329}
+{"stage": "probe_build_done", "t": 5.626475383993238}
+{"stage": "hole_end", "t": 5.626993184007006, "holes": 10, "nodes": 83, "status": "EXHAUSTED"}
+{"stage": "probe_build_begin", "t": 5.62830703399959, "candidates": 14999, "deadline": 6.228300274000503}
+{"stage": "probe_build_done", "t": 5.726745987980394}
+{"stage": "hole_end", "t": 6.228629797988106, "holes": 11, "nodes": 15105, "status": "TIME_LIMIT"}
+{"stage": "probe_build_begin", "t": 6.232064707990503, "candidates": 14999, "deadline": 6.832051857985789}
+{"stage": "probe_build_done", "t": 6.336167322006077}
+{"stage": "hole_end", "t": 6.8355354919913225, "holes": 12, "nodes": 14977, "status": "TIME_LIMIT"}
+{"stage": "probe_build_begin", "t": 6.83861608200823, "candidates": 14999, "deadline": 7.438603762013372}
+{"stage": "probe_build_done", "t": 6.941970276006032}
+{"stage": "hole_end", "t": 7.4429219359881245, "holes": 13, "nodes": 15233, "status": "TIME_LIMIT"}
+{"stage": "probe_build_begin", "t": 7.446035315981135, "candidates": 14999, "deadline": 7.9178894750075415}
+{"stage": "probe_build_done", "t": 7.547070019994862}
+{"stage": "hole_end", "t": 7.918194408004638, "holes": 14, "nodes": 11265, "status": "TIME_LIMIT"}
+{"stage": "lns_end", "t": 7.918261868006084}
+{"stage": "highs_begin", "t": 8.136430515005486, "limit": 3.7135792850109284}
+{"stage": "highs_end", "t": 13.824946145992726}

@@ -1,0 +1,15 @@
+{
+  "feasible": true,
+  "violations": [],
+  "row_counts": [
+    1
+  ],
+  "selected_count": 1,
+  "variable_count": 2,
+  "recomputed_objective": 2,
+  "base_constraint_count": 2,
+  "base_lhs_exact": [
+    "0",
+    "1"
+  ]
+}

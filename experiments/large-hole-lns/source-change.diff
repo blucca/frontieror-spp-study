@@ -1,0 +1,87 @@
+--- v1-seeds/solve.py
++++ lns-probe/main/solve.py
+@@ -146,7 +146,7 @@
+     pass
+ 
+ 
+-def bitset_probe(data, candidates, deadline, seed, cutoff=math.inf):
++def bitset_probe(data, candidates, deadline, seed, cutoff=math.inf, target=None, price_order=False):
+     """First better cover. Pool filtering controls cost; branching favors feasibility."""
+     n, _, _, _ = dimensions(data)
+     original = data["constraint_matrix_A"]["columns"]
+@@ -156,15 +156,19 @@
+     for p, j in enumerate(candidates):
+         for r in original[j]:
+             adj[r] |= 1 << p
+-    if any(not row for row in adj):
++    target = (1 << n) - 1 if target is None else target
++    active_rows = [r for r in range(n) if target & (1 << r)]
++    if any(not adj[r] for r in active_rows):
+         return None, {"status": "EMPTY_ROW", "nodes": 0, "columns": len(candidates)}
+     degrees = [a.bit_count() for a in adj]
+-    minimum = min(degrees)
++    minimum = min(degrees[r] for r in active_rows)
+     rng = random.Random(seed)
+     ranks, conflicts = [], []
+     for j in candidates:
+         rows = original[j]
+-        ranks.append(rng.random() + 0.35 * len(rows) + minimum * sum(1.0 / degrees[r] for r in rows))
++        noise = rng.random()
++        ranks.append(-((costs[j] + 0.5) / len(rows)) * (0.8 + 0.4 * noise) if price_order
++                     else noise + 0.35 * len(rows) + minimum * sum(1.0 / degrees[r] for r in rows))
+         clash = 0
+         for r in rows:
+             clash |= adj[r]
+@@ -216,13 +220,51 @@
+         return None
+     status = "EXHAUSTED"
+     try:
+-        found = dfs((1 << n) - 1, (1 << len(candidates)) - 1, [], 0)
++        found = dfs(target, (1 << len(candidates)) - 1, [], 0)
+         if found is not None:
+             status = "FEASIBLE"
+     except ProbeLimit:
+         found, status = None, "TIME_LIMIT"
+     return found, {"status": status, "nodes": nodes, "columns": len(candidates), "min_row_degree": minimum,
+                    "seconds": time.monotonic() - began, "branch_order": "independent random + coverage + scarcity; cost-free"}
++
++
++def lns_cover(data, best, ordered, deadline, seed=1):
++    """K0 positive-cost exact-cover incumbent-preserving holes, <=80 ms each.
++
++    Replaces only whole incumbent columns. All candidate columns are contained
++    in the removed union; untouched rows keep exactly their original cover.
++    Partial repairs use true cost cutoff and price-prioritized value order.
++    No generic neighborhood framework or side-constraint relaxation is used.
++    """
++    n, _, k, _ = dimensions(data)
++    assert k == 0 and all(c > 0 for c in data['cost_vector']) and exact_cover(data, best)
++    masks = [sum(1 << r for r in rows) for rows in data['constraint_matrix_A']['columns']]
++    rng = random.Random(15485863 * seed)
++    holes = improvements = nodes = 0
++    trace = []
++    while time.monotonic() < deadline - 0.02 and len(best) > 1:
++        size = min(len(best), rng.randrange(4, 10))
++        removed = rng.sample(best, size)
++        hole = 0
++        for j in removed: hole |= masks[j]
++        # Small, complete repairs are the design goal. Sparse incumbent covers
++        # can use the full union; larger covers shrink unions to <=60 rows.
++        while hole.bit_count() > 60 and len(removed) > 2 and len(best) > 4:
++            removed.pop(); hole = 0
++            for j in removed: hole |= masks[j]
++        candidates = [j for j in ordered if not masks[j] & ~hole]
++        bound = cost(data, removed)
++        found, metrics = bitset_probe(data, candidates, min(deadline, time.monotonic()+0.08),
++                                     rng.randrange(1, 2**31), bound, target=hole, price_order=True)
++        holes += 1; nodes += metrics['nodes']
++        if found is not None:
++            old = set(removed)
++            updated = [j for j in best if j not in old] + found
++            assert exact_cover(data, updated) and cost(data,updated) < cost(data,best), 'whole incumbent-preserving strict repair'
++            best = updated; improvements += 1
++            trace.append([time.monotonic()-START, cost(data,best)])
++    return best, {'holes':holes,'improvements':improvements,'nodes':nodes,'improvement_trace':trace,'hole_seconds_cap':0.08}
+ 
+ 
+ def density_pool(data, ordered):

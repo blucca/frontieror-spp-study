@@ -1,0 +1,18 @@
+{
+  "status": "STARTED",
+  "algorithm": "main",
+  "seed": 1,
+  "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_4.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  }
+}

@@ -15,6 +15,9 @@ def check(directory, instance, script):
     assert record["external_end_to_end_seconds"] <= 60, str(directory)
     assert record["max_rss_kib"] <= 4 * 1024 ** 2, str(directory)
     assert record["affinity"] == [0, 1] and record["ram_limit_bytes"] == 4 * 1024 ** 3
+    if record["script_sha256"] != hashlib.sha256(script.read_bytes()).hexdigest():
+        assert script == ROOT / "main/solve.py"
+        script = ROOT / "versions/v1/main/solve.py"
     assert record["script_sha256"] == hashlib.sha256(script.read_bytes()).hexdigest()
     assert record["required_versions"] == {"highspy": "1.15.1", "ortools": "9.15.6755", "numpy": "2.5.3"}
     if record["status"] == "FAILED":
@@ -37,9 +40,16 @@ def check(directory, instance, script):
     assert official["feasible"] and archived_exact["feasible"], str(directory)
     assert recomputed["feasible"], recomputed["violations"]
     assert recomputed["recomputed_objective"] == record["objective"]
+    high = record.get("metrics", {}).get("highs", {})
+    if record.get("metrics", {}).get("force_exit"):
+        assert high["run_status"] == "MAIN_DEADLINE_FALLBACK"
+        assert high["native_result_available"] is False
+        assert "model_status" not in high and "best_bound" not in high and "mip_gap" not in high
     return {"directory": str(directory.relative_to(ROOT)), "objective": record["objective"],
             "variables": recomputed["variable_count"], "independent_exact_recomputed": "PASS",
-            "original_numpy_checker_recorded": "PASS", "recorded_resource_contract": "PASS", "witness": True}
+            "original_numpy_checker_recorded": "PASS", "recorded_resource_contract": "PASS", "witness": True,
+            "source": str(script.relative_to(ROOT)),
+            "native_outcome": "pending; prior exact incumbent" if record.get("metrics", {}).get("force_exit") else "returned"}
 
 
 def main():
@@ -67,10 +77,28 @@ def main():
         script = ROOT / "main/solve.py" if algorithm == "main" else ROOT / "eligible-baseline" / f"{algorithm}_baseline.py"
         checked.append(check(evidence / "holdouts" / case / algorithm,
                              ROOT / "source" / f"hoffman1993-large_instance_{case[5:]}.json", script))
+    current = json.loads((evidence / "v3/state.json").read_text())
+    assert current["status"] == "DONE" and len(current["runs"]) == 9
+    for record in current["runs"]:
+        case, seed = record["instance_name"], record["seed"]
+        instance = ROOT / "main/base-contract-fixture.json" if case == "base-k2" else ROOT / "source" / f"hoffman1993-{'tiny_instance' if case == 'tiny' else 'large_instance_' + case[5:]}.json"
+        checked.append(check(evidence / "v3" / f"seed{seed}" / case, instance, ROOT / "main/solve.py"))
+    rejected = []
+    for version in ("v2", "v2_1"):
+        gate = json.loads((evidence / version / "state.json").read_text())
+        assert gate["status"] == "STOP" and len(gate["runs"]) == 6
+        expected = hashlib.sha256((ROOT / "versions" / version / "main/solve.py").read_bytes()).hexdigest()
+        assert all(r["status"] == "PASS" and r["script_sha256"] == expected for r in gate["runs"][:-1])
+        last = gate["runs"][-1]
+        assert last["instance_name"] == "large4" and last["worker_exit_code"] == -9
+        assert last["status"] == "STARTED" and last["external_end_to_end_seconds"] >= 60
+        assert not (evidence / version / "seed1/large4/solution.json").exists()
+        rejected.append({"version": version, "release_gate": "STOP", "failure": "large4 external60s timeout", "receipt_verified": "PASS"})
     print(json.dumps({"status": "PASS", "archived_records": len(checked),
                       "archived_witnesses": sum(c["witness"] for c in checked),
                       "verified_no_witness_failures": sum(not c["witness"] for c in checked), "solver_executions": 0,
-                      "original_checker_executions": 0, "checks": checked}, indent=2))
+                      "original_checker_executions": 0, "current_v3_acceptance_runs": 9,
+                      "rejected_release_gates": rejected, "checks": checked}, indent=2))
 
 
 if __name__ == "__main__":

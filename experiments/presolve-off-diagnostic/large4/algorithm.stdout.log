@@ -1,0 +1,61 @@
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+MIP has 100 rows; 15000 cols; 323670 nonzeros; 15000 integer variables (15000 binary)
+Coefficient ranges:
+  Matrix  [1e+00, 1e+00]
+  Cost    [2e+00, 2e+02]
+  Bound   [1e+00, 1e+00]
+  RHS     [1e+00, 1e+00]
+Assessing feasibility of MIP using primal feasibility and integrality tolerance of       1e-06
+Solution has               num          max          sum
+Col     infeasibilities      0            0            0
+Integer infeasibilities      0            0            0
+Row     infeasibilities      0            0            0
+Row     residuals            0            0            0
+
+Presolve is switched off
+
+MIP start solution is feasible, objective value is 331
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   100 rows
+   15000 cols (15000 binary, 0 integer, 0 implied int., 0 continuous, 0 domain fixed)
+   323670 nonzeros
+   Thread count 2 (of 4 threads). Using 1 max workers. Parallel search off
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic;
+     I => Shifting; J => Feasibility jump; L => Sub-MIP; P => Empty MIP; R => Randomized rounding;
+     S => Solve LP; T => Evaluate node; U => Unbounded; X => User solution; Y => HiGHS solution;
+     Z => ZI Round; l => Trivial lower; p => Trivial point; u => Trivial upper; z => Trivial zero
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               331              100.00%        0      0      0         0     0.5s
+         0       0         0   0.00%   11.6369686      331               96.48%        0      0      2       186     0.8s
+         0       0         0   0.00%   14.04930377     331               95.76%        2      1      2       374     5.4s
+
+Solving report
+  Status            Time limit reached
+  Primal bound      331
+  Dual bound        15
+  Gap               95.47% (tolerance: 0.01%)
+  P-D integral      4.66356066088
+  Solution status   feasible
+                    331 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            5.37
+                    0.02 (Presolve)
+                    5.35 (Solve)
+                    0.00 (Postsolve)
+  Max sub-MIP depth 0
+  Nodes             0
+  Repair LPs        0
+  LP iterations     374
+                    0 (strong br.)
+                    188 (separation)
+                    0 (heuristics)
+{"metrics": {"method": "pure Python basin/large-hole LNS + warm full sparse highspy", "probes": {"cold": {"status": "FEASIBLE", "nodes": 53714, "columns": 14999, "min_row_degree": 3111, "seconds": 1.7159045969892759, "branch_order": "independent random + coverage + scarcity; cost-free"}, "pool": {"degree_goal": 10, "support_prefix_columns": 67, "columns": 1517, "density_threshold": 1.0, "cover_cost_upper_bound": 100.0, "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"}, "density_probe": {"status": "EXHAUSTED", "nodes": 559, "columns": 1517, "min_row_degree": 326, "seconds": 0.001630929997190833, "branch_order": "independent random + coverage + scarcity; cost-free"}, "lns_fallback": {"holes": 14, "improvements": 0, "nodes": 156305, "improvement_trace": [], "hole_seconds_cap": 0.6}}, "improvement_trace": [[1.8990225160086993, 331, "pure_python_cold"]], "highs": {"solver": "highspy", "solver_version": "1.15.1", "threads": 2, "seed": 1, "model_columns": 15000, "model_rows": 100, "model_nnz": 323670, "model_scope": "full_original", "model_status": "HighsModelStatus.kTimeLimit", "run_status": "HighsStatus.kWarning", "warm_status": "HighsStatus.kOk", "model_build_seconds": 0.21801039698766544, "search_seconds": 5.689348631014582, "best_bound": 15.0, "mip_gap": 0.9546827794561934, "nodes": 0}, "objective": 331, "selected_count": 5, "internal_seconds": 13.835172314982628, "internal_budget_seconds": 12.0}}

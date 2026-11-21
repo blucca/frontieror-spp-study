@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "algorithm": "main",
+  "seed": 1,
+  "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-tiny_instance.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "c1f499eea9efa1bacab0a04dbbace9eea3c6cf6fce7a5c702122168ebf56da2b",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round711-frontier-v2_1/main/solve.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-tiny_instance.json",
+    "--output",
+    "/data/workspace/temp/round711-frontier-v2_1/results/seed1/tiny/solution.json",
+    "--time-limit",
+    "60",
+    "--seed",
+    "1"
+  ],
+  "algorithm_external_wall_seconds": 0.21683725700131617,
+  "algorithm_exit_code": 0,
+  "algorithm_cpu_user_seconds": 0.29375799999999996,
+  "algorithm_cpu_system_seconds": 0.015976999999999998,
+  "algorithm_max_rss_kib": 42584,
+  "metrics": {
+    "method": "pure Python basin/large-hole LNS + warm full sparse highspy",
+    "probes": {
+      "cold": {
+        "status": "FEASIBLE",
+        "nodes": 1,
+        "columns": 25,
+        "min_row_degree": 1,
+        "seconds": 1.1289987014606595e-05,
+        "branch_order": "independent random + coverage + scarcity; cost-free"
+      }
+    },
+    "improvement_trace": [
+      [
+        0.01007248999667354,
+        16,
+        "pure_python_cold"
+      ]
+    ],
+    "highs": {
+      "solver": "highspy",
+      "solver_version": "1.15.1",
+      "threads": 2,
+      "seed": 1,
+      "presolve": "choose",
+      "model_columns": 25,
+      "model_rows": 30,
+      "model_nnz": 132,
+      "model_scope": "full_original",
+      "model_status": "HighsModelStatus.kOptimal",
+      "run_status": "HighsStatus.kOk",
+      "warm_status": "HighsStatus.kOk",
+      "model_build_seconds": 0.1579766499926336,
+      "search_seconds": 0.0008372599841095507,
+      "best_bound": 16.0,
+      "mip_gap": 0.0,
+      "nodes": 0
+    },
+    "objective": 16,
+    "selected_count": 5,
+    "internal_seconds": 0.16921530000399798,
+    "internal_budget_seconds": 55.0
+  },
+  "objective": 16,
+  "selected_count": 5,
+  "independent_exact_feasible": true,
+  "official_numpy_feasible": true,
+  "output_bytes": 291,
+  "worker_end_to_end_seconds": 0.3887803470133804,
+  "total_cpu_seconds": 0.62707,
+  "max_rss_kib": 42584,
+  "instance_name": "tiny",
+  "external_end_to_end_seconds": 0.4684671520080883,
+  "worker_exit_code": 0
+}

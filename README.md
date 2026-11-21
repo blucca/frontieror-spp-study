@@ -1,105 +1,98 @@
-# FrontierOR SPP — six-case Python research replay
+# FrontierOR SPP — deadline-bounded Python Main v3
 
-An independent, reproducible study of all six complete public `hoffman1993`
-set-partitioning instances. **Frozen Python Main v1** combines a bitset
-exact-cover basin probe with warm-started, full-model HiGHS.
+Independent research replay of all six complete public `hoffman1993` instances.
+The current frozen entry adds input-derived large-hole exact-cover repair and
+a measured whole-process deadline fallback to the original Python basin method.
+**All nine v3 acceptance runs pass**: six default-seed cases, BaseK2 fixture,
+and hard3 seeds2/3. Original strong OSS baselines are reused, not rerun.
+**Hard3 seed3 remains a loss: Main416 versus cold HiGHS337.**
+At default seed1, all six Main outputs are valid: three cases improve cost or
+feasibility over the stronger observed cold OSS result, three have equal cost.
 
-## All six official cases, matched versions, seed1
+## All six cases, default seed1
 
-| Case | Python Main v1 | Cold HiGHS1.15.1 | Cold CP-SAT9.15.6755 |
+| Case | Main v3 | Cold HiGHS1.15.1 | Cold CP-SAT9.15.6755 |
 |---|---:|---:|---:|
 | tiny | 16 optimal | 16 optimal | 16 optimal |
-| large1 | 2833 | 3541 | **1832** |
-| large2 (easy) | 229 optimal | 229 optimal | 229 optimal |
-| large3 | **240** | 453 | 968 |
-| large4 | **331** | no feasible witness | no feasible witness |
-| large5 | **180 optimal** | **180 optimal** | no feasible witness |
+| large1 | 1334 feasible | 3541 | 1832 |
+| large2 | 229 optimal | 229 optimal | 229 optimal |
+| large3 | 240 feasible | 453 | 968 |
+| large4 | 331 feasible | no feasible witness | no feasible witness |
+| large5 | 180 feasible | 180 optimal | no feasible witness |
 
-Main produces a checked whole solution on 6/6 cases. CP-SAT wins large1;
-Main has a feasibility advantage on large4; Main and HiGHS tie optimally on
-large5. The three missing baseline witnesses are real entry failures after
-the fixed search budget, with resource gates passing; they have no cost value.
-All 18 planned seed1 benchmark runs completed. Originally held-out inputs
-large1/4/5 use the exact pinned public revision and no reference downloads.
+Main provides a checked whole cover on6/6. large1 improves from original v1
+2833 to1334, versus the stronger cold CP-SAT1832. large4 retains cost331 when
+the native backend is still pending at the Main deadline; both cold baselines
+have no whole feasible witness. large5 Main180 is feasible; the retained cold
+HiGHS180 is optimal. Failed baseline costs remain absent, never zero.
 
-## Hard3 paired seeds: large seed sensitivity
+## Hard3 paired seeds: keep the losing seed
 
-| Seed | Python v1 family | Cold HiGHS 1.15.1 | Lower cost |
-|---|---:|---:|---|
-| 1, original retained run | 240 | 453 | Python v1 |
-| 2 | 411 | 440 | Python v1 |
-| 3 | 510 | 337 | Cold HiGHS |
+| Hard3 seed | Main v3 | Retained Main v1 | Cold HiGHS1.15.1 |
+|---|---:|---:|---:|
+| 1 | 240 | 240 | 453 |
+| 2 | 350 | 411 | 440 |
+| 3 | 416 | 510 | 337 |
 
-Python v1 wins 2 of 3 pairs and loses seed 3. All six hard witnesses pass both
-checkers and the resource gate. The original seed-1 entry stays frozen; the
-seed-2/3 source only exposes RNG/HiGHS seeds and is archived separately under
-[`experiments/paired-seeds/`](experiments/paired-seeds/). Additional Main seed-2 tiny/easy checks retain costs16/229.
+v3 wins two of three pairs against cold HiGHS and loses seed3. These are three
+fixed seeds on one case, not a population-level performance estimate.
 
-**Scope:** all six public cases, paired hard3 seeds 1/2/3, 2 allowed CPUs,
-4 GiB address space, 60 s external whole-process limit, at most 55 s internal.
-Measurements use Linux/Python 3.13.5; the advertised Main images use Python
-3.12/3.14. Solver and NumPy versions match; interpreter and ancillary packages
-are documented in [RESULTS.md](RESULTS.md). This is a public research replay;
-competition registration and submission count: 0.
+## Deadline behavior
+
+The entry uses existing `Highs.startSolve()/wait()` daemon APIs. If native solve
+is pending at the absolute deadline, Main writes only its previously exact-
+checked incumbent, closes the complete all-M JSON, flushes logs and exits0.
+Metadata states `MAIN_DEADLINE_FALLBACK`, `native_result_available=false`,
+`force_exit=true`. No live native solution/info is read in that branch; no prior
+whole cover leads to exit2. The large4 full run exits in55.098s algorithm /
+55.455s including both checkers. v2/v2.1 previously exceeded60s on that case
+and remain [rejected candidate archives](versions/README.md).
 
 ## Replay
 
-Verify 22 full-run witnesses and the three recorded no-witness baseline failures,
-using Python's standard library, with no solver execution:
-
 ```sh
+# Recompute archived complete witnesses and inspect real failed/timeout records.
 python3 -B verify_replay.py
-```
 
-For a new measurement on Linux with Python 3.13 and an existing `uv` executable:
-
-```sh
-export PYTHONDONTWRITEBYTECODE=1
+# Linux / Python3.13, existing uv; exact core wheel pins, outside solve timing.
 python3 -B eligible-baseline/controller.py install --root "$PWD" --uv "$(command -v uv)"
-# One serial measured batch, including both original and independent checkers.
-python3 -B eligible-baseline/controller.py batch --root "$PWD" \
-  --algorithms main highs cpsat --instances tiny large2 large3 --tag replay-v1
-# Independent K=2 Base fallback fixture.
-python3 -B main/base_contract_check.py
-# Same six-run seed extension, retaining seed 1; new output under temp/.
-python3 -B experiments/paired-seeds/queue.py
-# Remaining originally held-out cases, preserving no-witness outcomes.
-python3 -B experiments/holdouts/queue.py
-```
+# Same serial nine-run v3 gate; new outputs under ignored temp/v3/.
+python3 -B versions/v3/queue.py
 
-The installer reproduces the exact three authorized package pins in
-[`requirements.txt`](requirements.txt); all observed private-wheel versions are
-in [`requirements-replay.txt`](requirements-replay.txt). A fresh clone is below
-the install controller's cumulative 600 MiB file gate. Results from a new run
-stay under the ignored `eligible-baseline/{main,highs,cpsat,base-contract}/`;
-archived evidence under `results/` stays unchanged.
-
-The standalone Main four-argument entry is:
-
-```sh
+# Standalone Main's four required arguments; optional --seed defaults to1.
 mkdir -p temp
 eligible-baseline/main-env/bin/python -B main/solve.py \
   --problem hoffman1993 --instance source/hoffman1993-large_instance_3.json \
   --output temp/solution.json --time-limit 60
 ```
 
-The measured controller supplies the OS resource bounds and external timer.
-This direct entry supplies the algorithm's internal deadline and complete schema.
+The measured queue supplies2-CPU affinity /4GiB AS and a60s external timer;
+Main uses at most55s internal. Measured host: Python3.13.5, Linux x86_64.
+Advertised Main images: Python3.12/3.14. Core versions match; ancillary and
+resource-envelope differences are recorded in [RESULTS.md](RESULTS.md).
 
-## Read the experiment
+Single-entry archive: [artifacts/frontieror-spp-main-v3.zip](artifacts/frontieror-spp-main-v3.zip),
+containing only `hoffman1993/solve.py`; source matches the accepted v3.
+This is an independent public research release; formal submission/registration
+actions and spending:0.
 
-- [Method and mathematical scope](METHOD.md)
-- [Complete measurements, environment and boundaries](RESULTS.md)
-- [Original raw solutions, logs, checkers and state](results/2026-11-21/)
-- [Remaining public cases and full negative baseline records](experiments/holdouts/README.md)
-- [Fixed-pool OSS probe negatives](experiments/restricted-pool/README.md)
-- [Isolated dynamic-scarcity probe, separate from Main](experiments/dynamic-scarcity/README.md)
-- [Paired hard seeds and their exact source change](experiments/paired-seeds/README.md)
-- [Historical C++ / version-mismatched controls and negative experiments](controls/README.md)
-- [Data attribution, licensing and modifications](ATTRIBUTION.md)
+## Evidence and scope
 
-Original data, schemas and checker:
-[FrontierOR audited public release](https://huggingface.co/datasets/frontieror/FrontierOR),
-**CC BY 4.0**, credit Minwei Kong and the other FrontierOR authors.
-New independent code: MIT. Full stable source receipts: [source/manifest.json](source/manifest.json).
-Published Gurobi references are isolated under `evaluation/reference/` for evaluation.
+- [Mechanism and deadline semantics](METHOD.md)
+- [Unrounded runs, reused baselines, negative boundaries](RESULTS.md)
+- [All nine v3 raw records](results/2026-11-21/v3/)
+- [v1 snapshot and rejected v2/v2.1](versions/README.md)
+- [Small/global-hole probe records](experiments/large-hole-lns/)
+- [Known upstream time-limit reports and measured workaround](experiments/native-time-limit/README.md)
+- [Small evaluation-only synchronous soft-limit repro](evaluation/SOFT_LIMIT_REPRO.md)
+- [Data attribution, licensing and source receipts](ATTRIBUTION.md)
+
+Full public data and original checker: FrontierOR authors, including Minwei Kong,
+[audited FrontierOR release](https://huggingface.co/datasets/frontieror/FrontierOR),
+CC BY4.0; original PDFs are outside this replay. Independent software: MIT.
+References and observed baseline-cover analyses are evaluation-only materials.
+
+## Bring a real bottleneck
+
+Open an issue with a shareable instance and your current bottleneck. For a whole
+engineering engagement, include the scope, acceptance criteria and budget.
