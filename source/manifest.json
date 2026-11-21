@@ -182,6 +182,45 @@
       "path": "evaluation/reference/hoffman1993-solution_logger.py",
       "byte_content": "unchanged",
       "purpose": "evaluation only"
+    },
+    {
+      "path": "source/hoffman1993-large_instance_1.json",
+      "requested_url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/hoffman1993/instance/large_instance_1.json?download=true",
+      "fetched_at_utc": "2026-11-21T06:12:38.270048+00:00",
+      "http_status": 200,
+      "x_repo_commit": "ef42a2eac13595453f986d9df0b62e86e75ab596",
+      "bytes_saved": 2602564,
+      "sha256": "75d8c9bb2eee959abf1cf0d6c4eb993346916d4f3b0fa1b8c85b747d35852ceb",
+      "authentication": "none",
+      "public_source": "frontieror/FrontierOR on Hugging Face",
+      "byte_content": "unchanged",
+      "purpose": "cold input; originally held out from the first three-case study"
+    },
+    {
+      "path": "source/hoffman1993-large_instance_4.json",
+      "requested_url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/hoffman1993/instance/large_instance_4.json?download=true",
+      "fetched_at_utc": "2026-11-21T06:12:38.801806+00:00",
+      "http_status": 200,
+      "x_repo_commit": "ef42a2eac13595453f986d9df0b62e86e75ab596",
+      "bytes_saved": 4219379,
+      "sha256": "851a40e1bf3ee8f8ca49dbef89ce7326a65fa98ff2609eb4a0847f084e3b1c1a",
+      "authentication": "none",
+      "public_source": "frontieror/FrontierOR on Hugging Face",
+      "byte_content": "unchanged",
+      "purpose": "cold input; originally held out from the first three-case study"
+    },
+    {
+      "path": "source/hoffman1993-large_instance_5.json",
+      "requested_url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/hoffman1993/instance/large_instance_5.json?download=true",
+      "fetched_at_utc": "2026-11-21T06:12:39.301515+00:00",
+      "http_status": 200,
+      "x_repo_commit": "ef42a2eac13595453f986d9df0b62e86e75ab596",
+      "bytes_saved": 6514338,
+      "sha256": "f97145a9dd23e29efa2bdbde32694e0af137a4e86e20ef6ead7333daea63c29b",
+      "authentication": "none",
+      "public_source": "frontieror/FrontierOR on Hugging Face",
+      "byte_content": "unchanged",
+      "purpose": "cold input; originally held out from the first three-case study"
     }
   ]
 }

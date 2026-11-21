@@ -1,0 +1,34 @@
+{
+  "selected_rotations": [
+    4308,
+    9537,
+    13270,
+    8221,
+    7051,
+    10638,
+    7364,
+    11597,
+    13029,
+    1745,
+    14257,
+    11463,
+    989,
+    13627,
+    5294,
+    200,
+    9306,
+    6144,
+    11803,
+    5533,
+    2611,
+    13413
+  ],
+  "metrics": {
+    "status": "FEASIBLE",
+    "nodes": 388223,
+    "columns": 1706,
+    "min_row_degree": 64,
+    "seconds": 4.1969003090052865,
+    "branch_order": "independent random + coverage + current-compatible scarcity; cost-free"
+  }
+}

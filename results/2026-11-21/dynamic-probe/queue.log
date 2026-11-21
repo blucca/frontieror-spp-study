@@ -1,0 +1,4 @@
+{"seed": 1, "status": "TIME_LIMIT", "objective": null, "probe": {"status": "TIME_LIMIT", "nodes": 583041, "columns": 1706, "min_row_degree": 64, "seconds": 5.998660712997662, "branch_order": "independent random + coverage + current-compatible scarcity; cost-free"}, "whole_seconds": 6.083345496997936}
+{"seed": 2, "status": "FEASIBLE", "objective": 328, "probe": {"status": "FEASIBLE", "nodes": 204011, "columns": 1706, "min_row_degree": 64, "seconds": 2.1890056190022733, "branch_order": "independent random + coverage + current-compatible scarcity; cost-free"}, "whole_seconds": 2.4714957629912533}
+{"seed": 3, "status": "FEASIBLE", "objective": 328, "probe": {"status": "FEASIBLE", "nodes": 388223, "columns": 1706, "min_row_degree": 64, "seconds": 4.1969003090052865, "branch_order": "independent random + coverage + current-compatible scarcity; cost-free"}, "whole_seconds": 4.525648980023107}
+{"batch_status": "DONE", "covers": 2, "gate": "PASS", "cpu_seconds": 13.245629}

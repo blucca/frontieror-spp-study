@@ -1,0 +1,195 @@
+{
+  "status": "DONE",
+  "pid": 36337,
+  "runs": [
+    {
+      "status": "TIME_LIMIT",
+      "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+      "seed": 1,
+      "probe_seed": 104729,
+      "probe_limit_seconds": 6,
+      "outer_limit_seconds": 10,
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "candidate_sha256": "81b996e5781cc0950798098e67e9af6cbf1b3a30e7eda381e7ec9d8f2232522b",
+      "input_sha256": "a742ddd66d78d7a3412237f51398c29a3eb5e28eb6d2d1b1724cfac78ff1c762",
+      "reference_input": false,
+      "solver_lp_mip_calls": 0,
+      "pool": {
+        "degree_goal": 10,
+        "support_prefix_columns": 425,
+        "columns": 1706,
+        "density_threshold": 5.333333333333333,
+        "cover_cost_upper_bound": 533.3333333333333,
+        "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"
+      },
+      "rows": 100,
+      "original_columns": 15000,
+      "canonical_columns": 14970,
+      "cutoff": "infinity",
+      "search_status": "TIME_LIMIT",
+      "metrics": {
+        "status": "TIME_LIMIT",
+        "nodes": 583041,
+        "columns": 1706,
+        "min_row_degree": 64,
+        "seconds": 5.998660712997662,
+        "branch_order": "independent random + coverage + current-compatible scarcity; cost-free"
+      },
+      "probe_including_bitset_build_seconds": 6.000600772997132,
+      "witness_status": "NOT_APPLICABLE",
+      "envelope_status": "PASS",
+      "worker_wall_seconds": 6.0372296209970955,
+      "cpu_user_seconds": 6.048193,
+      "cpu_system_seconds": 0.012001999999999999,
+      "max_rss_kib": 38892,
+      "external_wall_seconds": 6.083345496997936,
+      "worker_exit_code": 0,
+      "external_timeout": false
+    },
+    {
+      "status": "FEASIBLE",
+      "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+      "seed": 2,
+      "probe_seed": 209458,
+      "probe_limit_seconds": 6,
+      "outer_limit_seconds": 10,
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "candidate_sha256": "81b996e5781cc0950798098e67e9af6cbf1b3a30e7eda381e7ec9d8f2232522b",
+      "input_sha256": "a742ddd66d78d7a3412237f51398c29a3eb5e28eb6d2d1b1724cfac78ff1c762",
+      "reference_input": false,
+      "solver_lp_mip_calls": 0,
+      "pool": {
+        "degree_goal": 10,
+        "support_prefix_columns": 425,
+        "columns": 1706,
+        "density_threshold": 5.333333333333333,
+        "cover_cost_upper_bound": 533.3333333333333,
+        "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"
+      },
+      "rows": 100,
+      "original_columns": 15000,
+      "canonical_columns": 14970,
+      "cutoff": "infinity",
+      "search_status": "FEASIBLE",
+      "metrics": {
+        "status": "FEASIBLE",
+        "nodes": 204011,
+        "columns": 1706,
+        "min_row_degree": 64,
+        "seconds": 2.1890056190022733,
+        "branch_order": "independent random + coverage + current-compatible scarcity; cost-free"
+      },
+      "probe_including_bitset_build_seconds": 2.190803668985609,
+      "objective": 328,
+      "selected_count": 22,
+      "input_cost_upper_bound": 533.3333333333333,
+      "witness_status": "PASS",
+      "envelope_status": "PASS",
+      "independent_exact_feasible": true,
+      "official_numpy_feasible": true,
+      "full_variable_count": 15000,
+      "output_bytes": 169074,
+      "worker_wall_seconds": 2.428916285018204,
+      "cpu_user_seconds": 2.534928,
+      "cpu_system_seconds": 0.031771999999999995,
+      "max_rss_kib": 48224,
+      "external_wall_seconds": 2.4714957629912533,
+      "worker_exit_code": 0,
+      "external_timeout": false
+    },
+    {
+      "status": "FEASIBLE",
+      "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+      "seed": 3,
+      "probe_seed": 314187,
+      "probe_limit_seconds": 6,
+      "outer_limit_seconds": 10,
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "candidate_sha256": "81b996e5781cc0950798098e67e9af6cbf1b3a30e7eda381e7ec9d8f2232522b",
+      "input_sha256": "a742ddd66d78d7a3412237f51398c29a3eb5e28eb6d2d1b1724cfac78ff1c762",
+      "reference_input": false,
+      "solver_lp_mip_calls": 0,
+      "pool": {
+        "degree_goal": 10,
+        "support_prefix_columns": 425,
+        "columns": 1706,
+        "density_threshold": 5.333333333333333,
+        "cover_cost_upper_bound": 533.3333333333333,
+        "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"
+      },
+      "rows": 100,
+      "original_columns": 15000,
+      "canonical_columns": 14970,
+      "cutoff": "infinity",
+      "search_status": "FEASIBLE",
+      "metrics": {
+        "status": "FEASIBLE",
+        "nodes": 388223,
+        "columns": 1706,
+        "min_row_degree": 64,
+        "seconds": 4.1969003090052865,
+        "branch_order": "independent random + coverage + current-compatible scarcity; cost-free"
+      },
+      "probe_including_bitset_build_seconds": 4.198609868995845,
+      "objective": 328,
+      "selected_count": 22,
+      "input_cost_upper_bound": 533.3333333333333,
+      "witness_status": "PASS",
+      "envelope_status": "PASS",
+      "independent_exact_feasible": true,
+      "official_numpy_feasible": true,
+      "full_variable_count": 15000,
+      "output_bytes": 169074,
+      "worker_wall_seconds": 4.486398362001637,
+      "cpu_user_seconds": 4.5540009999999995,
+      "cpu_system_seconds": 0.032267,
+      "max_rss_kib": 48292,
+      "external_wall_seconds": 4.525648980023107,
+      "worker_exit_code": 0,
+      "external_timeout": false
+    }
+  ],
+  "probe_seconds_per_seed": 6,
+  "whole_seconds_per_seed": 10,
+  "batch_cpu_limit_seconds": 60,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "baseline_retained_not_rerun": {
+    "1": {
+      "status": "FEASIBLE",
+      "objective": 252,
+      "seconds": 4.932,
+      "nodes": 572584
+    },
+    "2": {
+      "status": "TIME_LIMIT",
+      "seconds": 6,
+      "nodes": 648577
+    },
+    "3": {
+      "status": "TIME_LIMIT",
+      "seconds": 6,
+      "nodes": 637313
+    }
+  },
+  "current_seed": 3,
+  "wall_seconds": 13.08330691998708,
+  "cpu_seconds": 13.245629,
+  "complete_cover_count": 2,
+  "primary_method_gate": "PASS"
+}

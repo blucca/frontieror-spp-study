@@ -1,0 +1,11 @@
+{
+  "selected_rotations": null,
+  "metrics": {
+    "status": "TIME_LIMIT",
+    "nodes": 583041,
+    "columns": 1706,
+    "min_row_degree": 64,
+    "seconds": 5.998660712997662,
+    "branch_order": "independent random + coverage + current-compatible scarcity; cost-free"
+  }
+}

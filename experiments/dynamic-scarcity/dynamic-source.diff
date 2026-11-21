@@ -1,0 +1,39 @@
+--- temp/round710/frontier-spp/main/solve.py	2026-11-21 13:29:11.206230511 +0800
++++ temp/round711/method-insight/dynamic-solve.py	2026-11-21 14:19:50.315303155 +0800
+@@ -164,7 +164,7 @@
+     ranks, conflicts = [], []
+     for j in candidates:
+         rows = original[j]
+-        ranks.append(rng.random() + 0.35 * len(rows) + minimum * sum(1.0 / degrees[r] for r in rows))
++        ranks.append(rng.random() + 0.35 * len(rows))
+         clash = 0
+         for r in rows:
+             clash |= adj[r]
+@@ -203,7 +203,17 @@
+         choices = []
+         while options:
+             bit = options & -options; options -= bit; choices.append(bit.bit_length() - 1)
+-        choices.sort(key=lambda p: ranks[p], reverse=True)
++        current = {}
++        def branch_key(p):
++            scarcity = 0.0
++            for r in original[candidates[p]]:
++                degree = current.get(r)
++                if degree is None:
++                    degree = (active & adj[r]).bit_count()
++                    current[r] = degree
++                scarcity += 1.0 / degree
++            return ranks[p] + best_count * scarcity
++        choices.sort(key=branch_key, reverse=True)
+         for p in choices:
+             next_value = value + costs[candidates[p]]
+             if next_value >= cutoff:
+@@ -222,7 +232,7 @@
+     except ProbeLimit:
+         found, status = None, "TIME_LIMIT"
+     return found, {"status": status, "nodes": nodes, "columns": len(candidates), "min_row_degree": minimum,
+-                   "seconds": time.monotonic() - began, "branch_order": "independent random + coverage + scarcity; cost-free"}
++                   "seconds": time.monotonic() - began, "branch_order": "independent random + coverage + current-compatible scarcity; cost-free"}
+ 
+ 
+ def density_pool(data, ordered):

@@ -1,0 +1,78 @@
+{
+  "official_source_receipt": "/data/workspace/temp/round711-frontier-holdouts/source/source-receipts.json",
+  "attribution": "FrontierOR authors, audited dataset derivative, CC BY 4.0",
+  "reference_reads_as_algorithm_input": 0,
+  "sources": [
+    {
+      "case": "large1",
+      "path": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+      "bytes": 2602564,
+      "sha256": "75d8c9bb2eee959abf1cf0d6c4eb993346916d4f3b0fa1b8c85b747d35852ceb",
+      "rows": 100,
+      "variables": 15000,
+      "base_constraints": 0,
+      "nnz": 187822,
+      "official_url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/hoffman1993/instance/large_instance_1.json?download=true",
+      "pinned_revision": "ef42a2eac13595453f986d9df0b62e86e75ab596"
+    },
+    {
+      "case": "large4",
+      "path": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_4.json",
+      "bytes": 4219379,
+      "sha256": "851a40e1bf3ee8f8ca49dbef89ce7326a65fa98ff2609eb4a0847f084e3b1c1a",
+      "rows": 100,
+      "variables": 15000,
+      "base_constraints": 0,
+      "nnz": 323670,
+      "official_url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/hoffman1993/instance/large_instance_4.json?download=true",
+      "pinned_revision": "ef42a2eac13595453f986d9df0b62e86e75ab596"
+    },
+    {
+      "case": "large5",
+      "path": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_5.json",
+      "bytes": 6514338,
+      "sha256": "f97145a9dd23e29efa2bdbde32694e0af137a4e86e20ef6ead7333daea63c29b",
+      "rows": 100,
+      "variables": 15000,
+      "base_constraints": 0,
+      "nnz": 516521,
+      "official_url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/hoffman1993/instance/large_instance_5.json?download=true",
+      "pinned_revision": "ef42a2eac13595453f986d9df0b62e86e75ab596"
+    }
+  ],
+  "frozen_sources": [
+    {
+      "path": "/data/workspace/temp/round710/frontier-spp/main/solve.py",
+      "sha256": "262cc89ce7daf833bf168bf5db4dafc3d46ae88e182ef5feaf2fe558890dd58b"
+    },
+    {
+      "path": "/data/workspace/temp/round710/frontier-spp/eligible-baseline/controller.py",
+      "sha256": "d00f6934358b7c4ab5170e0de85751322809491206e650297ce2c4278181fd45"
+    },
+    {
+      "path": "/data/workspace/temp/round710/frontier-spp/eligible-baseline/highs_baseline.py",
+      "sha256": "ad23d8d4b247d42ad5e7370f38cc2812258ba1f1b3c8121d41c092c4f76e1852"
+    },
+    {
+      "path": "/data/workspace/temp/round710/frontier-spp/eligible-baseline/cpsat_baseline.py",
+      "sha256": "b0b79ef9a0fd9cb95dd3efd3196ffbebd03ef2066af8dd8b98b81896b35b93fb"
+    },
+    {
+      "path": "/data/workspace/temp/round710/frontier-spp/shared/spp_io.py",
+      "sha256": "5bdaed279efa41601cbc49e0d70432675a857e2f4deecf6472c79b7da0891515"
+    },
+    {
+      "path": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-feasibility_check.py",
+      "sha256": "321bff76bf51fcf30ff66d2847ac376a568dda5861d2a8a4e63605c6063039dd"
+    }
+  ],
+  "environment": {
+    "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+    "versions": {
+      "highspy": "1.15.1",
+      "ortools": "9.15.6755",
+      "numpy": "2.5.3"
+    }
+  },
+  "status": "PASS"
+}

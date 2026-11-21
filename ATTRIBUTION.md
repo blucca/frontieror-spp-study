@@ -27,7 +27,7 @@ the attributed benchmark artifacts.
 
 ## Changes and provenance
 
-- Copied three **complete** public instance JSONs, two schemas, the original
+- Copied all six **complete** public instance JSONs, two schemas, the original
   NumPy checker, dataset card and source license **without byte changes**.
   Filenames receive a `hoffman1993-` prefix for a task-local replay layout.
 - Copied two published reference-solution JSONs and the original Gurobi/model
@@ -49,3 +49,15 @@ The solver reads only its explicit instance argument. Published Gurobi solutions
 were used for evaluation and were absent from the cold-run source directory.
 The recorded source inventory is in
 [`results/2026-11-21/runtime/initial-host-environment.json`](results/2026-11-21/runtime/initial-host-environment.json).
+
+## Remaining official cases
+
+large1/4/5 were retrieved on2026-11-21 from the cached exact official instance
+links at pinned revision `ef42a2eac13595453f986d9df0b62e86e75ab596`.
+The complete bytes are unchanged, source receipt records are retained in
+`source/holdout-source-receipts.json`, and file hashes/URLs join the source
+manifest. Additional reference downloads:0. The originally held-out replay
+queue adapts only public clone paths/output paths and allowed CPU IDs;
+the original measured queue is retained as an audit artifact. The isolated
+dynamic probe source changes only compatible-support value ordering and is
+separate from frozen Main and its full-run scores.

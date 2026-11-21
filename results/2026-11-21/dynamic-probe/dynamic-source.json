@@ -1,0 +1,9 @@
+{
+  "source_original": "temp/round710/frontier-spp/main/solve.py",
+  "source_original_sha256": "262cc89ce7daf833bf168bf5db4dafc3d46ae88e182ef5feaf2fe558890dd58b",
+  "source_candidate": "dynamic-solve.py",
+  "source_candidate_sha256": "81b996e5781cc0950798098e67e9af6cbf1b3a30e7eda381e7ec9d8f2232522b",
+  "mechanism": "static -> current-compatible row degree in value order only",
+  "native_gate": "original hard3 same1706 pool; seeds104729*[1,2,3]; probe6s; serial;2CPU/4GiB/whole10s",
+  "references_as_input": false
+}

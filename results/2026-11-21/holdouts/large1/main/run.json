@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "algorithm": "main",
+  "seed": 1,
+  "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "262cc89ce7daf833bf168bf5db4dafc3d46ae88e182ef5feaf2fe558890dd58b",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round710/frontier-spp/main/solve.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+    "--output",
+    "/data/workspace/temp/round711-frontier-holdouts/results/large1/main/solution.json",
+    "--time-limit",
+    "60"
+  ],
+  "algorithm_external_wall_seconds": 54.93273002599017,
+  "algorithm_exit_code": 0,
+  "algorithm_cpu_user_seconds": 56.348405,
+  "algorithm_cpu_system_seconds": 0.203948,
+  "algorithm_max_rss_kib": 279492,
+  "metrics": {
+    "method": "pure Python bitset basin + warm full sparse highspy",
+    "probes": {
+      "cold": {
+        "status": "FEASIBLE",
+        "nodes": 9168,
+        "columns": 14988,
+        "min_row_degree": 1798,
+        "seconds": 0.39486212699557655,
+        "branch_order": "independent random + coverage + scarcity; cost-free"
+      },
+      "pool": {
+        "degree_goal": 10,
+        "support_prefix_columns": 132,
+        "columns": 1502,
+        "density_threshold": 1.5555555555555556,
+        "cover_cost_upper_bound": 155.55555555555557,
+        "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"
+      },
+      "density_probe": {
+        "status": "EXHAUSTED",
+        "nodes": 7566,
+        "columns": 1502,
+        "min_row_degree": 180,
+        "seconds": 0.045074697001837194,
+        "branch_order": "independent random + coverage + scarcity; cost-free"
+      }
+    },
+    "improvement_trace": [
+      [
+        0.523255889012944,
+        2833,
+        "pure_python_cold"
+      ]
+    ],
+    "highs": {
+      "solver": "highspy",
+      "solver_version": "1.15.1",
+      "threads": 2,
+      "seed": 1,
+      "model_columns": 15000,
+      "model_rows": 100,
+      "model_nnz": 187822,
+      "model_scope": "full_original",
+      "model_status": "HighsModelStatus.kTimeLimit",
+      "run_status": "HighsStatus.kWarning",
+      "warm_status": "HighsStatus.kOk",
+      "model_build_seconds": 0.15419986101915129,
+      "search_seconds": 54.13977848298964,
+      "best_bound": 16.0,
+      "mip_gap": 0.9943522767384398,
+      "nodes": 6
+    },
+    "objective": 2833,
+    "selected_count": 28,
+    "internal_seconds": 54.88233134901384,
+    "internal_budget_seconds": 55.0
+  },
+  "objective": 2833,
+  "selected_count": 28,
+  "independent_exact_feasible": true,
+  "official_numpy_feasible": true,
+  "output_bytes": 169110,
+  "worker_end_to_end_seconds": 55.170744870993076,
+  "total_cpu_seconds": 57.026483999999996,
+  "max_rss_kib": 279492,
+  "instance_name": "large1",
+  "external_end_to_end_seconds": 55.233721438009525,
+  "worker_exit_code": 0,
+  "whole_native_executed": true
+}

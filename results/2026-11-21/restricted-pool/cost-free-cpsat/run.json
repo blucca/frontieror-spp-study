@@ -1,0 +1,43 @@
+{
+  "status": "FAILED",
+  "algorithm": "main",
+  "seed": 1,
+  "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "72f496dae8d610558ebde2fa615d82d00b3f22e0829d0e5b2b31bd314685209e",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round711-frontier-cpsat-probe/solve.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+    "--output",
+    "/data/workspace/temp/round711-frontier-cpsat-probe/seed1/solution.json",
+    "--time-limit",
+    "60",
+    "--seed",
+    "1"
+  ],
+  "algorithm_external_wall_seconds": 6.030710539984284,
+  "algorithm_exit_code": 2,
+  "algorithm_cpu_user_seconds": 10.908296,
+  "algorithm_cpu_system_seconds": 0.063941,
+  "algorithm_max_rss_kib": 147960,
+  "failure": "ValueError: algorithm exit 2",
+  "worker_end_to_end_seconds": 6.030997399997432,
+  "total_cpu_seconds": 11.011633,
+  "max_rss_kib": 147960
+}

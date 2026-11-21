@@ -1,0 +1,55 @@
+{
+  "source": "official HF; existing cached exact instance links; CC BY 4.0",
+  "revision": "ef42a2eac13595453f986d9df0b62e86e75ab596",
+  "reference_downloads": 0,
+  "records": [
+    {
+      "case": "large1",
+      "url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/hoffman1993/instance/large_instance_1.json?download=true",
+      "status": 200,
+      "bytes": 2602564,
+      "utc": "2026-11-21T06:12:38.270048+00:00",
+      "dimensions": {
+        "num_rows": 100,
+        "num_cols": 15000,
+        "density_percent": 12.52,
+        "num_nonzeroes": 187822
+      },
+      "has_base_constraints": false,
+      "num_constraints": 0,
+      "nnz": 187822
+    },
+    {
+      "case": "large4",
+      "url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/hoffman1993/instance/large_instance_4.json?download=true",
+      "status": 200,
+      "bytes": 4219379,
+      "utc": "2026-11-21T06:12:38.801806+00:00",
+      "dimensions": {
+        "num_rows": 100,
+        "num_cols": 15000,
+        "density_percent": 21.58,
+        "num_nonzeroes": 323670
+      },
+      "has_base_constraints": false,
+      "num_constraints": 0,
+      "nnz": 323670
+    },
+    {
+      "case": "large5",
+      "url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/hoffman1993/instance/large_instance_5.json?download=true",
+      "status": 200,
+      "bytes": 6514338,
+      "utc": "2026-11-21T06:12:39.301515+00:00",
+      "dimensions": {
+        "num_rows": 100,
+        "num_cols": 15000,
+        "density_percent": 34.43,
+        "num_nonzeroes": 516521
+      },
+      "has_base_constraints": false,
+      "num_constraints": 0,
+      "nnz": 516521
+    }
+  ]
+}

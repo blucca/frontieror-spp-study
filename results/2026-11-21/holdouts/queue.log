@@ -1,0 +1,10 @@
+{"event": "RUN_COMPLETE", "algorithm": "main", "instance": "large1", "status": "PASS", "objective": 2833, "algorithm_wall": 54.93273002599017, "whole_wall": 55.233721438009525, "failure": null}
+{"event": "RUN_COMPLETE", "algorithm": "highs", "instance": "large1", "status": "PASS", "objective": 3541, "algorithm_wall": 54.929407036019256, "whole_wall": 55.231089507986326, "failure": null}
+{"event": "RUN_COMPLETE", "algorithm": "cpsat", "instance": "large1", "status": "PASS", "objective": 1832, "algorithm_wall": 55.02947435999522, "whole_wall": 55.3271460319811, "failure": null}
+{"event": "RUN_COMPLETE", "algorithm": "main", "instance": "large4", "status": "PASS", "objective": 331, "algorithm_wall": 54.972294403007254, "whole_wall": 55.27883217498311, "failure": null}
+{"event": "RUN_COMPLETE", "algorithm": "highs", "instance": "large4", "status": "FAILED", "objective": null, "algorithm_wall": 54.9738508729788, "whole_wall": 55.053873517987086, "failure": "no feasible solution within the fixed cold budget"}
+{"event": "RUN_COMPLETE", "algorithm": "cpsat", "instance": "large4", "status": "FAILED", "objective": null, "algorithm_wall": 54.97984452301171, "whole_wall": 55.02746008997201, "failure": "no feasible solution within the fixed cold budget"}
+{"event": "RUN_COMPLETE", "algorithm": "main", "instance": "large5", "status": "PASS", "objective": 180, "algorithm_wall": 50.88585890698596, "whole_wall": 51.24969158601016, "failure": null}
+{"event": "RUN_COMPLETE", "algorithm": "highs", "instance": "large5", "status": "PASS", "objective": 180, "algorithm_wall": 51.43275733399787, "whole_wall": 51.807920752005884, "failure": null}
+{"event": "RUN_COMPLETE", "algorithm": "cpsat", "instance": "large5", "status": "FAILED", "objective": null, "algorithm_wall": 55.02629665998393, "whole_wall": 55.08780295701581, "failure": "no feasible solution within the fixed cold budget"}
+{"event": "QUEUE_COMPLETE", "status": "DONE_WITH_NEGATIVE_RESULTS", "actual_native_count": 9, "cpu_seconds": 803.098975, "wall_seconds": 489.4275524279801, "heavy_slot_released": true}

@@ -5,6 +5,7 @@ SHA-256 `262cc89ce7daf833bf168bf5db4dafc3d46ae88e182ef5feaf2fe558890dd58b`.
 It uses Python only: standard-library bitsets and a Python `highspy` call.
 The entry has no subprocess, compiler, network call or auxiliary input.
 Historical C++ programs live exclusively under `controls/`.
+The same frozen entry has now been tested on all six official public cases.
 
 ## Cold basin, then full optimization
 

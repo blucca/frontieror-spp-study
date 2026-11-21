@@ -1,0 +1,741 @@
+{
+  "status": "DONE_WITH_NEGATIVE_RESULTS",
+  "pid": 36492,
+  "started_utc": "2026-11-21T06:30:17Z",
+  "planned_count": 9,
+  "planned": [
+    {
+      "instance_name": "large1",
+      "algorithm": "main",
+      "seed": 1
+    },
+    {
+      "instance_name": "large1",
+      "algorithm": "highs",
+      "seed": 1
+    },
+    {
+      "instance_name": "large1",
+      "algorithm": "cpsat",
+      "seed": 1
+    },
+    {
+      "instance_name": "large4",
+      "algorithm": "main",
+      "seed": 1
+    },
+    {
+      "instance_name": "large4",
+      "algorithm": "highs",
+      "seed": 1
+    },
+    {
+      "instance_name": "large4",
+      "algorithm": "cpsat",
+      "seed": 1
+    },
+    {
+      "instance_name": "large5",
+      "algorithm": "main",
+      "seed": 1
+    },
+    {
+      "instance_name": "large5",
+      "algorithm": "highs",
+      "seed": 1
+    },
+    {
+      "instance_name": "large5",
+      "algorithm": "cpsat",
+      "seed": 1
+    }
+  ],
+  "runs": [
+    {
+      "status": "PASS",
+      "algorithm": "main",
+      "seed": 1,
+      "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "full_process_time_limit_seconds": 60,
+      "internal_budget_seconds": 55,
+      "required_versions": {
+        "highspy": "1.15.1",
+        "ortools": "9.15.6755",
+        "numpy": "2.5.3"
+      },
+      "script_sha256": "262cc89ce7daf833bf168bf5db4dafc3d46ae88e182ef5feaf2fe558890dd58b",
+      "command": [
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+        "-B",
+        "/data/workspace/temp/round710/frontier-spp/main/solve.py",
+        "--problem",
+        "hoffman1993",
+        "--instance",
+        "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+        "--output",
+        "/data/workspace/temp/round711-frontier-holdouts/results/large1/main/solution.json",
+        "--time-limit",
+        "60"
+      ],
+      "algorithm_external_wall_seconds": 54.93273002599017,
+      "algorithm_exit_code": 0,
+      "algorithm_cpu_user_seconds": 56.348405,
+      "algorithm_cpu_system_seconds": 0.203948,
+      "algorithm_max_rss_kib": 279492,
+      "metrics": {
+        "method": "pure Python bitset basin + warm full sparse highspy",
+        "probes": {
+          "cold": {
+            "status": "FEASIBLE",
+            "nodes": 9168,
+            "columns": 14988,
+            "min_row_degree": 1798,
+            "seconds": 0.39486212699557655,
+            "branch_order": "independent random + coverage + scarcity; cost-free"
+          },
+          "pool": {
+            "degree_goal": 10,
+            "support_prefix_columns": 132,
+            "columns": 1502,
+            "density_threshold": 1.5555555555555556,
+            "cover_cost_upper_bound": 155.55555555555557,
+            "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"
+          },
+          "density_probe": {
+            "status": "EXHAUSTED",
+            "nodes": 7566,
+            "columns": 1502,
+            "min_row_degree": 180,
+            "seconds": 0.045074697001837194,
+            "branch_order": "independent random + coverage + scarcity; cost-free"
+          }
+        },
+        "improvement_trace": [
+          [
+            0.523255889012944,
+            2833,
+            "pure_python_cold"
+          ]
+        ],
+        "highs": {
+          "solver": "highspy",
+          "solver_version": "1.15.1",
+          "threads": 2,
+          "seed": 1,
+          "model_columns": 15000,
+          "model_rows": 100,
+          "model_nnz": 187822,
+          "model_scope": "full_original",
+          "model_status": "HighsModelStatus.kTimeLimit",
+          "run_status": "HighsStatus.kWarning",
+          "warm_status": "HighsStatus.kOk",
+          "model_build_seconds": 0.15419986101915129,
+          "search_seconds": 54.13977848298964,
+          "best_bound": 16.0,
+          "mip_gap": 0.9943522767384398,
+          "nodes": 6
+        },
+        "objective": 2833,
+        "selected_count": 28,
+        "internal_seconds": 54.88233134901384,
+        "internal_budget_seconds": 55.0
+      },
+      "objective": 2833,
+      "selected_count": 28,
+      "independent_exact_feasible": true,
+      "official_numpy_feasible": true,
+      "output_bytes": 169110,
+      "worker_end_to_end_seconds": 55.170744870993076,
+      "total_cpu_seconds": 57.026483999999996,
+      "max_rss_kib": 279492,
+      "instance_name": "large1",
+      "external_end_to_end_seconds": 55.233721438009525,
+      "worker_exit_code": 0,
+      "whole_native_executed": true
+    },
+    {
+      "status": "PASS",
+      "algorithm": "highs",
+      "seed": 1,
+      "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "full_process_time_limit_seconds": 60,
+      "internal_budget_seconds": 55,
+      "required_versions": {
+        "highspy": "1.15.1",
+        "ortools": "9.15.6755",
+        "numpy": "2.5.3"
+      },
+      "script_sha256": "ad23d8d4b247d42ad5e7370f38cc2812258ba1f1b3c8121d41c092c4f76e1852",
+      "command": [
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+        "-B",
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/highs_baseline.py",
+        "--problem",
+        "hoffman1993",
+        "--instance",
+        "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+        "--output",
+        "/data/workspace/temp/round711-frontier-holdouts/results/large1/highs/solution.json",
+        "--time-limit",
+        "60"
+      ],
+      "algorithm_external_wall_seconds": 54.929407036019256,
+      "algorithm_exit_code": 0,
+      "algorithm_cpu_user_seconds": 56.952591,
+      "algorithm_cpu_system_seconds": 0.143949,
+      "algorithm_max_rss_kib": 230888,
+      "metrics": {
+        "solver": "highspy",
+        "solver_version": "1.15.1",
+        "threads": 2,
+        "seed": 1,
+        "model_columns": 15000,
+        "model_rows": 100,
+        "model_nnz": 187822,
+        "model_scope": "full_original",
+        "model_status": "HighsModelStatus.kTimeLimit",
+        "run_status": "HighsStatus.kWarning",
+        "warm_status": null,
+        "model_build_seconds": 0.1470030109921936,
+        "search_seconds": 54.6810393310152,
+        "best_bound": 16.0,
+        "mip_gap": 0.9954815024004519,
+        "nodes": 18,
+        "method": "stock full sparse highspy cold",
+        "objective": 3541,
+        "internal_seconds": 54.88262337798369,
+        "initial_hints": 0
+      },
+      "objective": 3541,
+      "selected_count": 40,
+      "independent_exact_feasible": true,
+      "official_numpy_feasible": true,
+      "output_bytes": 169166,
+      "worker_end_to_end_seconds": 55.163190182007384,
+      "total_cpu_seconds": 57.56881,
+      "max_rss_kib": 230888,
+      "instance_name": "large1",
+      "external_end_to_end_seconds": 55.231089507986326,
+      "worker_exit_code": 0,
+      "whole_native_executed": true
+    },
+    {
+      "status": "PASS",
+      "algorithm": "cpsat",
+      "seed": 1,
+      "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "full_process_time_limit_seconds": 60,
+      "internal_budget_seconds": 55,
+      "required_versions": {
+        "highspy": "1.15.1",
+        "ortools": "9.15.6755",
+        "numpy": "2.5.3"
+      },
+      "script_sha256": "b0b79ef9a0fd9cb95dd3efd3196ffbebd03ef2066af8dd8b98b81896b35b93fb",
+      "command": [
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+        "-B",
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/cpsat_baseline.py",
+        "--problem",
+        "hoffman1993",
+        "--instance",
+        "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_1.json",
+        "--output",
+        "/data/workspace/temp/round711-frontier-holdouts/results/large1/cpsat/solution.json",
+        "--time-limit",
+        "60"
+      ],
+      "algorithm_external_wall_seconds": 55.02947435999522,
+      "algorithm_exit_code": 0,
+      "algorithm_cpu_user_seconds": 104.289245,
+      "algorithm_cpu_system_seconds": 1.239153,
+      "algorithm_max_rss_kib": 898988,
+      "metrics": {
+        "solver": "OR-Tools CP-SAT",
+        "solver_version": "9.15.6755",
+        "threads": 2,
+        "seed": 1,
+        "method": "stock full Boolean exactly-one CP-SAT cold",
+        "initial_hints": 0,
+        "objective": 1832,
+        "best_bound": -11754.0,
+        "model_status": "FEASIBLE",
+        "model_build_seconds": 0.9537107229989488,
+        "search_seconds": 53.910937636,
+        "internal_seconds": 54.88329615801922,
+        "branches": 933944,
+        "conflicts": 15806,
+        "response_stats": "CpSolverResponse summary:\nstatus: FEASIBLE\nobjective: 1832\nbest_bound: -11754\nintegers: 15032\nbooleans: 14946\nconflicts: 15806\nbranches: 933944\npropagations: 30788760\ninteger_propagations: 30947124\nrestarts: 19\nlp_iterations: 40455\nwalltime: 53.9109\nusertime: 53.9109\ndeterministic_time: 132.057\ngap_integral: 1216.34\nsolution_fingerprint: 0x7a81593719d576f\n"
+      },
+      "objective": 1832,
+      "selected_count": 29,
+      "independent_exact_feasible": true,
+      "official_numpy_feasible": true,
+      "output_bytes": 169114,
+      "worker_end_to_end_seconds": 55.26748682599282,
+      "total_cpu_seconds": 105.98016399999999,
+      "max_rss_kib": 898988,
+      "instance_name": "large1",
+      "external_end_to_end_seconds": 55.3271460319811,
+      "worker_exit_code": 0,
+      "whole_native_executed": true
+    },
+    {
+      "status": "PASS",
+      "algorithm": "main",
+      "seed": 1,
+      "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_4.json",
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "full_process_time_limit_seconds": 60,
+      "internal_budget_seconds": 55,
+      "required_versions": {
+        "highspy": "1.15.1",
+        "ortools": "9.15.6755",
+        "numpy": "2.5.3"
+      },
+      "script_sha256": "262cc89ce7daf833bf168bf5db4dafc3d46ae88e182ef5feaf2fe558890dd58b",
+      "command": [
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+        "-B",
+        "/data/workspace/temp/round710/frontier-spp/main/solve.py",
+        "--problem",
+        "hoffman1993",
+        "--instance",
+        "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_4.json",
+        "--output",
+        "/data/workspace/temp/round711-frontier-holdouts/results/large4/main/solution.json",
+        "--time-limit",
+        "60"
+      ],
+      "algorithm_external_wall_seconds": 54.972294403007254,
+      "algorithm_exit_code": 0,
+      "algorithm_cpu_user_seconds": 100.86536,
+      "algorithm_cpu_system_seconds": 0.071972,
+      "algorithm_max_rss_kib": 125588,
+      "metrics": {
+        "method": "pure Python bitset basin + warm full sparse highspy",
+        "probes": {
+          "cold": {
+            "status": "FEASIBLE",
+            "nodes": 53714,
+            "columns": 14999,
+            "min_row_degree": 3111,
+            "seconds": 1.6316636730043683,
+            "branch_order": "independent random + coverage + scarcity; cost-free"
+          },
+          "pool": {
+            "degree_goal": 10,
+            "support_prefix_columns": 67,
+            "columns": 1517,
+            "density_threshold": 1.0,
+            "cover_cost_upper_bound": 100.0,
+            "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"
+          },
+          "density_probe": {
+            "status": "EXHAUSTED",
+            "nodes": 559,
+            "columns": 1517,
+            "min_row_degree": 326,
+            "seconds": 0.0015202699869405478,
+            "branch_order": "independent random + coverage + scarcity; cost-free"
+          }
+        },
+        "improvement_trace": [
+          [
+            1.802323242998682,
+            331,
+            "pure_python_cold"
+          ]
+        ],
+        "highs": {
+          "solver": "highspy",
+          "solver_version": "1.15.1",
+          "threads": 2,
+          "seed": 1,
+          "model_columns": 15000,
+          "model_rows": 100,
+          "model_nnz": 323670,
+          "model_scope": "full_original",
+          "model_status": "HighsModelStatus.kTimeLimit",
+          "run_status": "HighsStatus.kWarning",
+          "warm_status": "HighsStatus.kOk",
+          "model_build_seconds": 0.16147386998636648,
+          "search_seconds": 52.916750375996344,
+          "best_bound": null,
+          "mip_gap": null,
+          "nodes": 0
+        },
+        "objective": 331,
+        "selected_count": 5,
+        "internal_seconds": 54.905306856991956,
+        "internal_budget_seconds": 55.0
+      },
+      "objective": 331,
+      "selected_count": 5,
+      "independent_exact_feasible": true,
+      "official_numpy_feasible": true,
+      "output_bytes": 168967,
+      "worker_end_to_end_seconds": 55.22079517800012,
+      "total_cpu_seconds": 101.384608,
+      "max_rss_kib": 125588,
+      "instance_name": "large4",
+      "external_end_to_end_seconds": 55.27883217498311,
+      "worker_exit_code": 0,
+      "whole_native_executed": true
+    },
+    {
+      "status": "FAILED",
+      "algorithm": "highs",
+      "seed": 1,
+      "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_4.json",
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "full_process_time_limit_seconds": 60,
+      "internal_budget_seconds": 55,
+      "required_versions": {
+        "highspy": "1.15.1",
+        "ortools": "9.15.6755",
+        "numpy": "2.5.3"
+      },
+      "script_sha256": "ad23d8d4b247d42ad5e7370f38cc2812258ba1f1b3c8121d41c092c4f76e1852",
+      "command": [
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+        "-B",
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/highs_baseline.py",
+        "--problem",
+        "hoffman1993",
+        "--instance",
+        "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_4.json",
+        "--output",
+        "/data/workspace/temp/round711-frontier-holdouts/results/large4/highs/solution.json",
+        "--time-limit",
+        "60"
+      ],
+      "algorithm_external_wall_seconds": 54.9738508729788,
+      "algorithm_exit_code": 2,
+      "algorithm_cpu_user_seconds": 97.736064,
+      "algorithm_cpu_system_seconds": 0.05594,
+      "algorithm_max_rss_kib": 119808,
+      "failure": "ValueError: algorithm exit 2",
+      "worker_end_to_end_seconds": 54.974028892989736,
+      "total_cpu_seconds": 97.874926,
+      "max_rss_kib": 119808,
+      "instance_name": "large4",
+      "external_end_to_end_seconds": 55.053873517987086,
+      "worker_exit_code": 2,
+      "whole_native_executed": true,
+      "algorithm_failure_stderr": "{\"failure\": \"ValueError: cold highspy has no whole feasible solution\"}\n",
+      "failure_class": "no feasible solution within the fixed cold budget"
+    },
+    {
+      "status": "FAILED",
+      "algorithm": "cpsat",
+      "seed": 1,
+      "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_4.json",
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "full_process_time_limit_seconds": 60,
+      "internal_budget_seconds": 55,
+      "required_versions": {
+        "highspy": "1.15.1",
+        "ortools": "9.15.6755",
+        "numpy": "2.5.3"
+      },
+      "script_sha256": "b0b79ef9a0fd9cb95dd3efd3196ffbebd03ef2066af8dd8b98b81896b35b93fb",
+      "command": [
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+        "-B",
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/cpsat_baseline.py",
+        "--problem",
+        "hoffman1993",
+        "--instance",
+        "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_4.json",
+        "--output",
+        "/data/workspace/temp/round711-frontier-holdouts/results/large4/cpsat/solution.json",
+        "--time-limit",
+        "60"
+      ],
+      "algorithm_external_wall_seconds": 54.97984452301171,
+      "algorithm_exit_code": 2,
+      "algorithm_cpu_user_seconds": 104.10473,
+      "algorithm_cpu_system_seconds": 0.323913,
+      "algorithm_max_rss_kib": 603088,
+      "failure": "ValueError: algorithm exit 2",
+      "worker_end_to_end_seconds": 54.980017622991,
+      "total_cpu_seconds": 104.51937500000001,
+      "max_rss_kib": 603088,
+      "instance_name": "large4",
+      "external_end_to_end_seconds": 55.02746008997201,
+      "worker_exit_code": 2,
+      "whole_native_executed": true,
+      "algorithm_failure_stderr": "{\"failure\": \"ValueError: cold CP-SAT has no whole feasible solution: UNKNOWN\"}\n",
+      "failure_class": "no feasible solution within the fixed cold budget"
+    },
+    {
+      "status": "PASS",
+      "algorithm": "main",
+      "seed": 1,
+      "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_5.json",
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "full_process_time_limit_seconds": 60,
+      "internal_budget_seconds": 55,
+      "required_versions": {
+        "highspy": "1.15.1",
+        "ortools": "9.15.6755",
+        "numpy": "2.5.3"
+      },
+      "script_sha256": "262cc89ce7daf833bf168bf5db4dafc3d46ae88e182ef5feaf2fe558890dd58b",
+      "command": [
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+        "-B",
+        "/data/workspace/temp/round710/frontier-spp/main/solve.py",
+        "--problem",
+        "hoffman1993",
+        "--instance",
+        "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_5.json",
+        "--output",
+        "/data/workspace/temp/round711-frontier-holdouts/results/large5/main/solution.json",
+        "--time-limit",
+        "60"
+      ],
+      "algorithm_external_wall_seconds": 50.88585890698596,
+      "algorithm_exit_code": 0,
+      "algorithm_cpu_user_seconds": 85.903566,
+      "algorithm_cpu_system_seconds": 0.071986,
+      "algorithm_max_rss_kib": 191816,
+      "metrics": {
+        "method": "pure Python bitset basin + warm full sparse highspy",
+        "probes": {
+          "cold": {
+            "status": "FEASIBLE",
+            "nodes": 3907,
+            "columns": 14998,
+            "min_row_degree": 5041,
+            "seconds": 0.02888402799726464,
+            "branch_order": "independent random + coverage + scarcity; cost-free"
+          },
+          "pool": {
+            "degree_goal": 10,
+            "support_prefix_columns": 34,
+            "columns": 1501,
+            "density_threshold": 0.6,
+            "cover_cost_upper_bound": 60.0,
+            "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"
+          },
+          "density_probe": {
+            "status": "EXHAUSTED",
+            "nodes": 534,
+            "columns": 1501,
+            "min_row_degree": 533,
+            "seconds": 0.0004480800125747919,
+            "branch_order": "independent random + coverage + scarcity; cost-free"
+          }
+        },
+        "improvement_trace": [
+          [
+            0.24514265501056798,
+            180,
+            "pure_python_cold"
+          ]
+        ],
+        "highs": {
+          "solver": "highspy",
+          "solver_version": "1.15.1",
+          "threads": 2,
+          "seed": 1,
+          "model_columns": 15000,
+          "model_rows": 100,
+          "model_nnz": 516521,
+          "model_scope": "full_original",
+          "model_status": "HighsModelStatus.kOptimal",
+          "run_status": "HighsStatus.kOk",
+          "warm_status": "HighsStatus.kOk",
+          "model_build_seconds": 0.17207304001203738,
+          "search_seconds": 50.376737817015965,
+          "best_bound": 180.0,
+          "mip_gap": 0.0,
+          "nodes": 0
+        },
+        "objective": 180,
+        "selected_count": 3,
+        "internal_seconds": 50.82326609001029,
+        "internal_budget_seconds": 55.0
+      },
+      "objective": 180,
+      "selected_count": 3,
+      "independent_exact_feasible": true,
+      "official_numpy_feasible": true,
+      "output_bytes": 168963,
+      "worker_end_to_end_seconds": 51.16365099098766,
+      "total_cpu_seconds": 86.44424300000001,
+      "max_rss_kib": 191816,
+      "instance_name": "large5",
+      "external_end_to_end_seconds": 51.24969158601016,
+      "worker_exit_code": 0,
+      "whole_native_executed": true
+    },
+    {
+      "status": "PASS",
+      "algorithm": "highs",
+      "seed": 1,
+      "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_5.json",
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "full_process_time_limit_seconds": 60,
+      "internal_budget_seconds": 55,
+      "required_versions": {
+        "highspy": "1.15.1",
+        "ortools": "9.15.6755",
+        "numpy": "2.5.3"
+      },
+      "script_sha256": "ad23d8d4b247d42ad5e7370f38cc2812258ba1f1b3c8121d41c092c4f76e1852",
+      "command": [
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+        "-B",
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/highs_baseline.py",
+        "--problem",
+        "hoffman1993",
+        "--instance",
+        "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_5.json",
+        "--output",
+        "/data/workspace/temp/round711-frontier-holdouts/results/large5/highs/solution.json",
+        "--time-limit",
+        "60"
+      ],
+      "algorithm_external_wall_seconds": 51.43275733399787,
+      "algorithm_exit_code": 0,
+      "algorithm_cpu_user_seconds": 85.561191,
+      "algorithm_cpu_system_seconds": 0.07596599999999999,
+      "algorithm_max_rss_kib": 185972,
+      "metrics": {
+        "solver": "highspy",
+        "solver_version": "1.15.1",
+        "threads": 2,
+        "seed": 1,
+        "model_columns": 15000,
+        "model_rows": 100,
+        "model_nnz": 516521,
+        "model_scope": "full_original",
+        "model_status": "HighsModelStatus.kOptimal",
+        "run_status": "HighsStatus.kOk",
+        "warm_status": null,
+        "model_build_seconds": 0.16785451001487672,
+        "search_seconds": 51.137729362002574,
+        "best_bound": 180.0,
+        "mip_gap": 0.0,
+        "nodes": 0,
+        "method": "stock full sparse highspy cold",
+        "objective": 180,
+        "internal_seconds": 51.38729697698727,
+        "initial_hints": 0
+      },
+      "objective": 180,
+      "selected_count": 3,
+      "independent_exact_feasible": true,
+      "official_numpy_feasible": true,
+      "output_bytes": 168963,
+      "worker_end_to_end_seconds": 51.7294285960088,
+      "total_cpu_seconds": 86.126349,
+      "max_rss_kib": 185972,
+      "instance_name": "large5",
+      "external_end_to_end_seconds": 51.807920752005884,
+      "worker_exit_code": 0,
+      "whole_native_executed": true
+    },
+    {
+      "status": "FAILED",
+      "algorithm": "cpsat",
+      "seed": 1,
+      "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_5.json",
+      "affinity": [
+        0,
+        1
+      ],
+      "ram_limit_bytes": 4294967296,
+      "full_process_time_limit_seconds": 60,
+      "internal_budget_seconds": 55,
+      "required_versions": {
+        "highspy": "1.15.1",
+        "ortools": "9.15.6755",
+        "numpy": "2.5.3"
+      },
+      "script_sha256": "b0b79ef9a0fd9cb95dd3efd3196ffbebd03ef2066af8dd8b98b81896b35b93fb",
+      "command": [
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+        "-B",
+        "/data/workspace/temp/round710/frontier-spp/eligible-baseline/cpsat_baseline.py",
+        "--problem",
+        "hoffman1993",
+        "--instance",
+        "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_5.json",
+        "--output",
+        "/data/workspace/temp/round711-frontier-holdouts/results/large5/cpsat/solution.json",
+        "--time-limit",
+        "60"
+      ],
+      "algorithm_external_wall_seconds": 55.02629665998393,
+      "algorithm_exit_code": 2,
+      "algorithm_cpu_user_seconds": 104.699117,
+      "algorithm_cpu_system_seconds": 0.431708,
+      "algorithm_max_rss_kib": 674700,
+      "failure": "ValueError: algorithm exit 2",
+      "worker_end_to_end_seconds": 55.026455770013854,
+      "total_cpu_seconds": 105.220707,
+      "max_rss_kib": 674700,
+      "instance_name": "large5",
+      "external_end_to_end_seconds": 55.08780295701581,
+      "worker_exit_code": 2,
+      "whole_native_executed": true,
+      "algorithm_failure_stderr": "{\"failure\": \"ValueError: cold CP-SAT has no whole feasible solution: UNKNOWN\"}\n",
+      "failure_class": "no feasible solution within the fixed cold budget"
+    }
+  ],
+  "cpu_cap_seconds": 1800,
+  "whole_queue_cap_seconds": 1200,
+  "whole_run_limit_seconds": 60,
+  "internal_limit_seconds": 55,
+  "affinity": [
+    0,
+    1
+  ],
+  "per_native_as_bytes": 4294967296,
+  "main_source": "/data/workspace/temp/round710/frontier-spp/main/solve.py",
+  "main_version": "frozen v1, default seed1 unchanged",
+  "wall_seconds": 489.4275524279801,
+  "cpu_seconds": 803.098975,
+  "actual_native_count": 9,
+  "heavy_slot_released": true,
+  "ended_utc": "2026-11-21T06:38:27Z"
+}
