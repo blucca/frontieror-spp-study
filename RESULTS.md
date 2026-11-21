@@ -108,3 +108,40 @@ Historical C++294/HiGHS1.16.0/oldCP-SAT9.14.6206 remain independent controls.
 Probe-only dynamic-scarcity and restricted-pool OSS negatives remain under
 `experiments/`, separately scored. Formal registration/submission actions and
 spending are0; the artifact is a public research replay.
+
+
+## 2026-11-22 — explicit LS-only / Feasibility Jump family
+
+The original stock baselines and v3 are retained without rerunning. The new
+control sets `use_ls_only=true`, `use_feasibility_jump=true`, two workers and
+the declared seed; it preserves the complete Boolean exactly-one objective
+and all K side rows. The actual search roster contains `fj(2)` first-solution
+workers plus interleaved `ls` and `ls_lin`. tiny/large2/BaseK2 finish in presolve.
+
+| Case | Seed | LS-only | v3 | Original stronger stock observation |
+|---|---:|---:|---:|---:|
+| tiny | 1 | 16 optimal | 16 | 16 optimal |
+| large2 | 1 | 229 optimal | 229 | 229 optimal |
+| BaseK2 | 1 | 2 optimal | 2 | fixture2 |
+| large1 | 1 | 2428 feasible | 1334 | CP-SAT1832 |
+| large3 | 1 | 1493 feasible | 240 | HiGHS453 |
+| large4 | 1 | UNKNOWN, no witness | 331 | neither stock has a whole witness |
+| large5 | 1 | UNKNOWN, no witness | 180 feasible | HiGHS180 optimal |
+| large3 | 2 | 1562 feasible | 350 | HiGHS440 |
+| large3 | 3 | 1489 feasible | 416 | HiGHS337 |
+
+All nine complete measurements meet2-CPU affinity /4GiB /60s end-to-end.
+Total whole wall337.494867s, CPU636.131816s, largest RSS627276KiB;
+slowest complete run55.491763s. Seven witnesses pass all-M independent exact
+and original NumPy checks; two normal UNKNOWN failures retain exit2, exact
+stderr and absence of solution/checker files. Raw records are preserved next
+to the normalized failure metadata. No references or other solver hints are read.
+
+The frozen v3 has lower hard-case costs and provides whole witnesses on
+large4/5; the new LS-only configuration holds the small-case optima. This
+complete comparison retains v3 and closes the proposed mature-primal-search
+configuration exploration for this study. New professional inputs receive
+model-specific evaluation. No formal submission is recorded by this replay.
+
+[Control, scope and replay](experiments/feasibility-jump/README.md) ·
+[All nine raw runs](results/2026-11-22/feasibility-jump/).

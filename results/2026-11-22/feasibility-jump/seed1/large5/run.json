@@ -1,0 +1,51 @@
+{
+  "status": "FAILED",
+  "algorithm": "cpsat",
+  "seed": 1,
+  "instance": "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_5.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "73b2312cc50e8ca7d7a7bc7a7748986bc566a0556c5359375e7a8854f3dd32ec",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/cpsat_fj_control.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round711-frontier-holdouts/source/hoffman1993-large_instance_5.json",
+    "--output",
+    "/data/workspace/temp/round721-fj-control/results/seed1/large5/solution.json",
+    "--time-limit",
+    "60",
+    "--seed",
+    "1"
+  ],
+  "algorithm_external_wall_seconds": 55.000051221984904,
+  "algorithm_exit_code": 2,
+  "algorithm_cpu_user_seconds": 103.89886,
+  "algorithm_cpu_system_seconds": 0.502923,
+  "algorithm_max_rss_kib": 627276,
+  "failure": "ValueError: algorithm exit 2",
+  "worker_end_to_end_seconds": 55.00024664198281,
+  "total_cpu_seconds": 104.487299,
+  "max_rss_kib": 627276,
+  "instance_name": "large5",
+  "external_end_to_end_seconds": 55.102385934995255,
+  "worker_exit_code": 2,
+  "outcome": "NO_FEASIBLE",
+  "native_failure_detail": "{\"failure\": \"ValueError: cold CP-SAT has no whole feasible solution: UNKNOWN\"}",
+  "failure_class": "no feasible solution within the fixed cold budget",
+  "whole_native_executed": true,
+  "algorithm_failure_stderr": "{\"failure\": \"ValueError: cold CP-SAT has no whole feasible solution: UNKNOWN\"}\n"
+}

@@ -83,6 +83,20 @@ def main():
         case, seed = record["instance_name"], record["seed"]
         instance = ROOT / "main/base-contract-fixture.json" if case == "base-k2" else ROOT / "source" / f"hoffman1993-{'tiny_instance' if case == 'tiny' else 'large_instance_' + case[5:]}.json"
         checked.append(check(evidence / "v3" / f"seed{seed}" / case, instance, ROOT / "main/solve.py"))
+    ls_only = ROOT / "results/2026-11-22/feasibility-jump"
+    ls_only_runs = []
+    if ls_only.exists():
+        gate = json.loads((ls_only / "state.json").read_text())
+        assert gate["status"] in ("DONE", "DONE_WITH_NEGATIVE_RESULTS") and len(gate["runs"]) == 9
+        assert [(r["instance_name"], r["seed"]) for r in gate["runs"]] == [
+            ("tiny", 1), ("large2", 1), ("base-k2", 1), ("large1", 1), ("large3", 1),
+            ("large4", 1), ("large5", 1), ("large3", 2), ("large3", 3)]
+        for record in gate["runs"]:
+            case, seed = record["instance_name"], record["seed"]
+            instance = ROOT / "main/base-contract-fixture.json" if case == "base-k2" else ROOT / "source" / f"hoffman1993-{'tiny_instance' if case == 'tiny' else 'large_instance_' + case[5:]}.json"
+            ls_only_runs.append(check(ls_only / f"seed{seed}" / case, instance,
+                                      ROOT / "eligible-baseline/cpsat_fj_control.py"))
+        checked.extend(ls_only_runs)
     rejected = []
     for version in ("v2", "v2_1"):
         gate = json.loads((evidence / version / "state.json").read_text())
@@ -98,6 +112,9 @@ def main():
                       "archived_witnesses": sum(c["witness"] for c in checked),
                       "verified_no_witness_failures": sum(not c["witness"] for c in checked), "solver_executions": 0,
                       "original_checker_executions": 0, "current_v3_acceptance_runs": 9,
+                      "current_ls_only_control_runs": len(ls_only_runs),
+                      "current_ls_only_witnesses": sum(c["witness"] for c in ls_only_runs),
+                      "current_ls_only_no_witness_failures": sum(not c["witness"] for c in ls_only_runs),
                       "rejected_release_gates": rejected, "checks": checked}, indent=2))
 
 

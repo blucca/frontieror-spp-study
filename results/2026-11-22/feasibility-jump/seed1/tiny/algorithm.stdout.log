@@ -1,0 +1,137 @@
+
+Starting CP-SAT solver v9.15.6755
+Parameters: random_seed: 1 max_time_in_seconds: 52.977004361012952 max_memory_in_mb: 4096 log_search_progress: true num_search_workers: 2 log_to_stdout: true use_ls_only: true use_feasibility_jump: true
+
+Initial optimization model '': (model_fingerprint: 0xf5a4b400b6e291b7)
+#Variables: 25 (#bools: 25 in objective) (9 primary variables)
+  - 25 Booleans in [0,1]
+#kExactlyOne: 30 (#literals: 132)
+
+Starting presolve at 0.14s
+  5.66e-05s  0.00e+00d  [DetectDominanceRelations] 
+  3.82e-02s  0.00e+00d  [PresolveToFixPoint] #num_loops=2 #num_dual_strengthening=1 
+  4.24e-05s  0.00e+00d  [ExtractEncodingFromLinear] 
+  3.22e-05s  0.00e+00d  [DetectDuplicateColumns] 
+  2.76e-05s  0.00e+00d  [DetectDuplicateConstraints] 
+[Symmetry] Graph for symmetry has 25 nodes and 0 arcs.
+[Symmetry] Symmetry computation done. time: 0.00210761 dtime: 1.5e-06
+  2.84e-05s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+  1.45e-02s  0.00e+00d  [Probe] 
+  1.38e-05s  0.00e+00d  [MaxClique] 
+  5.62e-06s  0.00e+00d  [PresolveToFixPoint] 
+  1.36e-05s  0.00e+00d  [ProcessAtMostOneAndLinear] 
+  7.12e-06s  0.00e+00d  [DetectDuplicateConstraints] 
+  8.40e-07s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+  2.04e-06s  0.00e+00d  [DetectDominatedLinearConstraints] 
+  2.83e-06s  0.00e+00d  [DetectDifferentVariables] 
+  4.06e-06s  0.00e+00d  [ProcessSetPPC] 
+  3.41e-05s  0.00e+00d  [TransformClausesToExactlyOne] 
+  8.99e-06s  0.00e+00d  [DetectEncodedComplexDomains] 
+  2.51e-06s  0.00e+00d  [FindAlmostIdenticalLinearConstraints] 
+  3.14e-06s  0.00e+00d  [FindBigAtMostOneAndLinearOverlap] 
+  2.57e-06s  4.00e-08d  [FindBigVerticalLinearOverlap] 
+  3.37e-06s  0.00e+00d  [FindBigHorizontalLinearOverlap] 
+  5.93e-06s  0.00e+00d  [MergeClauses] 
+  1.57e-06s  0.00e+00d  [PresolveToFixPoint] 
+  4.90e-07s  0.00e+00d  [PresolveToFixPoint] 
+  3.18e-06s  0.00e+00d  [DetectDuplicateColumns] 
+  3.33e-06s  0.00e+00d  [DetectDuplicateConstraints] 
+[Symmetry] Graph for symmetry has 25 nodes and 0 arcs.
+[Symmetry] Symmetry computation done. time: 1.918e-05 dtime: 1.5e-06
+  1.02e-06s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+  3.89e-05s  0.00e+00d  [Probe] 
+  1.17e-06s  0.00e+00d  [MaxClique] 
+  5.40e-07s  0.00e+00d  [PresolveToFixPoint] 
+  4.00e-07s  0.00e+00d  [ProcessAtMostOneAndLinear] 
+  4.70e-07s  0.00e+00d  [DetectDuplicateConstraints] 
+  3.40e-07s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+  4.10e-07s  0.00e+00d  [DetectDominatedLinearConstraints] 
+  2.80e-07s  0.00e+00d  [DetectDifferentVariables] 
+  6.30e-07s  0.00e+00d  [ProcessSetPPC] 
+  5.98e-06s  0.00e+00d  [TransformClausesToExactlyOne] 
+  2.60e-07s  0.00e+00d  [DetectEncodedComplexDomains] 
+  2.90e-07s  0.00e+00d  [FindAlmostIdenticalLinearConstraints] 
+  2.20e-07s  0.00e+00d  [FindBigAtMostOneAndLinearOverlap] 
+  4.20e-07s  4.00e-08d  [FindBigVerticalLinearOverlap] 
+  1.90e-07s  0.00e+00d  [FindBigHorizontalLinearOverlap] 
+  2.80e-07s  0.00e+00d  [MergeClauses] 
+  4.20e-07s  0.00e+00d  [PresolveToFixPoint] 
+  1.62e-06s  0.00e+00d  [MergeNoOverlap] 
+  5.80e-07s  0.00e+00d  [MergeNoOverlap2D] 
+  8.49e-06s  0.00e+00d  [ExpandObjective] 
+
+Presolve summary:
+  - 5 affine relations were detected.
+  - rule 'affine: new relation' was applied 5 times.
+  - rule 'exactly_one: duplicate literals' was applied 1 time.
+  - rule 'exactly_one: removed literals' was applied 4 times.
+  - rule 'exactly_one: satisfied' was applied 20 times.
+  - rule 'exactly_one: simplified objective' was applied 6 times.
+  - rule 'exactly_one: size one' was applied 2 times.
+  - rule 'exactly_one: size two' was applied 5 times.
+  - rule 'exactly_one: x and not(x)' was applied 15 times.
+  - rule 'objective: variable not used elsewhere' was applied 6 times.
+  - rule 'presolve: 25 unused variables removed.' was applied 1 time.
+  - rule 'presolve: iteration' was applied 2 times.
+
+Presolved optimization model '': (model_fingerprint: 0xac850cb8e4b1cc08)
+#Variables: 0 ( in objective) (0 primary variables)
+
+[Symmetry] Graph for symmetry has 0 nodes and 0 arcs.
+
+Preloading model.
+#Bound   0.31s best:inf   next:[16,16]    initial_domain
+The solution hint is complete and is feasible. Its objective value is 16.
+#Model   0.31s var:0/0 constraints:0/0
+
+Starting search at 0.31s with 2 workers.
+2 first solution subsolvers: [fj(2)]
+2 interleaved subsolvers: [ls, ls_lin]
+2 helper subsolvers: [neighborhood_helper, synchronization_agent]
+24 ignored subsolvers: [core, default_lp, feasibility_pump, fixed, fs_random, fs_random_no_lp, fs_random_quick_restart, fs_random_quick_restart_no_lp, lb_tree_search, max_lp, no_lp, objective_lb_search, objective_lb_search_max_lp, objective_lb_search_no_lp, objective_shaving_max_lp, objective_shaving_no_lp, probing, probing_max_lp, probing_no_lp, pseudo_costs, quick_restart, quick_restart_no_lp, reduced_costs, rins/rens]
+
+#1       0.31s best:16    next:[]         fj_restart_decay_compound_perturb_obj(batch:1 lin{mvs:0 evals:0} #w_updates:0 #perturb:0)
+
+Task timing           n [     min,      max]      avg      dev     time         n [     min,      max]      avg      dev    dtime
+        'fj':         1 [  2.32ms,   2.32ms]   2.32ms   0.00ns   2.32ms         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+        'fj':         1 [  2.35ms,   2.35ms]   2.35ms   0.00ns   2.35ms         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+        'ls':         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+    'ls_lin':         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+
+LS stats                                    Batches  Restarts/Perturbs  LinMoves  GenMoves  CompoundMoves  Bactracks  WeightUpdates  ScoreComputed
+                             'fj_restart':        1                  1         0         0              0          0              0              0
+  'fj_restart_decay_compound_perturb_obj':        1                  1         0         0              0          0              0              0
+
+Solutions (1)                               Num   Rank
+  'fj_restart_decay_compound_perturb_obj':    2  [0,1]
+
+Objective bounds     Num
+  'initial_domain':    1
+
+Solution repositories    Added  Queried  Synchro
+    'alternative_path':      0        0        0
+      'best_solutions':      2        0        2
+   'fj solution hints':      0        0        0
+        'lp solutions':      0        0        0
+                'pump':      0        0
+
+LRAT_status: NA
+CpSolverResponse summary:
+status: OPTIMAL
+objective: 16
+best_bound: 16
+integers: 0
+booleans: 0
+conflicts: 0
+branches: 0
+propagations: 0
+integer_propagations: 0
+restarts: 0
+lp_iterations: 0
+walltime: 0.318551
+usertime: 0.318551
+deterministic_time: 8e-08
+gap_integral: 0
+solution_fingerprint: 0xc223c2b344bd0d2d
+
+{"metrics": {"solver": "OR-Tools CP-SAT", "solver_version": "9.15.6755", "threads": 2, "seed": 1, "method": "full Boolean exactly-one CP-SAT cold, LS-only/FJ enabled", "initial_hints": 0, "use_ls_only": true, "use_feasibility_jump": true, "objective": 16, "best_bound": 16.0, "model_status": "OPTIMAL", "model_build_seconds": 1.8730050089943688, "search_seconds": 0.318550691, "internal_seconds": 2.242696736997459, "branches": 0, "conflicts": 0, "response_stats": "CpSolverResponse summary:\nstatus: OPTIMAL\nobjective: 16\nbest_bound: 16\nintegers: 0\nbooleans: 0\nconflicts: 0\nbranches: 0\npropagations: 0\ninteger_propagations: 0\nrestarts: 0\nlp_iterations: 0\nwalltime: 0.318551\nusertime: 0.318551\ndeterministic_time: 8e-08\ngap_integral: 0\nsolution_fingerprint: 0xc223c2b344bd0d2d\n"}}

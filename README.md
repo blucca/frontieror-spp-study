@@ -26,6 +26,15 @@ the native backend is still pending at the Main deadline; both cold baselines
 have no whole feasible witness. large5 Main180 is feasible; the retained cold
 HiGHS180 is optimal. Failed baseline costs remain absent, never zero.
 
+## Additional complete LS-only control
+
+An explicit OR-Tools9.15.6755 LS-only family control now covers the same nine
+runs: seven full checked witnesses and two genuine `UNKNOWN` outcomes. It
+uses two FJ first-solution workers followed by interleaved `ls`/`ls_lin`; the
+small cases finish in presolve. large1 costs2428, hard3 seeds1/2/3
+cost1493/1562/1489, and large4/5 produce no whole witness. Frozen v3 remains
+the current entry. [Full results and runnable control](experiments/feasibility-jump/README.md).
+
 ## Hard3 paired seeds: keep the losing seed
 
 | Hard3 seed | Main v3 | Retained Main v1 | Cold HiGHS1.15.1 |

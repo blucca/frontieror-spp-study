@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "solver_executions": 0,
+  "archived_replay_executions": 0,
+  "original_checker_executions": 0,
+  "worker_matches_measured_source": true,
+  "worker_sha256": "73b2312cc50e8ca7d7a7bc7a7748986bc566a0556c5359375e7a8854f3dd32ec",
+  "stock_full_model_byte_equality": true,
+  "full_model_sha256": "06ee6b8bff23963e828e54176e9bf9861769f926ecb6302acc8cc5769b71c18c",
+  "fixed_queue_case_seed_pairs": [
+    [
+      "tiny",
+      1
+    ],
+    [
+      "large2",
+      1
+    ],
+    [
+      "base-k2",
+      1
+    ],
+    [
+      "large1",
+      1
+    ],
+    [
+      "large3",
+      1
+    ],
+    [
+      "large4",
+      1
+    ],
+    [
+      "large5",
+      1
+    ],
+    [
+      "large3",
+      2
+    ],
+    [
+      "large3",
+      3
+    ]
+  ],
+  "complete_input_shapes": [
+    {
+      "case": "tiny",
+      "rows": 30,
+      "columns": 25,
+      "base_constraints": 0
+    },
+    {
+      "case": "large2",
+      "rows": 100,
+      "columns": 15000,
+      "base_constraints": 0
+    },
+    {
+      "case": "base-k2",
+      "rows": 1,
+      "columns": 2,
+      "base_constraints": 2
+    },
+    {
+      "case": "large1",
+      "rows": 100,
+      "columns": 15000,
+      "base_constraints": 0
+    },
+    {
+      "case": "large3",
+      "rows": 100,
+      "columns": 15000,
+      "base_constraints": 0
+    },
+    {
+      "case": "large4",
+      "rows": 100,
+      "columns": 15000,
+      "base_constraints": 0
+    },
+    {
+      "case": "large5",
+      "rows": 100,
+      "columns": 15000,
+      "base_constraints": 0
+    }
+  ],
+  "base_k2_all_M_output_and_inverse": "PASS",
+  "native_solver_imports": 0
+}

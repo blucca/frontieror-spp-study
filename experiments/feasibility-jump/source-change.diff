@@ -1,0 +1,63 @@
+--- eligible-baseline/cpsat_baseline.py
++++ eligible-baseline/cpsat_fj_control.py
+@@ -1,6 +1,7 @@
+ #!/usr/bin/env python3
+ import time
+ START = time.monotonic()
++import argparse
+ import importlib.util
+ from fractions import Fraction
+ import json
+@@ -12,8 +13,23 @@
+ spp = importlib.util.module_from_spec(spec); spec.loader.exec_module(spp)
+ 
+ 
++
++# Recorded v1 helper lacks --seed; freeze the current entry CLI in this control.
++def cli_args():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--problem", required=True)
++    parser.add_argument("--instance", required=True)
++    parser.add_argument("--output", required=True)
++    parser.add_argument("--time-limit", type=float, required=True)
++    parser.add_argument("--seed", type=int, default=1)
++    args = parser.parse_args()
++    if args.problem != "hoffman1993" or args.time_limit <= 0:
++        raise ValueError("hoffman1993 and a positive time limit required")
++    return args
++
++
+ def main():
+-    args = spp.cli_args()
++    args = cli_args()
+     data = spp.read_instance(args.instance)
+     import ortools
+     from ortools.sat.python import cp_model
+@@ -43,10 +59,13 @@
+         if math.isfinite(hi): model.add(expr <= int(Fraction(str(hi)) * scale))
+     solver = cp_model.CpSolver()
+     solver.parameters.num_search_workers = 2
+-    solver.parameters.random_seed = 1
++    solver.parameters.random_seed = args.seed
++    # An explicit LS-only run isolates the installed Feasibility Jump family.
++    solver.parameters.use_ls_only = True
++    solver.parameters.use_feasibility_jump = True
+     solver.parameters.max_memory_in_mb = 4096
+     solver.parameters.log_search_progress = True
+-    solver.parameters.log_to_stdout = False
++    solver.parameters.log_to_stdout = True
+     solver.parameters.max_time_in_seconds = max(0.001, START + min(55, args.time_limit - 5) - time.monotonic() - 0.15)
+     build = time.monotonic() - START
+     status = solver.solve(model)
+@@ -54,8 +73,9 @@
+         raise ValueError("cold CP-SAT has no whole feasible solution: " + solver.status_name(status))
+     chosen = [j for j in range(m) if solver.value(x[j])]
+     solution = spp.write_solution(data, chosen, args.output)
+-    metrics = {"solver": "OR-Tools CP-SAT", "solver_version": ortools.__version__, "threads": 2, "seed": 1,
+-               "method": "stock full Boolean exactly-one CP-SAT cold", "initial_hints": 0,
++    metrics = {"solver": "OR-Tools CP-SAT", "solver_version": ortools.__version__, "threads": 2, "seed": args.seed,
++               "method": "full Boolean exactly-one CP-SAT cold, LS-only/FJ enabled", "initial_hints": 0,
++               "use_ls_only": True, "use_feasibility_jump": True,
+                "objective": solution["objective_value"], "best_bound": solver.best_objective_bound,
+                "model_status": solver.status_name(status), "model_build_seconds": build,
+                "search_seconds": solver.wall_time, "internal_seconds": time.monotonic() - START,
