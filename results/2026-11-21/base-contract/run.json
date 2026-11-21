@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "algorithm": "main",
+  "seed": 1,
+  "instance": "/data/workspace/temp/round710/frontier-spp/main/base-contract-fixture.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "262cc89ce7daf833bf168bf5db4dafc3d46ae88e182ef5feaf2fe558890dd58b",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round710/frontier-spp/main/solve.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round710/frontier-spp/main/base-contract-fixture.json",
+    "--output",
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/base-contract/solution.json",
+    "--time-limit",
+    "60"
+  ],
+  "algorithm_external_wall_seconds": 0.21701961700455286,
+  "algorithm_exit_code": 0,
+  "algorithm_cpu_user_seconds": 0.26248,
+  "algorithm_cpu_system_seconds": 0.019889,
+  "algorithm_max_rss_kib": 42528,
+  "metrics": {
+    "method": "pure Python bitset basin + warm full sparse highspy",
+    "probes": {},
+    "improvement_trace": [
+      [
+        0.14242657102295198,
+        2,
+        "warm_full_highs"
+      ]
+    ],
+    "highs": {
+      "solver": "highspy",
+      "solver_version": "1.15.1",
+      "threads": 2,
+      "seed": 1,
+      "model_columns": 2,
+      "model_rows": 3,
+      "model_nnz": 3,
+      "model_scope": "full_original",
+      "model_status": "HighsModelStatus.kOptimal",
+      "run_status": "HighsStatus.kOk",
+      "warm_status": null,
+      "model_build_seconds": 0.13281761200050823,
+      "search_seconds": 0.0008801399962976575,
+      "best_bound": 2.0,
+      "mip_gap": 0.0,
+      "nodes": 0
+    },
+    "objective": 2,
+    "selected_count": 1,
+    "internal_seconds": 0.1426371410198044,
+    "internal_budget_seconds": 55.0
+  },
+  "objective": 2,
+  "selected_count": 1,
+  "independent_exact_feasible": true,
+  "official_numpy_feasible": true,
+  "output_bytes": 83,
+  "worker_end_to_end_seconds": 0.3712114079971798,
+  "total_cpu_seconds": 0.577804,
+  "max_rss_kib": 42528,
+  "external_end_to_end_seconds": 0.4680787120014429,
+  "expected_selected": [
+    1
+  ],
+  "expected_objective": 2,
+  "base_contract_assert": "PASS",
+  "num_bases": 1,
+  "num_constraints": 2
+}

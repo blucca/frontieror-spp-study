@@ -1,0 +1,3 @@
+{"solver": "highs", "instance": "tiny", "status": "PASS", "objective": 16, "bound": 16, "e2e": 0.11552796300384216}
+{"solver": "highs", "instance": "large2", "status": "PASS", "objective": 229, "bound": 229, "e2e": 0.2655597539851442}
+{"solver": "highs", "instance": "large3", "status": "PASS", "objective": 296, "bound": 57, "e2e": 55.28984131399193}

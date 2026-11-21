@@ -1,0 +1,22 @@
+Using CPython 3.13.5 interpreter at: /usr/bin/python3
+Creating virtual environment at: baseline/ortools-venv
+Activate with: source baseline/ortools-venv/bin/activate
+Using Python 3.13.5 environment at: baseline/ortools-venv
+Resolved 9 packages in 280ms
+Downloading pandas (11.4MiB)
+Downloading numpy (15.0MiB)
+Downloading ortools (26.4MiB)
+ Downloaded pandas
+ Downloaded numpy
+ Downloaded ortools
+Prepared 9 packages in 338ms
+Installed 9 packages in 12ms
+ + absl-py==2.5.1
+ + immutabledict==4.3.1
+ + numpy==2.5.5
+ + ortools==9.14.6206
+ + pandas==3.1.1
+ + protobuf==6.31.1
+ + python-dateutil==4.0.0
+ + typing-extensions==4.16.0
+ + tzdata==2026.6

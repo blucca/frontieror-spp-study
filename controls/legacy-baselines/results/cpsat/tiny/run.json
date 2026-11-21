@@ -1,0 +1,55 @@
+{
+  "solver": "cpsat",
+  "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-tiny_instance.json",
+  "seed": 1,
+  "search_budget_seconds": 55.0,
+  "threads": 2,
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "status": "PASS",
+  "dimensions": {
+    "rows": 30,
+    "columns": 25,
+    "base_constraints": 0,
+    "nnz": 132
+  },
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv/bin/python",
+    "/data/workspace/temp/round710/frontier-spp/shared/spp_io.py",
+    "cpsat",
+    "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-tiny_instance.json",
+    "55.0",
+    "1"
+  ],
+  "backend_wall_seconds": 0.9367557039950043,
+  "solver_exit_code": 0,
+  "metrics": {
+    "solver": "OR-Tools CP-SAT",
+    "solver_version": "9.14.6206",
+    "threads": 2,
+    "seed": 1,
+    "build_seconds": 0.8281875799875706,
+    "search_seconds": 0.00525284,
+    "internal_seconds": 0.8345735899929423,
+    "best_bound": 16.0,
+    "branches": 0,
+    "conflicts": 0,
+    "response_stats": "CpSolverResponse summary:\nstatus: OPTIMAL\nobjective: 16\nbest_bound: 16\nintegers: 1\nbooleans: 0\nconflicts: 0\nbranches: 0\npropagations: 0\ninteger_propagations: 1\nrestarts: 0\nlp_iterations: 0\nwalltime: 0.00525284\nusertime: 0.00525288\ndeterministic_time: 8e-08\ngap_integral: 0\nsolution_fingerprint: 0xc223c2b344bd0d2d\n"
+  },
+  "solver_status": "OPTIMAL",
+  "independent_exact_feasible": true,
+  "objective": 16,
+  "selected_count": 5,
+  "best_bound": 16.0,
+  "official_numpy_feasible": true,
+  "worker_end_to_end_seconds": 0.9979860010207631,
+  "cpu_user_seconds": 1.085143,
+  "cpu_system_seconds": 0.075977,
+  "max_rss_kib": 116924,
+  "instance_name": "tiny",
+  "external_end_to_end_seconds": 1.0678528160206042,
+  "worker_exit_code": 0
+}

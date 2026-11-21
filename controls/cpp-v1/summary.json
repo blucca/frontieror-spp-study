@@ -1,0 +1,22 @@
+{
+  "branch": "native_cpp_control",
+  "state": "STOP",
+  "human_code_edits": 0,
+  "solver_source": "solver-formal-v1.cpp",
+  "source_sha256": "73f85abd4bed67ce05779cb6cc41d017e771d05a1b0ea6b55271583f2a524736",
+  "formal_run": {
+    "objective": 294,
+    "seed": 1,
+    "search_limit": 55.0,
+    "external_end_to_end_seconds": 55.23728667697287,
+    "cpu_seconds": 55.23123699999999,
+    "max_rss_kib": 44608,
+    "independent_exact_feasible": true,
+    "official_numpy_feasible": true,
+    "variable_count": 15000
+  },
+  "scope": "N<=128,K=0,nonnegative_cost,nonempty_columns",
+  "v4_promoted": false,
+  "remote_heavy_released": true,
+  "handoff": "Python-only Main; density cutoffs and bitset/min-row details sent to spp_baselines"
+}

@@ -1,0 +1,6 @@
+{"algorithm": "main", "seed": 2, "instance": "tiny", "status": "PASS", "objective": 16, "wall": 0.4680370519927237}
+{"algorithm": "main", "seed": 2, "instance": "large2", "status": "PASS", "objective": 229, "wall": 0.7188500170013867}
+{"algorithm": "main", "seed": 2, "instance": "large3", "status": "PASS", "objective": 411, "wall": 55.228884418000234}
+{"algorithm": "highs", "seed": 2, "instance": "large3", "status": "PASS", "objective": 440, "wall": 55.22683910801425}
+{"algorithm": "main", "seed": 3, "instance": "large3", "status": "PASS", "objective": 510, "wall": 55.22973631799687}
+{"algorithm": "highs", "seed": 3, "instance": "large3", "status": "PASS", "objective": 337, "wall": 55.23736464700778}

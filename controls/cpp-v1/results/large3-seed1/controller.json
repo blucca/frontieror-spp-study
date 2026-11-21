@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "pid": 35820,
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "/data/workspace/temp/round710/frontier-spp/shared/spp_io.py",
+    "run",
+    "--solver",
+    "native",
+    "--instance",
+    "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+    "--out",
+    "/data/workspace/temp/round710/frontier-spp/method/formal-v1/large3-seed1",
+    "--executable",
+    "/data/workspace/temp/round710/frontier-spp/method/solver-formal-v1",
+    "--limit",
+    "55",
+    "--seed",
+    "1",
+    "--checker",
+    "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-feasibility_check.py",
+    "--checker-python",
+    "/usr/bin/python3"
+  ],
+  "external_budget_seconds": 60,
+  "search_budget_seconds": 55,
+  "seed": 1,
+  "cpu_affinity": [
+    0,
+    1
+  ],
+  "per_process_ram_bytes": 4294967296,
+  "cold_reference_files_present": false,
+  "external_end_to_end_seconds": 55.23728667697287,
+  "worker_exit_code": 0
+}

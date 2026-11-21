@@ -1,0 +1,54 @@
+Running HiGHS 1.16.0 (git hash: 725b40f): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+MIP has 100 rows; 15000 cols; 17816 nonzeros; 15000 integer variables (15000 binary)
+Coefficient ranges:
+  Matrix  [1e+00, 1e+00]
+  Cost    [1e+00, 2e+02]
+  Bound   [1e+00, 1e+00]
+  RHS     [1e+00, 1e+00]
+Presolving model
+100 rows, 15000 cols, 17816 nonzeros 0s
+100 rows, 4275 cols, 6732 nonzeros 0s
+100 rows, 2600 cols, 5041 nonzeros 0s
+100 rows, 2193 cols, 4634 nonzeros 0s
+100 rows, 2178 cols, 4619 nonzeros 0s
+Presolve reductions: rows 100(-0); columns 2178(-12822); nonzeros 4619(-13197) 
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   100 rows
+   2178 cols (2178 binary, 0 integer, 0 implied int., 0 continuous, 0 domain fixed)
+   4619 nonzeros
+   Thread count: 2 available cores, 4 logical processors, using up to 2 workers across 2 threads.
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic;
+     I => Shifting; J => Feasibility jump; L => Sub-MIP; P => Empty MIP; R => Randomized rounding;
+     S => Solve LP; T => Evaluate node; U => Unbounded; X => User solution; Y => HiGHS solution;
+     Z => ZI Round; l => Trivial lower; p => Trivial point; u => Trivial upper; z => Trivial zero
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+ J       0       0         0   0.00%   -inf            252                Large        0      0      0         0     0.0s
+ T       0       0         0   0.00%   0               229              100.00%        0      0      0        95     0.1s
+         1       0         1 100.00%   229             229                0.00%        0      0      0        95     0.1s
+
+Solving report
+  Status            Optimal
+  Primal bound      229
+  Dual bound        229
+  Gap               0% (tolerance: 0.01%)
+  P-D integral      0.05
+  Solution status   feasible
+                    229 (objective)
+  Timing            0.05
+                    0.03 (Presolve)
+                    0.03 (Solve)
+                    0.00 (Postsolve)
+  Max sub-MIP depth 0
+  Nodes             1
+  Repair LPs        0
+  LP iterations     95
+                    0 (strong br.)
+                    0 (separation)
+                    0 (heuristics)

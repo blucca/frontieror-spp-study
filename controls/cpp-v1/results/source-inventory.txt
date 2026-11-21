@@ -1,0 +1,8 @@
+hoffman1993-feasibility_check.py
+hoffman1993-instance_schema.json
+hoffman1993-large_instance_2.json
+hoffman1993-large_instance_3.json
+hoffman1993-solution_schema.json
+hoffman1993-tiny_instance.json
+LICENSE.md
+README.md

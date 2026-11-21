@@ -1,0 +1,6 @@
+{
+  "ast": "PASS",
+  "seed2_tiny_exact": true,
+  "objective": 16,
+  "scope": "seed-parameter-only; no local heavy solver"
+}

@@ -1,0 +1,6 @@
+{"algorithm": "highs", "instance": "tiny", "status": "PASS", "objective": 16, "algorithm_wall": 0.21563973699812777, "e2e": 0.41670578499906696}
+{"algorithm": "highs", "instance": "large2", "status": "PASS", "objective": 229, "algorithm_wall": 0.3682678979821503, "e2e": 0.6175264630001038}
+{"algorithm": "highs", "instance": "large3", "status": "PASS", "objective": 453, "algorithm_wall": 54.94263105498976, "e2e": 55.2244842289947}
+{"algorithm": "cpsat", "instance": "tiny", "status": "PASS", "objective": 16, "algorithm_wall": 0.9686947820009664, "e2e": 1.1691590409900527}
+{"algorithm": "cpsat", "instance": "large2", "status": "PASS", "objective": 229, "algorithm_wall": 1.0691947960003745, "e2e": 1.3183746010181494}
+{"algorithm": "cpsat", "instance": "large3", "status": "PASS", "objective": 968, "algorithm_wall": 55.02168802000233, "e2e": 55.2805894750054}

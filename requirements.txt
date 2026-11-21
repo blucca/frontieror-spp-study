@@ -1,0 +1,4 @@
+# Exact solver / checker versions in the measured Main-compatible environment.
+highspy==1.15.1
+ortools==9.15.6755
+numpy==2.5.3

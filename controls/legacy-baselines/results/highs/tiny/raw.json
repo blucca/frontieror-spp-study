@@ -1,0 +1,1 @@
+{"status":"OPTIMAL","objective_value":16,"selected_rotations":[0,1,2,3,4],"metrics":{"solver":"HiGHS","solver_version":"1.16.0","git_hash":"725b40f","threads":2,"seed":1,"model_status":7,"run_status":0,"best_bound":16,"mip_gap":0,"nodes":0,"build_seconds":0.00053459999999999998,"search_seconds":0.00037169456481933594,"internal_seconds":0.00116391,"max_rss_kib":14848}}

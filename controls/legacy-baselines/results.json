@@ -1,0 +1,747 @@
+{
+  "status": "PASS",
+  "scope": [
+    "tiny",
+    "large2",
+    "large3"
+  ],
+  "solver_trials_per_instance": 1,
+  "cold_seed": 1,
+  "source_manifest": "../shared/source-manifest.json",
+  "cold_reference_files_copied": 0,
+  "resource_contract": {
+    "affinity": [
+      0,
+      1
+    ],
+    "threads": 2,
+    "per_process_ram_bytes": 4294967296,
+    "instance_external_wall_seconds": 60,
+    "native_internal_deadline_seconds": 55,
+    "batch_cpu_seconds": 3600,
+    "batch_wall_seconds": 1800
+  },
+  "end_to_end_includes": [
+    "Python startup",
+    "original JSON read",
+    "transport conversion",
+    "model build",
+    "solve",
+    "raw output",
+    "full schema normalization",
+    "independent exact check",
+    "original NumPy checker"
+  ],
+  "highs": {
+    "status": "DONE",
+    "solver": "highs",
+    "pid": 35466,
+    "runs": [
+      {
+        "solver": "highs",
+        "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-tiny_instance.json",
+        "seed": 1,
+        "search_budget_seconds": 55.0,
+        "threads": 2,
+        "affinity": [
+          0,
+          1
+        ],
+        "ram_limit_bytes": 4294967296,
+        "status": "PASS",
+        "dimensions": {
+          "rows": 30,
+          "columns": 25,
+          "base_constraints": 0,
+          "nnz": 132
+        },
+        "command": [
+          "/data/workspace/temp/round710/frontier-spp/baseline/highs_spp",
+          "/data/workspace/temp/round710/frontier-spp/baseline/highs/tiny/input.dat",
+          "55.0",
+          "1",
+          "/data/workspace/temp/round710/frontier-spp/baseline/highs/tiny/highs.log"
+        ],
+        "backend_wall_seconds": 0.0039093800005503,
+        "solver_exit_code": 0,
+        "metrics": {
+          "solver": "HiGHS",
+          "solver_version": "1.16.0",
+          "git_hash": "725b40f",
+          "threads": 2,
+          "seed": 1,
+          "model_status": 7,
+          "run_status": 0,
+          "best_bound": 16,
+          "mip_gap": 0,
+          "nodes": 0,
+          "build_seconds": 0.0005346,
+          "search_seconds": 0.00037169456481933594,
+          "internal_seconds": 0.00116391,
+          "max_rss_kib": 14848
+        },
+        "solver_status": "OPTIMAL",
+        "independent_exact_feasible": true,
+        "objective": 16,
+        "selected_count": 5,
+        "best_bound": 16,
+        "official_numpy_feasible": true,
+        "worker_end_to_end_seconds": 0.0805278449843172,
+        "cpu_user_seconds": 0.139209,
+        "cpu_system_seconds": 0.011562,
+        "max_rss_kib": 28032,
+        "instance_name": "tiny",
+        "external_end_to_end_seconds": 0.11552796300384216,
+        "worker_exit_code": 0
+      },
+      {
+        "solver": "highs",
+        "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_2.json",
+        "seed": 1,
+        "search_budget_seconds": 55.0,
+        "threads": 2,
+        "affinity": [
+          0,
+          1
+        ],
+        "ram_limit_bytes": 4294967296,
+        "status": "PASS",
+        "dimensions": {
+          "rows": 100,
+          "columns": 15000,
+          "base_constraints": 0,
+          "nnz": 17816
+        },
+        "command": [
+          "/data/workspace/temp/round710/frontier-spp/baseline/highs_spp",
+          "/data/workspace/temp/round710/frontier-spp/baseline/highs/large2/input.dat",
+          "55.0",
+          "1",
+          "/data/workspace/temp/round710/frontier-spp/baseline/highs/large2/highs.log"
+        ],
+        "backend_wall_seconds": 0.06300374699640088,
+        "solver_exit_code": 0,
+        "metrics": {
+          "solver": "HiGHS",
+          "solver_version": "1.16.0",
+          "git_hash": "725b40f",
+          "threads": 2,
+          "seed": 1,
+          "model_status": 7,
+          "run_status": 0,
+          "best_bound": 229,
+          "mip_gap": 0,
+          "nodes": 1,
+          "build_seconds": 0.00323667,
+          "search_seconds": 0.055359840393066406,
+          "internal_seconds": 0.059168827,
+          "max_rss_kib": 19424
+        },
+        "solver_status": "OPTIMAL",
+        "independent_exact_feasible": true,
+        "objective": 229,
+        "selected_count": 74,
+        "best_bound": 229,
+        "official_numpy_feasible": true,
+        "worker_end_to_end_seconds": 0.18633226898964494,
+        "cpu_user_seconds": 0.263604,
+        "cpu_system_seconds": 0.027769999999999996,
+        "max_rss_kib": 44240,
+        "instance_name": "large2",
+        "external_end_to_end_seconds": 0.2655597539851442,
+        "worker_exit_code": 0
+      },
+      {
+        "solver": "highs",
+        "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+        "seed": 1,
+        "search_budget_seconds": 55.0,
+        "threads": 2,
+        "affinity": [
+          0,
+          1
+        ],
+        "ram_limit_bytes": 4294967296,
+        "status": "PASS",
+        "dimensions": {
+          "rows": 100,
+          "columns": 15000,
+          "base_constraints": 0,
+          "nnz": 67522
+        },
+        "command": [
+          "/data/workspace/temp/round710/frontier-spp/baseline/highs_spp",
+          "/data/workspace/temp/round710/frontier-spp/baseline/highs/large3/input.dat",
+          "55.0",
+          "1",
+          "/data/workspace/temp/round710/frontier-spp/baseline/highs/large3/highs.log"
+        ],
+        "backend_wall_seconds": 55.09729359598714,
+        "solver_exit_code": 0,
+        "metrics": {
+          "solver": "HiGHS",
+          "solver_version": "1.16.0",
+          "git_hash": "725b40f",
+          "threads": 2,
+          "seed": 1,
+          "model_status": 13,
+          "run_status": 1,
+          "best_bound": 57,
+          "mip_gap": 0.8074324324324318,
+          "nodes": 1212,
+          "build_seconds": 0.00611269,
+          "search_seconds": 55.06387162208557,
+          "internal_seconds": 55.071046647,
+          "max_rss_kib": 2327932
+        },
+        "solver_status": "FEASIBLE",
+        "independent_exact_feasible": true,
+        "objective": 296,
+        "selected_count": 29,
+        "best_bound": 57,
+        "official_numpy_feasible": true,
+        "worker_end_to_end_seconds": 55.254488346981816,
+        "cpu_user_seconds": 84.06896,
+        "cpu_system_seconds": 1.65141,
+        "max_rss_kib": 2327932,
+        "instance_name": "large3",
+        "external_end_to_end_seconds": 55.28984131399193,
+        "worker_exit_code": 0
+      }
+    ],
+    "batch_cpu_budget_seconds": 3600,
+    "batch_wall_budget_seconds": 1800,
+    "instance_wall_budget_seconds": 60,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "per_process_ram_bytes": 4294967296,
+    "cold_reference_files_present": false,
+    "current_instance": "large3",
+    "wall_seconds": 55.673961980995955,
+    "cpu_seconds": 86.180411
+  },
+  "cpsat": {
+    "status": "DONE",
+    "solver": "cpsat",
+    "pid": 35656,
+    "runs": [
+      {
+        "solver": "cpsat",
+        "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-tiny_instance.json",
+        "seed": 1,
+        "search_budget_seconds": 55.0,
+        "threads": 2,
+        "affinity": [
+          0,
+          1
+        ],
+        "ram_limit_bytes": 4294967296,
+        "status": "PASS",
+        "dimensions": {
+          "rows": 30,
+          "columns": 25,
+          "base_constraints": 0,
+          "nnz": 132
+        },
+        "command": [
+          "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv/bin/python",
+          "/data/workspace/temp/round710/frontier-spp/shared/spp_io.py",
+          "cpsat",
+          "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-tiny_instance.json",
+          "55.0",
+          "1"
+        ],
+        "backend_wall_seconds": 0.9367557039950043,
+        "solver_exit_code": 0,
+        "metrics": {
+          "solver": "OR-Tools CP-SAT",
+          "solver_version": "9.14.6206",
+          "threads": 2,
+          "seed": 1,
+          "build_seconds": 0.8281875799875706,
+          "search_seconds": 0.00525284,
+          "internal_seconds": 0.8345735899929423,
+          "best_bound": 16.0,
+          "branches": 0,
+          "conflicts": 0,
+          "response_stats": "CpSolverResponse summary:\nstatus: OPTIMAL\nobjective: 16\nbest_bound: 16\nintegers: 1\nbooleans: 0\nconflicts: 0\nbranches: 0\npropagations: 0\ninteger_propagations: 1\nrestarts: 0\nlp_iterations: 0\nwalltime: 0.00525284\nusertime: 0.00525288\ndeterministic_time: 8e-08\ngap_integral: 0\nsolution_fingerprint: 0xc223c2b344bd0d2d\n"
+        },
+        "solver_status": "OPTIMAL",
+        "independent_exact_feasible": true,
+        "objective": 16,
+        "selected_count": 5,
+        "best_bound": 16.0,
+        "official_numpy_feasible": true,
+        "worker_end_to_end_seconds": 0.9979860010207631,
+        "cpu_user_seconds": 1.085143,
+        "cpu_system_seconds": 0.075977,
+        "max_rss_kib": 116924,
+        "instance_name": "tiny",
+        "external_end_to_end_seconds": 1.0678528160206042,
+        "worker_exit_code": 0
+      },
+      {
+        "solver": "cpsat",
+        "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_2.json",
+        "seed": 1,
+        "search_budget_seconds": 55.0,
+        "threads": 2,
+        "affinity": [
+          0,
+          1
+        ],
+        "ram_limit_bytes": 4294967296,
+        "status": "PASS",
+        "dimensions": {
+          "rows": 100,
+          "columns": 15000,
+          "base_constraints": 0,
+          "nnz": 17816
+        },
+        "command": [
+          "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv/bin/python",
+          "/data/workspace/temp/round710/frontier-spp/shared/spp_io.py",
+          "cpsat",
+          "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_2.json",
+          "55.0",
+          "1"
+        ],
+        "backend_wall_seconds": 1.0388298080069944,
+        "solver_exit_code": 0,
+        "metrics": {
+          "solver": "OR-Tools CP-SAT",
+          "solver_version": "9.14.6206",
+          "threads": 2,
+          "seed": 1,
+          "build_seconds": 0.8877590170013718,
+          "search_seconds": 0.039804208,
+          "internal_seconds": 0.9373814540158492,
+          "best_bound": 229.0,
+          "branches": 0,
+          "conflicts": 0,
+          "response_stats": "CpSolverResponse summary:\nstatus: OPTIMAL\nobjective: 229\nbest_bound: 229\nintegers: 1\nbooleans: 0\nconflicts: 0\nbranches: 0\npropagations: 0\ninteger_propagations: 1\nrestarts: 0\nlp_iterations: 0\nwalltime: 0.0398042\nusertime: 0.0398043\ndeterministic_time: 0.0024316\ngap_integral: 0\nsolution_fingerprint: 0x76f91f6c40ec652a\n"
+        },
+        "solver_status": "OPTIMAL",
+        "independent_exact_feasible": true,
+        "objective": 229,
+        "selected_count": 76,
+        "best_bound": 229.0,
+        "official_numpy_feasible": true,
+        "worker_end_to_end_seconds": 1.1539652310020756,
+        "cpu_user_seconds": 1.251619,
+        "cpu_system_seconds": 0.084091,
+        "max_rss_kib": 134996,
+        "instance_name": "large2",
+        "external_end_to_end_seconds": 1.2186561769922264,
+        "worker_exit_code": 0
+      },
+      {
+        "solver": "cpsat",
+        "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+        "seed": 1,
+        "search_budget_seconds": 55.0,
+        "threads": 2,
+        "affinity": [
+          0,
+          1
+        ],
+        "ram_limit_bytes": 4294967296,
+        "status": "PASS",
+        "dimensions": {
+          "rows": 100,
+          "columns": 15000,
+          "base_constraints": 0,
+          "nnz": 67522
+        },
+        "command": [
+          "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv/bin/python",
+          "/data/workspace/temp/round710/frontier-spp/shared/spp_io.py",
+          "cpsat",
+          "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+          "55.0",
+          "1"
+        ],
+        "backend_wall_seconds": 55.157213633006904,
+        "solver_exit_code": 0,
+        "metrics": {
+          "solver": "OR-Tools CP-SAT",
+          "solver_version": "9.14.6206",
+          "threads": 2,
+          "seed": 1,
+          "build_seconds": 0.9743378419952933,
+          "search_seconds": 54.048502168000006,
+          "internal_seconds": 55.03330405999441,
+          "best_bound": -13243.0,
+          "branches": 1164393,
+          "conflicts": 40388,
+          "response_stats": "CpSolverResponse summary:\nstatus: FEASIBLE\nobjective: 823\nbest_bound: -13243\nintegers: 14984\nbooleans: 14939\nconflicts: 40388\nbranches: 1164393\npropagations: 21711151\ninteger_propagations: 29001892\nrestarts: 40212\nlp_iterations: 2455\nwalltime: 54.0485\nusertime: 54.0485\ndeterministic_time: 157.035\ngap_integral: 1476.9\nsolution_fingerprint: 0x561f964e49a5ab52\n"
+        },
+        "solver_status": "FEASIBLE",
+        "independent_exact_feasible": true,
+        "objective": 823,
+        "selected_count": 33,
+        "best_bound": -13243.0,
+        "official_numpy_feasible": true,
+        "worker_end_to_end_seconds": 55.30773661300191,
+        "cpu_user_seconds": 107.15256000000001,
+        "cpu_system_seconds": 0.451254,
+        "max_rss_kib": 575772,
+        "instance_name": "large3",
+        "external_end_to_end_seconds": 55.38194040901726,
+        "worker_exit_code": 0
+      }
+    ],
+    "batch_cpu_budget_seconds": 3600,
+    "batch_wall_budget_seconds": 1800,
+    "instance_wall_budget_seconds": 60,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "per_process_ram_bytes": 4294967296,
+    "cold_reference_files_present": false,
+    "current_instance": "large3",
+    "wall_seconds": 57.671706622000784,
+    "cpu_seconds": 111.751929
+  },
+  "table": [
+    {
+      "solver": "highs",
+      "instance": "tiny",
+      "seed": 1,
+      "status": "OPTIMAL",
+      "objective": 16,
+      "solver_best_bound": 16,
+      "positive_cost_trivial_bound": 0,
+      "effective_best_bound": 16,
+      "external_wall_seconds": 0.11552796300384216,
+      "cpu_seconds": 0.150771,
+      "max_rss_kib": 28032,
+      "whole_schema_feasible": true,
+      "transport_sha256": "5c01050527a72c3a2b5115013ff65334ddfd4b3e17917bf661f571b8707df9ff",
+      "transport_matches_shared": true,
+      "artifact_sha256": {
+        "raw.json": "c7bf4a134a7915317409cc09309d7733d598694e01644f843cda619bf40b5dc2",
+        "solution.json": "9dcf2541b966642a88b21cacc49131b54c3aeade41fea33d5bff2a48b9d4bedd",
+        "exact-check.json": "fa528791a524a7b4b4f39bb193eb07c4ca5240798e4e9d7ebdb7ca85d7585875",
+        "official-check.json": "3269392edcbb7720882e77caadb88b4a9cf2fda04cf482cebd23baace4a531fd",
+        "run.json": "e17a409dbac8dddd42c2feee3aeaea9bfe10b86a61e13a8ab2aeea1dc0036e4b"
+      }
+    },
+    {
+      "solver": "highs",
+      "instance": "large2",
+      "seed": 1,
+      "status": "OPTIMAL",
+      "objective": 229,
+      "solver_best_bound": 229,
+      "positive_cost_trivial_bound": 0,
+      "effective_best_bound": 229,
+      "external_wall_seconds": 0.2655597539851442,
+      "cpu_seconds": 0.291374,
+      "max_rss_kib": 44240,
+      "whole_schema_feasible": true,
+      "transport_sha256": "f4a80ab0d9968e7ad30f233ac117907331ac33e981e4f5b76399a4fece77c2c8",
+      "transport_matches_shared": true,
+      "artifact_sha256": {
+        "raw.json": "643c01c6cb164015aefd72b86bc1244e28bb48609b34d613ff8a59404e0cbe56",
+        "solution.json": "371e0da49186c9dd788c8dfacab426e5a63fda484b189d9edf127d49a8b347cf",
+        "exact-check.json": "862fc91d6b84219d795ecb45beb06ea25970803e39a88fae84aff29975d43591",
+        "official-check.json": "3269392edcbb7720882e77caadb88b4a9cf2fda04cf482cebd23baace4a531fd",
+        "run.json": "044fad708106e1dc6bd4a72839bbb212197db4935643f6c5863840db45cabd6f"
+      }
+    },
+    {
+      "solver": "highs",
+      "instance": "large3",
+      "seed": 1,
+      "status": "FEASIBLE",
+      "objective": 296,
+      "solver_best_bound": 57,
+      "positive_cost_trivial_bound": 0,
+      "effective_best_bound": 57,
+      "external_wall_seconds": 55.28984131399193,
+      "cpu_seconds": 85.72037,
+      "max_rss_kib": 2327932,
+      "whole_schema_feasible": true,
+      "transport_sha256": "66713bffc3d1a5305f3647696c483ca572227fa26c237d6397ce7f6ea5b4af83",
+      "transport_matches_shared": true,
+      "artifact_sha256": {
+        "raw.json": "a57eb5328a4cd156ce18ba02256d9733cd7b6f2ca7211fe36b976a49f78b68bd",
+        "solution.json": "8c38c34c0affe2859bbae8b3600a85cf4197432e1bbb82684a81785bbc6bb1d4",
+        "exact-check.json": "5e510732a12c0be6310863bb7affbf096dda68a251abb7cca4e8b53b591916e1",
+        "official-check.json": "3269392edcbb7720882e77caadb88b4a9cf2fda04cf482cebd23baace4a531fd",
+        "run.json": "9135ff5271399098b84a6615eeafbc9e0d2bfa8019ecba085cf56fe89888687d"
+      }
+    },
+    {
+      "solver": "cpsat",
+      "instance": "tiny",
+      "seed": 1,
+      "status": "OPTIMAL",
+      "objective": 16,
+      "solver_best_bound": 16.0,
+      "positive_cost_trivial_bound": 0,
+      "effective_best_bound": 16.0,
+      "external_wall_seconds": 1.0678528160206042,
+      "cpu_seconds": 1.16112,
+      "max_rss_kib": 116924,
+      "whole_schema_feasible": true,
+      "transport_sha256": "5c01050527a72c3a2b5115013ff65334ddfd4b3e17917bf661f571b8707df9ff",
+      "transport_matches_shared": true,
+      "artifact_sha256": {
+        "raw.json": "b6ba14a99d2acde43a207be9f6452d7530a7fb58038089976474e0d3a61f0764",
+        "solution.json": "9dcf2541b966642a88b21cacc49131b54c3aeade41fea33d5bff2a48b9d4bedd",
+        "exact-check.json": "fa528791a524a7b4b4f39bb193eb07c4ca5240798e4e9d7ebdb7ca85d7585875",
+        "official-check.json": "3269392edcbb7720882e77caadb88b4a9cf2fda04cf482cebd23baace4a531fd",
+        "run.json": "3098a1d3c214eca1530c10cb6221ae734e6e19f941de8aedafd715e28786aa5a"
+      }
+    },
+    {
+      "solver": "cpsat",
+      "instance": "large2",
+      "seed": 1,
+      "status": "OPTIMAL",
+      "objective": 229,
+      "solver_best_bound": 229.0,
+      "positive_cost_trivial_bound": 0,
+      "effective_best_bound": 229.0,
+      "external_wall_seconds": 1.2186561769922264,
+      "cpu_seconds": 1.33571,
+      "max_rss_kib": 134996,
+      "whole_schema_feasible": true,
+      "transport_sha256": "f4a80ab0d9968e7ad30f233ac117907331ac33e981e4f5b76399a4fece77c2c8",
+      "transport_matches_shared": true,
+      "artifact_sha256": {
+        "raw.json": "02ecfbb0c38464765263060356df1008235fc05b37a826fa17a640d35ba0fbc0",
+        "solution.json": "fbd9a57a72bd365d0bfa16940e4e311635174a86bd3e6e8f51c61f611597b286",
+        "exact-check.json": "cd9d5b8c9d9cbdefbe0bf93748aa4593911188b7629e99f62987210e51f58b04",
+        "official-check.json": "3269392edcbb7720882e77caadb88b4a9cf2fda04cf482cebd23baace4a531fd",
+        "run.json": "8545a78fb8552ffe05ef2c9174c49238323976a714cc4501ebe7f9a09fa2a35e"
+      }
+    },
+    {
+      "solver": "cpsat",
+      "instance": "large3",
+      "seed": 1,
+      "status": "FEASIBLE",
+      "objective": 823,
+      "solver_best_bound": -13243.0,
+      "positive_cost_trivial_bound": 0,
+      "effective_best_bound": 0,
+      "external_wall_seconds": 55.38194040901726,
+      "cpu_seconds": 107.60381400000001,
+      "max_rss_kib": 575772,
+      "whole_schema_feasible": true,
+      "transport_sha256": "66713bffc3d1a5305f3647696c483ca572227fa26c237d6397ce7f6ea5b4af83",
+      "transport_matches_shared": true,
+      "artifact_sha256": {
+        "raw.json": "9fe2c628d1c93b01121e3fd4078a0f56fffbceafc8b0013c4c35d3fd4639672e",
+        "solution.json": "c563c7f5490367edb561d58dfbf84d4fc0eefa912ddae0bab05d36829e04d0ed",
+        "exact-check.json": "d6da8069d58df9893aef124f097ab6d02545cf3fdd7605bc03e53cb56739828f",
+        "official-check.json": "3269392edcbb7720882e77caadb88b4a9cf2fda04cf482cebd23baace4a531fd",
+        "run.json": "0c59853b8db0b2f48dd302bba205a703d07ef1def0a108b178a37742de9c6f6f"
+      }
+    }
+  ],
+  "install": {
+    "status": "PASS",
+    "package": "ortools==9.14.6206",
+    "index": "https://pypi.org/simple",
+    "isolated_venv": "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv",
+    "new_file_budget_bytes": 629145600,
+    "wall_budget_seconds": 300,
+    "commands": [
+      [
+        "/usr/local/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-cache",
+        "--python",
+        "/usr/bin/python3",
+        "--system-site-packages",
+        "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv"
+      ],
+      [
+        "/usr/local/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv/bin/python",
+        "--no-config",
+        "--index-url",
+        "https://pypi.org/simple",
+        "--only-binary=:all:",
+        "--no-cache-dir",
+        "ortools==9.14.6206"
+      ]
+    ],
+    "pid": 35656,
+    "existing_installer": "uv 0.12.23 (x86_64-unknown-linux-gnu)",
+    "new_file_bytes": 183623976,
+    "versions": {
+      "ortools": "9.14.6206",
+      "absl-py": "2.5.1",
+      "protobuf": "6.31.1",
+      "pandas": "3.1.1",
+      "numpy": "2.5.5",
+      "immutabledict": "4.3.1"
+    },
+    "wall_seconds": 2.9545942340046167,
+    "requested_system_site_packages": true,
+    "effective_private_numpy": "2.5.5",
+    "effective_checker_numpy": "2.2.4",
+    "raw_receipt": "install-state.json"
+  },
+  "install_initial_stop": {
+    "status": "STOP",
+    "package": "ortools==9.14.6206",
+    "index": "https://pypi.org/simple",
+    "isolated_venv": "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv",
+    "reuse_system_numpy": true,
+    "new_file_budget_bytes": 629145600,
+    "wall_budget_seconds": 300,
+    "commands": [
+      [
+        "/usr/bin/python3",
+        "-m",
+        "venv",
+        "--system-site-packages",
+        "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv"
+      ]
+    ],
+    "pid": 35582,
+    "failure": "ValueError: mandatory wheel/venv installation exit code 1",
+    "wall_seconds": 1.0039494599914178,
+    "new_file_bytes": 9109617
+  },
+  "remote_environment": "../shared/remote-environment.json",
+  "environment": {
+    "checker_numpy": "2.2.4",
+    "private_cpsat_numpy": "2.5.5",
+    "existing_uv": "0.12.23",
+    "new_file_bytes_at_final_snapshot": 184584904
+  },
+  "resource_all_pass": true,
+  "native_comparator": {
+    "instance": "large3",
+    "solver": "highs",
+    "objective": 296,
+    "best_bound": 57,
+    "external_wall_seconds": 55.28984131399193,
+    "gate": "compare whole feasible native under same 2 CPU / 4 GiB / 60 s end-to-end"
+  },
+  "batch_totals": {
+    "solver_wall_seconds": 113.34566860299674,
+    "solver_cpu_seconds": 197.93234
+  },
+  "remote_heavy_status": "RELEASED",
+  "formal_extra_solver_runs": 0,
+  "dependencies": [
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "requires": null
+    },
+    {
+      "name": "absl-py",
+      "version": "2.5.1",
+      "requires": null
+    },
+    {
+      "name": "protobuf",
+      "version": "6.31.1",
+      "requires": null
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "requires": null
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.5",
+      "requires": null
+    },
+    {
+      "name": "ortools",
+      "version": "9.14.6206",
+      "requires": [
+        "absl-py>=2.0.0",
+        "numpy>=1.13.3",
+        "pandas>=2.0.0",
+        "protobuf<6.32,>=6.31.1",
+        "typing-extensions>=4.12",
+        "immutabledict>=3.0.0"
+      ]
+    },
+    {
+      "name": "pandas",
+      "version": "3.1.1",
+      "requires": [
+        "numpy>=2.0.2; python_version < \"3.14\"",
+        "numpy>=2.3.3; python_version >= \"3.14\"",
+        "python-dateutil>=2.9.0",
+        "tzdata; sys_platform == \"win32\"",
+        "tzdata; sys_platform == \"emscripten\"",
+        "pytest>=8.3.4; extra == \"test\"",
+        "pytest-xdist>=3.6.1; extra == \"test\"",
+        "pyarrow>=16.0.0; extra == \"pyarrow\"",
+        "bottleneck>=1.5.0; extra == \"performance\"",
+        "numba>=0.61.2; extra == \"performance\"",
+        "numexpr!=2.14.1,>=2.11.0; extra == \"performance\"",
+        "scipy>=1.16.1; extra == \"computation\"",
+        "xarray>=2025.7.1; extra == \"computation\"",
+        "fsspec>=2025.7.0; extra == \"fss\"",
+        "s3fs>=2025.7.0; extra == \"aws\"",
+        "gcsfs>=2025.7.0; extra == \"gcp\"",
+        "odfpy>=1.4.1; extra == \"excel\"",
+        "openpyxl>=3.1.5; extra == \"excel\"",
+        "python-calamine>=0.4.0; extra == \"excel\"",
+        "pyxlsb>=1.0.10; extra == \"excel\"",
+        "xlrd>=2.0.2; extra == \"excel\"",
+        "xlsxwriter>=3.2.5; extra == \"excel\"",
+        "pandas[pyarrow]; extra == \"parquet\"",
+        "pandas[pyarrow]; extra == \"feather\"",
+        "pyiceberg>=0.9.1; extra == \"iceberg\"",
+        "tables>=3.10.2; extra == \"hdf5\"",
+        "pyreadstat>=1.3.0; extra == \"spss\"",
+        "SQLAlchemy>=2.0.42; extra == \"postgresql\"",
+        "psycopg2>=2.9.10; extra == \"postgresql\"",
+        "adbc-driver-postgresql>=1.7.0; extra == \"postgresql\"",
+        "SQLAlchemy>=2.0.42; extra == \"mysql\"",
+        "pymysql>=1.1.1; extra == \"mysql\"",
+        "SQLAlchemy>=2.0.42; extra == \"sql-other\"",
+        "adbc-driver-postgresql>=1.7.0; extra == \"sql-other\"",
+        "adbc-driver-sqlite>=1.7.0; extra == \"sql-other\"",
+        "beautifulsoup4>=4.13.4; extra == \"html\"",
+        "html5lib>=1.1; extra == \"html\"",
+        "lxml>=6.0.0; extra == \"html\"",
+        "lxml>=6.0.0; extra == \"xml\"",
+        "matplotlib>=3.10.5; extra == \"plot\"",
+        "jinja2>=3.1.6; extra == \"output-formatting\"",
+        "tabulate>=0.9.0; extra == \"output-formatting\"",
+        "PyQt5>=5.15.11; extra == \"clipboard\"",
+        "qtpy>=2.4.3; extra == \"clipboard\"",
+        "zstandard>=0.23.0; extra == \"compression\"",
+        "pytz>=2020.1; extra == \"timezone\"",
+        "pandas[aws,clipboard,compression,computation,excel,feather,fss,gcp,hdf5,html,iceberg,mysql,output-formatting,parquet,performance,plot,postgresql,pyarrow,spss,sql-other,test,timezone,xml]; extra == \"all\"",
+        "fastparquet>=2024.11.0; extra == \"all\""
+      ]
+    },
+    {
+      "name": "python-dateutil",
+      "version": "4.0.0",
+      "requires": [
+        "tzdata"
+      ]
+    },
+    {
+      "name": "immutabledict",
+      "version": "4.3.1",
+      "requires": null
+    }
+  ]
+}

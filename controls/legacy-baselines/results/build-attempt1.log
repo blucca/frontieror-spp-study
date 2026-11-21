@@ -1,0 +1,4 @@
+/usr/bin/ld: /data/workspace/temp/round709/highs-native/replay/build/lib/libhighs.a(HighsExternalApi.cpp.o): in function `std::once_flag::_Prepare_execution::_Prepare_execution<std::call_once<HighsExternalApi::tryLoad(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)::$_0>(std::once_flag&, HighsExternalApi::tryLoad(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)::$_0&&)::{lambda()#1}>(HighsExternalApi::tryLoad(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)::$_0&)::{lambda()#1}::__invoke()':
+HighsExternalApi.cpp:(.text+0x194): undefined reference to `HighsExtras_getApi'
+/usr/bin/ld: HighsExternalApi.cpp:(.text+0x199): undefined reference to `HighsExtras_getFeatureInfo'
+collect2: error: ld returned 1 exit status

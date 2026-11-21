@@ -1,4 +1,5 @@
 """Independent uniform hyperedges conditional on size: a heuristic, not actual cover count."""
+import argparse
 import collections
 import json
 import math
@@ -38,13 +39,18 @@ assert abs(math.exp(log_expected_covers(2, {1: 2})) - 0.5) < 1e-12
 assert abs(math.exp(log_expected_covers(2, {2: 1})) - 1) < 1e-12
 
 if __name__ == '__main__':
-    x = json.loads((Path(__file__).parents[1] / 'frontier-benchmark-source/source-receipts/hoffman1993-large_instance_3.json').read_text())
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--instance', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    args = parser.parse_args()
+    x = json.loads(args.instance.read_text())
     n = x['dimensions']['num_rows']
     report = []
     for theta in (1.5, 1.6, 2, 2.25, 2.5, 3, 3.5, 4, 5, 6, 8, 10):
-        groups = collections.Counter(len(s) for c, s in zip(x['cost_vector'], x['constraint_matrix_A']['columns']) if c / len(s) <= theta)
+        groups = collections.Counter(len(s) for c, s in zip(x['cost_vector'], x['constraint_matrix_A']['columns']) if s and c / len(s) <= theta)
         loge = log_expected_covers(n, groups)
         report.append({'density_threshold': theta, 'columns': sum(groups.values()), 'sizes': dict(groups), 'uniform_random_expected_covers_log10': loge / math.log(10)})
     result = {'assumption': __doc__, 'checks': 'PASS', 'report': report}
-    Path(__file__).with_name('density-entropy.json').write_text(json.dumps(result, indent=2))
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(result, indent=2))
     print('PASS')

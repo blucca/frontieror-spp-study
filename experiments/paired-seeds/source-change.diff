@@ -1,0 +1,76 @@
+--- frozen-v1/solve.py
++++ v1-seeds/solve.py
+@@ -82,7 +82,7 @@
+     return float(value) if math.isfinite(value) else None
+ 
+ 
+-def highs_solve(data, deadline, incumbent=None):
++def highs_solve(data, deadline, incumbent=None, seed=1):
+     """Full original sparse MILP, including K=num_constraints Base ranges."""
+     begin = time.monotonic()
+     import highspy
+@@ -114,7 +114,7 @@
+     h = highspy.Highs()
+     h.setOptionValue("output_flag", False)
+     h.setOptionValue("threads", 2)
+-    h.setOptionValue("random_seed", 1)
++    h.setOptionValue("random_seed", seed)
+     status = h.passModel(lp)
+     if status == highspy.HighsStatus.kError:
+         raise ValueError("highspy full sparse model rejected")
+@@ -134,7 +134,7 @@
+     chosen = [j for j, v in enumerate(sol.col_value) if v > 0.5] if sol.value_valid else None
+     if chosen is not None and not exact_cover(data, chosen):
+         chosen = None
+-    metrics = {"solver": "highspy", "solver_version": h.version(), "threads": 2, "seed": 1,
++    metrics = {"solver": "highspy", "solver_version": h.version(), "threads": 2, "seed": seed,
+                "model_columns": m, "model_rows": n + k, "model_nnz": len(indices), "model_scope": "full_original",
+                "model_status": str(h.getModelStatus()), "run_status": str(run_status), "warm_status": warm_status,
+                "model_build_seconds": build, "search_seconds": time.monotonic() - search,
+@@ -253,7 +253,7 @@
+                              "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"}
+ 
+ 
+-def solve(data, deadline):
++def solve(data, deadline, seed=1):
+     n, m, k, _ = dimensions(data)
+     costs, cols = data["cost_vector"], data["constraint_matrix_A"]["columns"]
+     best, trace, probes = None, [], {}
+@@ -273,17 +273,17 @@
+             best = [singleton[r] for r in range(n)]
+             probes["cold"] = {"status": "SINGLETON_COVER", "columns": len(ordered)}
+         elif ordered:
+-            best, probes["cold"] = bitset_probe(data, ordered, min(deadline, time.monotonic() + 2), 1)
++            best, probes["cold"] = bitset_probe(data, ordered, min(deadline, time.monotonic() + 2), seed)
+         if best is not None:
+             trace.append([time.monotonic() - START, cost(data, best), "pure_python_cold"])
+         if m > 3 * n and sum(map(len, cols)) > 2 * m and ordered and time.monotonic() < deadline - 1:
+             pool, probes["pool"] = density_pool(data, ordered)
+-            found, probes["density_probe"] = bitset_probe(data, pool, min(deadline - 1, time.monotonic() + 6), 104729,
++            found, probes["density_probe"] = bitset_probe(data, pool, min(deadline - 1, time.monotonic() + 6), 104729 * seed,
+                                                         cost(data, best) if best is not None else math.inf)
+             if found is not None:
+                 best = found
+                 trace.append([time.monotonic() - START, cost(data, best), "density_pool_basin"])
+-    candidate, metrics = highs_solve(data, deadline, best)
++    candidate, metrics = highs_solve(data, deadline, best, seed)
+     if candidate is not None and (best is None or cost(data, candidate) < cost(data, best)):
+         best = candidate
+         trace.append([time.monotonic() - START, cost(data, best), "warm_full_highs"])
+@@ -299,6 +299,7 @@
+     parser.add_argument("--instance", required=True)
+     parser.add_argument("--output", required=True)
+     parser.add_argument("--time-limit", type=float, required=True)
++    parser.add_argument("--seed", type=int, default=1)
+     args = parser.parse_args()
+     if args.problem != "hoffman1993" or args.time_limit <= 0:
+         raise ValueError("hoffman1993 and a positive time limit required")
+@@ -309,7 +310,7 @@
+     args = cli_args()
+     deadline = START + max(0.01, min(55.0, args.time_limit - 5.0))
+     data = read_instance(args.instance)
+-    chosen, metrics = solve(data, deadline)
++    chosen, metrics = solve(data, deadline, args.seed)
+     solution = write_solution(data, chosen, args.output)
+     metrics.update(objective=solution["objective_value"], selected_count=len(chosen), internal_seconds=time.monotonic() - START,
+                    internal_budget_seconds=max(0.01, min(55.0, args.time_limit - 5.0)))

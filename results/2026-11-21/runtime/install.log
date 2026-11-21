@@ -1,0 +1,25 @@
+Using CPython 3.13.5 interpreter at: /usr/bin/python3
+Creating virtual environment at: eligible-baseline/main-env
+Activate with: source eligible-baseline/main-env/bin/activate
+Using Python 3.13.5 environment at: eligible-baseline/main-env
+Resolved 10 packages in 193ms
+Downloading pandas (11.4MiB)
+Downloading numpy (15.9MiB)
+Downloading highspy (4.8MiB)
+Downloading ortools (28.5MiB)
+ Downloaded highspy
+ Downloaded numpy
+ Downloaded pandas
+ Downloaded ortools
+Prepared 10 packages in 316ms
+Installed 10 packages in 15ms
+ + absl-py==2.5.1
+ + highspy==1.15.1
+ + immutabledict==4.3.1
+ + numpy==2.5.3
+ + ortools==9.15.6755
+ + pandas==3.1.1
+ + protobuf==6.33.6
+ + python-dateutil==4.0.0
+ + typing-extensions==4.16.0
+ + tzdata==2026.6

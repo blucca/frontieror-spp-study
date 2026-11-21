@@ -1,0 +1,55 @@
+{
+  "tiny": {
+    "rows": 30,
+    "distinct_columns": 25,
+    "row_support_goal": 7,
+    "support_cutoffs": {},
+    "full_minimum_degree": 1
+  },
+  "large2": {
+    "rows": 100,
+    "distinct_columns": 2178,
+    "row_support_goal": 10,
+    "support_cutoffs": {
+      "10": {
+        "theta": 31.666666666666668,
+        "pool_size": 886,
+        "minimum_degree": 10,
+        "mean_degree": 18.64
+      },
+      "20": {
+        "theta": 55.0,
+        "pool_size": 1429,
+        "minimum_degree": 21,
+        "mean_degree": 30.68
+      }
+    },
+    "full_minimum_degree": 35
+  },
+  "large3": {
+    "rows": 100,
+    "distinct_columns": 14970,
+    "row_support_goal": 10,
+    "support_cutoffs": {
+      "10": {
+        "theta": 1.6,
+        "pool_size": 439,
+        "minimum_degree": 12,
+        "mean_degree": 21.09
+      },
+      "20": {
+        "theta": 2.25,
+        "pool_size": 652,
+        "minimum_degree": 20,
+        "mean_degree": 31.11
+      },
+      "40": {
+        "theta": 3.5,
+        "pool_size": 1112,
+        "minimum_degree": 41,
+        "mean_degree": 53.27
+      }
+    },
+    "full_minimum_degree": 617
+  }
+}

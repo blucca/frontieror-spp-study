@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "package": "ortools==9.14.6206",
+  "index": "https://pypi.org/simple",
+  "isolated_venv": "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv",
+  "reuse_system_numpy": true,
+  "new_file_budget_bytes": 629145600,
+  "wall_budget_seconds": 300,
+  "commands": [
+    [
+      "/usr/local/bin/uv",
+      "venv",
+      "--no-config",
+      "--no-cache",
+      "--python",
+      "/usr/bin/python3",
+      "--system-site-packages",
+      "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv"
+    ],
+    [
+      "/usr/local/bin/uv",
+      "pip",
+      "install",
+      "--python",
+      "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv/bin/python",
+      "--no-config",
+      "--index-url",
+      "https://pypi.org/simple",
+      "--only-binary=:all:",
+      "--no-cache-dir",
+      "ortools==9.14.6206"
+    ]
+  ],
+  "pid": 35656,
+  "existing_installer": "uv 0.12.23 (x86_64-unknown-linux-gnu)",
+  "new_file_bytes": 183623976,
+  "versions": {
+    "ortools": "9.14.6206",
+    "absl-py": "2.5.1",
+    "protobuf": "6.31.1",
+    "pandas": "3.1.1",
+    "numpy": "2.5.5",
+    "immutabledict": "4.3.1"
+  },
+  "wall_seconds": 2.9545942340046167
+}

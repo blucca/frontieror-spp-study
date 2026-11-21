@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "assertion": "num_bases1/K2: select j1, objective2, 3 native model rows",
+  "solver_runs": 1
+}

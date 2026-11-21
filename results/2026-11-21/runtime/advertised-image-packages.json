@@ -1,0 +1,30 @@
+{
+  "source": "submission-format-text.txt / Every installed package table",
+  "images": [
+    "python-3.12",
+    "python-3.14"
+  ],
+  "os": "Debian bookworm",
+  "identical_versions_in_both_images": {
+    "absl-py": "2.5.0",
+    "annotated-types": "0.8.0",
+    "cpsat-logutils": "1.0.0",
+    "highspy": "1.15.1",
+    "immutabledict": "4.3.1",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "orloge": "1.0.0",
+    "ortools": "9.15.6755",
+    "pandas": "3.0.6",
+    "protobuf": "6.33.6",
+    "pulp": "4.0.0",
+    "pydantic": "2.13.5",
+    "pydantic-core": "2.46.5",
+    "pyomo": "6.10.1",
+    "python-dateutil": "2.9.0.post0",
+    "scipy": "1.18.1",
+    "six": "1.17.0",
+    "typing-extensions": "4.16.0",
+    "typing-inspection": "0.4.4"
+  }
+}

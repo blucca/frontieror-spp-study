@@ -1,0 +1,187 @@
+{
+  "captured_utc": "2026-11-21T05:04:37.199260+00:00",
+  "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "platform": "Linux-6.18.54-instabox-x86_64-with-glibc2.41",
+  "host_cpu_count": 4,
+  "initial_host_affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "measured_worker_affinity": [
+    0,
+    1
+  ],
+  "system_numpy": "2.2.4",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source_file_integrity": {
+    "hoffman1993-tiny_instance.json": {
+      "bytes": 3078,
+      "sha256": "5bf883165945600510cba1b218ba49b3ffe2e7bd432cf9706cd4940e73b01c35",
+      "matches_original": true
+    },
+    "hoffman1993-large_instance_2.json": {
+      "bytes": 579763,
+      "sha256": "32cd2a199670ca0bf38c540f0f6b9d0453b942147e7edda2dcb58fb06aa6b0ab",
+      "matches_original": true
+    },
+    "hoffman1993-large_instance_3.json": {
+      "bytes": 1171365,
+      "sha256": "a742ddd66d78d7a3412237f51398c29a3eb5e28eb6d2d1b1724cfac78ff1c762",
+      "matches_original": true
+    },
+    "hoffman1993-feasibility_check.py": {
+      "bytes": 19244,
+      "sha256": "321bff76bf51fcf30ff66d2847ac376a568dda5861d2a8a4e63605c6063039dd",
+      "matches_original": true
+    },
+    "hoffman1993-instance_schema.json": {
+      "bytes": 1306,
+      "sha256": "5196b8080c04bb820b6a0908a4e9405a07279c98e8153aa9996a1b827caf81de",
+      "matches_original": true
+    },
+    "hoffman1993-solution_schema.json": {
+      "bytes": 301,
+      "sha256": "f9092efb4aa948ad5970ceb2b9a926b6efe00fd4473ffdbc0e0d6bfc91ec2a92",
+      "matches_original": true
+    },
+    "README.md": {
+      "bytes": 5030,
+      "sha256": "10faa9f324daa4cffdff169f1c6bab14a79bb9c3c9051e3cd1d6e1d7553f466b",
+      "matches_original": true
+    },
+    "LICENSE.md": {
+      "bytes": 551,
+      "sha256": "201897fafb38061ac07a207c34b6a146685f78261a9aab3c7e651e1510f7edf8",
+      "matches_original": true
+    }
+  },
+  "source_directory_files": [
+    "LICENSE.md",
+    "README.md",
+    "hoffman1993-feasibility_check.py",
+    "hoffman1993-instance_schema.json",
+    "hoffman1993-large_instance_2.json",
+    "hoffman1993-large_instance_3.json",
+    "hoffman1993-solution_schema.json",
+    "hoffman1993-tiny_instance.json"
+  ],
+  "cold_reference_files_present": false,
+  "private_ortools_environment": {
+    "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+    "effective_numpy": "2.5.5",
+    "effective_numpy_file": "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv/lib/python3.13/site-packages/numpy/__init__.py",
+    "installed": [
+      {
+        "name": "tzdata",
+        "version": "2026.6",
+        "requires": null
+      },
+      {
+        "name": "absl-py",
+        "version": "2.5.1",
+        "requires": null
+      },
+      {
+        "name": "protobuf",
+        "version": "6.31.1",
+        "requires": null
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0",
+        "requires": null
+      },
+      {
+        "name": "numpy",
+        "version": "2.5.5",
+        "requires": null
+      },
+      {
+        "name": "ortools",
+        "version": "9.14.6206",
+        "requires": [
+          "absl-py>=2.0.0",
+          "numpy>=1.13.3",
+          "pandas>=2.0.0",
+          "protobuf<6.32,>=6.31.1",
+          "typing-extensions>=4.12",
+          "immutabledict>=3.0.0"
+        ]
+      },
+      {
+        "name": "pandas",
+        "version": "3.1.1",
+        "requires": [
+          "numpy>=2.0.2; python_version < \"3.14\"",
+          "numpy>=2.3.3; python_version >= \"3.14\"",
+          "python-dateutil>=2.9.0",
+          "tzdata; sys_platform == \"win32\"",
+          "tzdata; sys_platform == \"emscripten\"",
+          "pytest>=8.3.4; extra == \"test\"",
+          "pytest-xdist>=3.6.1; extra == \"test\"",
+          "pyarrow>=16.0.0; extra == \"pyarrow\"",
+          "bottleneck>=1.5.0; extra == \"performance\"",
+          "numba>=0.61.2; extra == \"performance\"",
+          "numexpr!=2.14.1,>=2.11.0; extra == \"performance\"",
+          "scipy>=1.16.1; extra == \"computation\"",
+          "xarray>=2025.7.1; extra == \"computation\"",
+          "fsspec>=2025.7.0; extra == \"fss\"",
+          "s3fs>=2025.7.0; extra == \"aws\"",
+          "gcsfs>=2025.7.0; extra == \"gcp\"",
+          "odfpy>=1.4.1; extra == \"excel\"",
+          "openpyxl>=3.1.5; extra == \"excel\"",
+          "python-calamine>=0.4.0; extra == \"excel\"",
+          "pyxlsb>=1.0.10; extra == \"excel\"",
+          "xlrd>=2.0.2; extra == \"excel\"",
+          "xlsxwriter>=3.2.5; extra == \"excel\"",
+          "pandas[pyarrow]; extra == \"parquet\"",
+          "pandas[pyarrow]; extra == \"feather\"",
+          "pyiceberg>=0.9.1; extra == \"iceberg\"",
+          "tables>=3.10.2; extra == \"hdf5\"",
+          "pyreadstat>=1.3.0; extra == \"spss\"",
+          "SQLAlchemy>=2.0.42; extra == \"postgresql\"",
+          "psycopg2>=2.9.10; extra == \"postgresql\"",
+          "adbc-driver-postgresql>=1.7.0; extra == \"postgresql\"",
+          "SQLAlchemy>=2.0.42; extra == \"mysql\"",
+          "pymysql>=1.1.1; extra == \"mysql\"",
+          "SQLAlchemy>=2.0.42; extra == \"sql-other\"",
+          "adbc-driver-postgresql>=1.7.0; extra == \"sql-other\"",
+          "adbc-driver-sqlite>=1.7.0; extra == \"sql-other\"",
+          "beautifulsoup4>=4.13.4; extra == \"html\"",
+          "html5lib>=1.1; extra == \"html\"",
+          "lxml>=6.0.0; extra == \"html\"",
+          "lxml>=6.0.0; extra == \"xml\"",
+          "matplotlib>=3.10.5; extra == \"plot\"",
+          "jinja2>=3.1.6; extra == \"output-formatting\"",
+          "tabulate>=0.9.0; extra == \"output-formatting\"",
+          "PyQt5>=5.15.11; extra == \"clipboard\"",
+          "qtpy>=2.4.3; extra == \"clipboard\"",
+          "zstandard>=0.23.0; extra == \"compression\"",
+          "pytz>=2020.1; extra == \"timezone\"",
+          "pandas[aws,clipboard,compression,computation,excel,feather,fss,gcp,hdf5,html,iceberg,mysql,output-formatting,parquet,performance,plot,postgresql,pyarrow,spss,sql-other,test,timezone,xml]; extra == \"all\"",
+          "fastparquet>=2024.11.0; extra == \"all\""
+        ]
+      },
+      {
+        "name": "python-dateutil",
+        "version": "4.0.0",
+        "requires": [
+          "tzdata"
+        ]
+      },
+      {
+        "name": "immutabledict",
+        "version": "4.3.1",
+        "requires": null
+      }
+    ]
+  },
+  "new_file_bytes": 184584904,
+  "sha256": {
+    "harness": "5bdaed279efa41601cbc49e0d70432675a857e2f4deecf6472c79b7da0891515",
+    "highs_adapter": "4818aeef3ffa90ba19a58a8fd0cefc72e91c7ed78d88655ea6a37b6f0d0b0bf5",
+    "highs_adapter_binary": "d2bc76151dfdde96f8086eb6b540568e13af68505cc26af442c59b5073757c09"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "status": "PASS",
+  "pid": 35875,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "main_python_images": [
+    "3.12",
+    "3.14"
+  ],
+  "actual_host_python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "new_files_cap_bytes": 629145600,
+  "new_files_before": 185223042,
+  "commands": [
+    [
+      "/usr/local/bin/uv",
+      "venv",
+      "--no-cache",
+      "--no-config",
+      "--system-site-packages",
+      "--python",
+      "/usr/bin/python3",
+      "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env"
+    ],
+    [
+      "/usr/local/bin/uv",
+      "pip",
+      "install",
+      "--no-config",
+      "--no-cache-dir",
+      "--only-binary=:all:",
+      "--index-url",
+      "https://pypi.org/simple",
+      "--python",
+      "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+      "highspy==1.15.1",
+      "ortools==9.15.6755",
+      "numpy==2.5.3"
+    ]
+  ],
+  "observed": {
+    "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+    "versions": {
+      "highspy": "1.15.1",
+      "ortools": "9.15.6755",
+      "numpy": "2.5.3"
+    },
+    "highs_runtime": "1.15.1",
+    "all_private_dependencies": [
+      {
+        "name": "ortools",
+        "version": "9.15.6755",
+        "requires": [
+          "absl-py>=2.0.0",
+          "numpy>=2.0.2",
+          "pandas>=2.0.0",
+          "protobuf<6.34,>=6.33.1",
+          "typing-extensions>=4.12",
+          "immutabledict>=3.0.0"
+        ]
+      },
+      {
+        "name": "tzdata",
+        "version": "2026.6",
+        "requires": null
+      },
+      {
+        "name": "numpy",
+        "version": "2.5.3",
+        "requires": null
+      },
+      {
+        "name": "protobuf",
+        "version": "6.33.6",
+        "requires": null
+      },
+      {
+        "name": "absl-py",
+        "version": "2.5.1",
+        "requires": null
+      },
+      {
+        "name": "highspy",
+        "version": "1.15.1",
+        "requires": [
+          "numpy",
+          "typing_extensions; python_version < \"3.10\"",
+          "pytest; extra == \"test\"",
+          "numpy; extra == \"test\"",
+          "highspy-extras==1.15.1; extra == \"extras\""
+        ]
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0",
+        "requires": null
+      },
+      {
+        "name": "pandas",
+        "version": "3.1.1",
+        "requires": [
+          "numpy>=2.0.2; python_version < \"3.14\"",
+          "numpy>=2.3.3; python_version >= \"3.14\"",
+          "python-dateutil>=2.9.0",
+          "tzdata; sys_platform == \"win32\"",
+          "tzdata; sys_platform == \"emscripten\"",
+          "pytest>=8.3.4; extra == \"test\"",
+          "pytest-xdist>=3.6.1; extra == \"test\"",
+          "pyarrow>=16.0.0; extra == \"pyarrow\"",
+          "bottleneck>=1.5.0; extra == \"performance\"",
+          "numba>=0.61.2; extra == \"performance\"",
+          "numexpr!=2.14.1,>=2.11.0; extra == \"performance\"",
+          "scipy>=1.16.1; extra == \"computation\"",
+          "xarray>=2025.7.1; extra == \"computation\"",
+          "fsspec>=2025.7.0; extra == \"fss\"",
+          "s3fs>=2025.7.0; extra == \"aws\"",
+          "gcsfs>=2025.7.0; extra == \"gcp\"",
+          "odfpy>=1.4.1; extra == \"excel\"",
+          "openpyxl>=3.1.5; extra == \"excel\"",
+          "python-calamine>=0.4.0; extra == \"excel\"",
+          "pyxlsb>=1.0.10; extra == \"excel\"",
+          "xlrd>=2.0.2; extra == \"excel\"",
+          "xlsxwriter>=3.2.5; extra == \"excel\"",
+          "pandas[pyarrow]; extra == \"parquet\"",
+          "pandas[pyarrow]; extra == \"feather\"",
+          "pyiceberg>=0.9.1; extra == \"iceberg\"",
+          "tables>=3.10.2; extra == \"hdf5\"",
+          "pyreadstat>=1.3.0; extra == \"spss\"",
+          "SQLAlchemy>=2.0.42; extra == \"postgresql\"",
+          "psycopg2>=2.9.10; extra == \"postgresql\"",
+          "adbc-driver-postgresql>=1.7.0; extra == \"postgresql\"",
+          "SQLAlchemy>=2.0.42; extra == \"mysql\"",
+          "pymysql>=1.1.1; extra == \"mysql\"",
+          "SQLAlchemy>=2.0.42; extra == \"sql-other\"",
+          "adbc-driver-postgresql>=1.7.0; extra == \"sql-other\"",
+          "adbc-driver-sqlite>=1.7.0; extra == \"sql-other\"",
+          "beautifulsoup4>=4.13.4; extra == \"html\"",
+          "html5lib>=1.1; extra == \"html\"",
+          "lxml>=6.0.0; extra == \"html\"",
+          "lxml>=6.0.0; extra == \"xml\"",
+          "matplotlib>=3.10.5; extra == \"plot\"",
+          "jinja2>=3.1.6; extra == \"output-formatting\"",
+          "tabulate>=0.9.0; extra == \"output-formatting\"",
+          "PyQt5>=5.15.11; extra == \"clipboard\"",
+          "qtpy>=2.4.3; extra == \"clipboard\"",
+          "zstandard>=0.23.0; extra == \"compression\"",
+          "pytz>=2020.1; extra == \"timezone\"",
+          "pandas[aws,clipboard,compression,computation,excel,feather,fss,gcp,hdf5,html,iceberg,mysql,output-formatting,parquet,performance,plot,postgresql,pyarrow,spss,sql-other,test,timezone,xml]; extra == \"all\"",
+          "fastparquet>=2024.11.0; extra == \"all\""
+        ]
+      },
+      {
+        "name": "python-dateutil",
+        "version": "4.0.0",
+        "requires": [
+          "tzdata"
+        ]
+      },
+      {
+        "name": "immutabledict",
+        "version": "4.3.1",
+        "requires": null
+      }
+    ]
+  },
+  "new_file_bytes": 381924837,
+  "wall_seconds": 2.284926602995256
+}

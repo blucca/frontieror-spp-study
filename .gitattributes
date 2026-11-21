@@ -1,0 +1,6 @@
+# Historical C++ controls are excluded from primary Main-language statistics.
+controls/**/*.cpp linguist-detectable=false
+source/** linguist-generated=true
+results/** linguist-generated=true
+evaluation/reference/** linguist-generated=true
+controls/**/results/** linguist-generated=true

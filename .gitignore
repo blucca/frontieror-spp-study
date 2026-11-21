@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+/temp/
+/.venv/
+/eligible-baseline/main-env/
+/eligible-baseline/install-tmp/
+/eligible-baseline/main/
+/eligible-baseline/highs/
+/eligible-baseline/cpsat/
+/eligible-baseline/base-contract/
+/eligible-baseline/*-state.json
+/eligible-baseline/*-journal.jsonl
+/eligible-baseline/version-gate.json
+/eligible-baseline/*.log
+/eligible-baseline/*.pid

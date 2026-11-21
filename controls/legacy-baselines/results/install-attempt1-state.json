@@ -1,0 +1,22 @@
+{
+  "status": "STOP",
+  "package": "ortools==9.14.6206",
+  "index": "https://pypi.org/simple",
+  "isolated_venv": "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv",
+  "reuse_system_numpy": true,
+  "new_file_budget_bytes": 629145600,
+  "wall_budget_seconds": 300,
+  "commands": [
+    [
+      "/usr/bin/python3",
+      "-m",
+      "venv",
+      "--system-site-packages",
+      "/data/workspace/temp/round710/frontier-spp/baseline/ortools-venv"
+    ]
+  ],
+  "pid": 35582,
+  "failure": "ValueError: mandatory wheel/venv installation exit code 1",
+  "wall_seconds": 1.0039494599914178,
+  "new_file_bytes": 9109617
+}
