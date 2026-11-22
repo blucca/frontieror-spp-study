@@ -1,0 +1,21 @@
+{
+  "software_license": "MIT (../../LICENSE)",
+  "data_and_generated_metrics_license": "CC BY 4.0 (../../ATTRIBUTION.md)",
+  "dataset": "frontieror/FrontierOR",
+  "dataset_card_snapshot": "ef42a2eac13595453f986d9df0b62e86e75ab596",
+  "original_task": "hoffman1993 / Hoffman & Padberg (1993), Solving Airline Crew Scheduling Problems by Branch-and-Cut",
+  "inputs": "reuse ../../source/; no instance copies in this study",
+  "frozen_v3_parent_commit": "926fbb47953d927e34586ace7c3be1bc72fa6d10",
+  "source_sha256": {
+    "dual_lp.py": "71d938d0e959e47b7055a06b2a3f31c5ab7edfb0529b5e52d3cc7e5502804f60",
+    "lp-executed-v1.py": "dd7f55ab53f8f8d052bdb85ac4590588f8c8a74bf478b24e3753068ed14f043f",
+    "original_v3.py": "eb3f39141b36c7768961f707c464ab1a481e0fe14f69ddca9580f41d972a9ea9",
+    "method.py": "912129b3a3e3c04579ae987992214a786c57917b850848464381f0bb6e24b83a",
+    "dual_search.py": "2743dc468f19ad223538aaf83d99c6d4dd40d4c7a6ab35f43b78ad7e2c1323ab"
+  },
+  "lp_report_executed_source": "lp-executed-v1.py",
+  "lp_current_replay_source": "dual_lp.py",
+  "lp_domain_change": "integer-valued floats previously accepted; current certificate path requires positive Python-int costs. All six recorded inputs already satisfy this stricter domain. Recorded six LPs were not rerun after this guard change.",
+  "method_executed_source": "method.py with the strict dual_lp.py and frozen original_v3.py",
+  "raw_record_paths": "historical /data/workspace/... locations remain as originally recorded; replay commands use clone-local paths"
+}

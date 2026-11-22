@@ -1,0 +1,313 @@
+{
+  "status": "PASS",
+  "algorithm": "main",
+  "seed": 2,
+  "instance": "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "912129b3a3e3c04579ae987992214a786c57917b850848464381f0bb6e24b83a",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round727-spp-dual/method.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round710/frontier-spp/source/hoffman1993-large_instance_3.json",
+    "--output",
+    "/data/workspace/temp/round727-spp-dual/method-results/seed2/large3/solution.json",
+    "--time-limit",
+    "60",
+    "--seed",
+    "2"
+  ],
+  "algorithm_external_wall_seconds": 54.98267553298501,
+  "algorithm_exit_code": 0,
+  "algorithm_cpu_user_seconds": 55.465479,
+  "algorithm_cpu_system_seconds": 0.43968399999999996,
+  "algorithm_max_rss_kib": 673188,
+  "metrics": {
+    "method": "full LP + original independent basin/LNS + exact dual-bound large-hole LNS + warm full highspy",
+    "lp": {
+      "lp_status": "HighsModelStatus.kOptimal",
+      "highspy": "1.15.1",
+      "full_columns": 15000,
+      "full_rows": 100,
+      "nnz": 67522,
+      "lp_objective": 53.18171336320934,
+      "certificate": {
+        "scale": 1000000,
+        "row_prices": [
+          1874003,
+          476732,
+          -258360,
+          -1416807,
+          235127,
+          254694,
+          785315,
+          -57554,
+          538938,
+          662301,
+          1233741,
+          -1604450,
+          297448,
+          1344160,
+          -606053,
+          1029582,
+          -42758,
+          1468969,
+          1292465,
+          945278,
+          510060,
+          710055,
+          -400088,
+          -732901,
+          765731,
+          2670201,
+          1350256,
+          581987,
+          109720,
+          -918110,
+          1205276,
+          -90069,
+          234386,
+          2049279,
+          447963,
+          1016494,
+          1365848,
+          610699,
+          1058598,
+          751747,
+          1457902,
+          -462267,
+          -48358,
+          805081,
+          68600,
+          -158588,
+          488955,
+          -1159158,
+          863453,
+          300215,
+          2090073,
+          -355215,
+          1953605,
+          1885720,
+          448147,
+          1711574,
+          -1319753,
+          636131,
+          201815,
+          -634187,
+          123508,
+          242534,
+          408451,
+          2144996,
+          920476,
+          429144,
+          607827,
+          18129,
+          741652,
+          345571,
+          786870,
+          -1720012,
+          1084201,
+          1266896,
+          -934055,
+          1381380,
+          997478,
+          834560,
+          83604,
+          786893,
+          483187,
+          570001,
+          491910,
+          1008352,
+          731395,
+          642609,
+          900219,
+          247909,
+          -486677,
+          786995,
+          -465527,
+          -437283,
+          1120988,
+          1898265,
+          388430,
+          1050767,
+          552971,
+          1200114,
+          447835,
+          975451
+        ],
+        "correction": 0,
+        "minimum_column_slack": 1,
+        "lower_bound_numerator": 53181662,
+        "integer_objective_lower_bound": 54
+      },
+      "seconds": 0.2154110569972545,
+      "rounded_candidate_feasible": false,
+      "minimum_reduced_cost": 1
+    },
+    "probes": {
+      "cold": {
+        "status": "FEASIBLE",
+        "nodes": 31,
+        "columns": 14970,
+        "min_row_degree": 617,
+        "seconds": 0.004139419994316995,
+        "branch_order": "independent random + coverage + scarcity; cost-free"
+      },
+      "pool": {
+        "degree_goal": 10,
+        "support_prefix_columns": 425,
+        "columns": 1706,
+        "density_threshold": 5.333333333333333,
+        "cover_cost_upper_bound": 533.3333333333333,
+        "thickness_rule": "support-prefix x4, within 10%-20% input coverage quantile"
+      },
+      "density_probe": {
+        "status": "TIME_LIMIT",
+        "nodes": 637057,
+        "columns": 1706,
+        "min_row_degree": 64,
+        "seconds": 5.99748664299841,
+        "branch_order": "independent random + coverage + scarcity; cost-free"
+      },
+      "original_lns": {
+        "holes": 17,
+        "improvements": 7,
+        "nodes": 279558,
+        "improvement_trace": [
+          [
+            6.364533790998394,
+            1059
+          ],
+          [
+            6.387170048983535,
+            831
+          ],
+          [
+            6.43840885598911,
+            537
+          ],
+          [
+            6.519082320999587,
+            497
+          ],
+          [
+            7.207543379976414,
+            427
+          ],
+          [
+            7.314042093988974,
+            362
+          ],
+          [
+            9.23485585997696,
+            350
+          ]
+        ],
+        "hole_seconds_cap": 0.6
+      },
+      "dual_lns": {
+        "holes": 10,
+        "improvements": 0,
+        "nodes": 249226,
+        "dual_bound_prunes": 52219,
+        "cost_prunes": 867082,
+        "global_holes": 5,
+        "partial_holes": 5,
+        "improvement_trace": [],
+        "trace_origin": "dual_lns_start",
+        "hole_seconds_cap": 0.6,
+        "seconds": 6.000920523016248
+      }
+    },
+    "improvement_trace": [
+      [
+        0.3060682619980071,
+        2096,
+        "original_independent_cold"
+      ],
+      [
+        6.364533790998394,
+        1059,
+        "original_large_hole"
+      ],
+      [
+        6.387170048983535,
+        831,
+        "original_large_hole"
+      ],
+      [
+        6.43840885598911,
+        537,
+        "original_large_hole"
+      ],
+      [
+        6.519082320999587,
+        497,
+        "original_large_hole"
+      ],
+      [
+        7.207543379976414,
+        427,
+        "original_large_hole"
+      ],
+      [
+        7.314042093988974,
+        362,
+        "original_large_hole"
+      ],
+      [
+        9.23485585997696,
+        350,
+        "original_large_hole"
+      ]
+    ],
+    "highs": {
+      "solver": "highspy",
+      "solver_version": "1.15.1",
+      "threads": 2,
+      "seed": 2,
+      "model_columns": 15000,
+      "model_rows": 100,
+      "model_nnz": 67522,
+      "model_scope": "full_original",
+      "model_status": "HighsModelStatus.kTimeLimit",
+      "run_status": "HighsStatus.kWarning",
+      "warm_status": "HighsStatus.kOk",
+      "model_build_seconds": 0.01078066899208352,
+      "search_seconds": 36.4883293750172,
+      "best_bound": 56.0,
+      "mip_gap": 0.84,
+      "nodes": 30
+    },
+    "force_exit": false,
+    "objective": 350,
+    "selected_count": 23,
+    "internal_seconds": 54.887036698986776,
+    "internal_budget_seconds": 55.0
+  },
+  "objective": 350,
+  "selected_count": 23,
+  "independent_exact_feasible": true,
+  "official_numpy_feasible": true,
+  "output_bytes": 169081,
+  "worker_end_to_end_seconds": 55.19434813997941,
+  "total_cpu_seconds": 56.375226999999995,
+  "max_rss_kib": 673188,
+  "instance_name": "large3",
+  "external_end_to_end_seconds": 55.27010248499573,
+  "worker_exit_code": 0
+}

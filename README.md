@@ -88,6 +88,7 @@ actions and spending:0.
 ## Evidence and scope
 
 - [Mechanism and deadline semantics](METHOD.md)
+- [LP certificates and dual-guided repair: negative gate result (2026-11-22)](research/lp-dual-certificate-20261122/README.md)
 - [Unrounded runs, reused baselines, negative boundaries](RESULTS.md)
 - [All nine v3 raw records](results/2026-11-21/v3/)
 - [v1 snapshot and rejected v2/v2.1](versions/README.md)

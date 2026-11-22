@@ -1,0 +1,316 @@
+[
+  {
+    "case": "tiny",
+    "seed": 1,
+    "cost": 16,
+    "whole": 0.26755172401317395,
+    "maxRSS": 35116,
+    "lp_bound": 16.0,
+    "probes": [],
+    "trace": null
+  },
+  {
+    "case": "base-k2",
+    "seed": 1,
+    "cost": 2,
+    "whole": 0.26774358400143683,
+    "maxRSS": 35480,
+    "lp_bound": null,
+    "probes": [],
+    "trace": [
+      [
+        0.05680368599132635,
+        2,
+        "warm_full_highs"
+      ]
+    ]
+  },
+  {
+    "case": "large3",
+    "seed": 1,
+    "cost": 240,
+    "whole": 55.2554825770203,
+    "maxRSS": 413824,
+    "lp_bound": 53.18171336320934,
+    "probes": [
+      {
+        "status": "FEASIBLE",
+        "nodes": 21,
+        "seconds": 0.0037691390025429428,
+        "type": "cold"
+      },
+      {
+        "type": "pool"
+      },
+      {
+        "status": "FEASIBLE",
+        "nodes": 572584,
+        "seconds": 5.213531568995677,
+        "type": "density_probe"
+      },
+      {
+        "nodes": 206730,
+        "holes": 10,
+        "improvements": 0,
+        "dual_bound_prunes": 78651,
+        "cost_prunes": 1151479,
+        "seconds": 6.0033559020084795,
+        "improvement_trace": [],
+        "type": "dual_lns"
+      }
+    ],
+    "trace": [
+      [
+        0.27203790299245156,
+        2138,
+        "original_independent_cold"
+      ],
+      [
+        5.490836931974627,
+        252,
+        "original_density_basin"
+      ],
+      [
+        54.884624728001654,
+        240,
+        "warm_full_highs"
+      ]
+    ]
+  },
+  {
+    "case": "large3",
+    "seed": 2,
+    "cost": 350,
+    "whole": 55.27010248499573,
+    "maxRSS": 673188,
+    "lp_bound": 53.18171336320934,
+    "probes": [
+      {
+        "status": "FEASIBLE",
+        "nodes": 31,
+        "seconds": 0.004139419994316995,
+        "type": "cold"
+      },
+      {
+        "type": "pool"
+      },
+      {
+        "status": "TIME_LIMIT",
+        "nodes": 637057,
+        "seconds": 5.99748664299841,
+        "type": "density_probe"
+      },
+      {
+        "nodes": 279558,
+        "holes": 17,
+        "improvements": 7,
+        "improvement_trace": [
+          [
+            6.364533790998394,
+            1059
+          ],
+          [
+            6.387170048983535,
+            831
+          ],
+          [
+            6.43840885598911,
+            537
+          ],
+          [
+            6.519082320999587,
+            497
+          ],
+          [
+            7.207543379976414,
+            427
+          ],
+          [
+            7.314042093988974,
+            362
+          ],
+          [
+            9.23485585997696,
+            350
+          ]
+        ],
+        "type": "original_lns"
+      },
+      {
+        "nodes": 249226,
+        "holes": 10,
+        "improvements": 0,
+        "dual_bound_prunes": 52219,
+        "cost_prunes": 867082,
+        "seconds": 6.000920523016248,
+        "improvement_trace": [],
+        "type": "dual_lns"
+      }
+    ],
+    "trace": [
+      [
+        0.3060682619980071,
+        2096,
+        "original_independent_cold"
+      ],
+      [
+        6.364533790998394,
+        1059,
+        "original_large_hole"
+      ],
+      [
+        6.387170048983535,
+        831,
+        "original_large_hole"
+      ],
+      [
+        6.43840885598911,
+        537,
+        "original_large_hole"
+      ],
+      [
+        6.519082320999587,
+        497,
+        "original_large_hole"
+      ],
+      [
+        7.207543379976414,
+        427,
+        "original_large_hole"
+      ],
+      [
+        7.314042093988974,
+        362,
+        "original_large_hole"
+      ],
+      [
+        9.23485585997696,
+        350,
+        "original_large_hole"
+      ]
+    ]
+  },
+  {
+    "case": "large3",
+    "seed": 3,
+    "cost": 405,
+    "whole": 55.30154795400449,
+    "maxRSS": 641060,
+    "lp_bound": 53.18171336320934,
+    "probes": [
+      {
+        "status": "FEASIBLE",
+        "nodes": 39,
+        "seconds": 0.004471019987249747,
+        "type": "cold"
+      },
+      {
+        "type": "pool"
+      },
+      {
+        "status": "TIME_LIMIT",
+        "nodes": 581761,
+        "seconds": 5.998077561991522,
+        "type": "density_probe"
+      },
+      {
+        "nodes": 281556,
+        "holes": 15,
+        "improvements": 7,
+        "improvement_trace": [
+          [
+            6.404307388002053,
+            812
+          ],
+          [
+            6.46624482399784,
+            758
+          ],
+          [
+            6.527607670985162,
+            683
+          ],
+          [
+            6.561979797988897,
+            475
+          ],
+          [
+            6.7527387969894335,
+            468
+          ],
+          [
+            7.116477304982254,
+            458
+          ],
+          [
+            10.54864179098513,
+            419
+          ]
+        ],
+        "type": "original_lns"
+      },
+      {
+        "nodes": 252808,
+        "holes": 11,
+        "improvements": 1,
+        "dual_bound_prunes": 36969,
+        "cost_prunes": 686375,
+        "seconds": 6.0028019020101056,
+        "improvement_trace": [
+          [
+            1.4075746960006654,
+            405
+          ]
+        ],
+        "type": "dual_lns"
+      }
+    ],
+    "trace": [
+      [
+        0.3274213599797804,
+        1809,
+        "original_independent_cold"
+      ],
+      [
+        6.404307388002053,
+        812,
+        "original_large_hole"
+      ],
+      [
+        6.46624482399784,
+        758,
+        "original_large_hole"
+      ],
+      [
+        6.527607670985162,
+        683,
+        "original_large_hole"
+      ],
+      [
+        6.561979797988897,
+        475,
+        "original_large_hole"
+      ],
+      [
+        6.7527387969894335,
+        468,
+        "original_large_hole"
+      ],
+      [
+        7.116477304982254,
+        458,
+        "original_large_hole"
+      ],
+      [
+        10.54864179098513,
+        419,
+        "original_large_hole"
+      ],
+      [
+        13.803398796997499,
+        405,
+        "dual_bound_large_hole"
+      ]
+    ]
+  }
+]

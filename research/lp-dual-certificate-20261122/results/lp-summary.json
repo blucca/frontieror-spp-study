@@ -1,0 +1,74 @@
+{
+  "status": "COMPLETE",
+  "whole_seconds": 2.259653735003667,
+  "cpu_seconds": 2.524022,
+  "runs": [
+    {
+      "case": "tiny",
+      "exit_code": 0,
+      "whole_seconds": 0.16422206000424922,
+      "status": "CERTIFIED_OPTIMAL",
+      "lp_objective": 16.0,
+      "candidate_feasible": true,
+      "objective": 16,
+      "integer_lower": 16,
+      "max_rss_kib": 34912
+    },
+    {
+      "case": "large2",
+      "exit_code": 0,
+      "whole_seconds": 0.21473932699882425,
+      "status": "CERTIFIED_OPTIMAL",
+      "lp_objective": 229.0,
+      "candidate_feasible": true,
+      "objective": 229,
+      "integer_lower": 229,
+      "max_rss_kib": 48124
+    },
+    {
+      "case": "large1",
+      "exit_code": 0,
+      "whole_seconds": 0.36516548797953874,
+      "status": "FRACTIONAL_LP",
+      "lp_objective": 11.746285598169901,
+      "candidate_feasible": false,
+      "objective": null,
+      "integer_lower": 12,
+      "max_rss_kib": 74160
+    },
+    {
+      "case": "large3",
+      "exit_code": 0,
+      "whole_seconds": 0.31809372099814937,
+      "status": "FRACTIONAL_LP",
+      "lp_objective": 53.18171336320934,
+      "candidate_feasible": false,
+      "objective": null,
+      "integer_lower": 54,
+      "max_rss_kib": 54952
+    },
+    {
+      "case": "large4",
+      "exit_code": 0,
+      "whole_seconds": 0.465501091995975,
+      "status": "FRACTIONAL_LP",
+      "lp_objective": 11.63696860034008,
+      "candidate_feasible": false,
+      "objective": null,
+      "integer_lower": 12,
+      "max_rss_kib": 96036
+    },
+    {
+      "case": "large5",
+      "exit_code": 0,
+      "whole_seconds": 0.7164005869999528,
+      "status": "FRACTIONAL_LP",
+      "lp_objective": 6.578892067267584,
+      "candidate_feasible": false,
+      "objective": null,
+      "integer_lower": 7,
+      "max_rss_kib": 128296
+    }
+  ],
+  "measurement": "whole_seconds covers the serial six-process LP diagnostic queue; raw report native_seconds and complete_seconds are separate measurements"
+}

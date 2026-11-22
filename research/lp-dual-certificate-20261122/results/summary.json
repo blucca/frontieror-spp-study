@@ -1,0 +1,76 @@
+{
+  "conclusion": "STOP_THIS_METHOD_V3_RETAINED",
+  "full_lp_cases": 6,
+  "full_lp_integer_certificates": [
+    "tiny",
+    "large2"
+  ],
+  "fractional_lp_cases": [
+    "large1",
+    "large3",
+    "large4",
+    "large5"
+  ],
+  "whole_method_cases": [
+    {
+      "case": "tiny",
+      "seed": 1
+    },
+    {
+      "case": "base-k2",
+      "seed": 1
+    },
+    {
+      "case": "large3",
+      "seed": 1
+    },
+    {
+      "case": "large3",
+      "seed": 2
+    },
+    {
+      "case": "large3",
+      "seed": 3
+    }
+  ],
+  "hard3_old_v3_costs": [
+    240,
+    350,
+    416
+  ],
+  "hard3_new_costs": [
+    240,
+    350,
+    405
+  ],
+  "hard3_retained_cold_highs_costs": [
+    453,
+    440,
+    337
+  ],
+  "hard3_old_sum": 1006,
+  "hard3_new_sum": 995,
+  "hard3_sum_reduction_percent": 1.0934393638170974,
+  "hard3_pair_reduction_percent": [
+    0.0,
+    0.0,
+    2.644230769230769
+  ],
+  "required_pair_reduction_percent": 5,
+  "required_improved_pairs": 2,
+  "required_sum_reduction_percent": 5,
+  "quality_gate_passed": false,
+  "dense_fast_certificate_gate_passed": false,
+  "seed3_within_run_dual_phase": {
+    "before": 419,
+    "after": 405,
+    "delta": 14
+  },
+  "seed3_whole_run_comparison": {
+    "old_v3": 416,
+    "new": 405,
+    "delta": 11,
+    "attribution": "whole-run paired contrast, not an isolated dual-stage effect"
+  },
+  "new_full_six_whole_method_gate_executed": false
+}

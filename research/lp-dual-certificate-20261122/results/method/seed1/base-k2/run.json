@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "algorithm": "main",
+  "seed": 1,
+  "instance": "/data/workspace/temp/round727-spp-dual/base-contract-fixture.json",
+  "affinity": [
+    0,
+    1
+  ],
+  "ram_limit_bytes": 4294967296,
+  "full_process_time_limit_seconds": 60,
+  "internal_budget_seconds": 55,
+  "required_versions": {
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "numpy": "2.5.3"
+  },
+  "script_sha256": "912129b3a3e3c04579ae987992214a786c57917b850848464381f0bb6e24b83a",
+  "command": [
+    "/data/workspace/temp/round710/frontier-spp/eligible-baseline/main-env/bin/python",
+    "-B",
+    "/data/workspace/temp/round727-spp-dual/method.py",
+    "--problem",
+    "hoffman1993",
+    "--instance",
+    "/data/workspace/temp/round727-spp-dual/base-contract-fixture.json",
+    "--output",
+    "/data/workspace/temp/round727-spp-dual/method-results/seed1/base-k2/solution.json",
+    "--time-limit",
+    "60",
+    "--seed",
+    "1"
+  ],
+  "algorithm_external_wall_seconds": 0.11660489300265908,
+  "algorithm_exit_code": 0,
+  "algorithm_cpu_user_seconds": 0.12489099999999999,
+  "algorithm_cpu_system_seconds": 0.016118,
+  "algorithm_max_rss_kib": 35480,
+  "metrics": {
+    "method": "pure Python basin/large-hole LNS + warm full sparse highspy",
+    "probes": {},
+    "improvement_trace": [
+      [
+        0.05680368599132635,
+        2,
+        "warm_full_highs"
+      ]
+    ],
+    "highs": {
+      "solver": "highspy",
+      "solver_version": "1.15.1",
+      "threads": 2,
+      "seed": 1,
+      "model_columns": 2,
+      "model_rows": 3,
+      "model_nnz": 3,
+      "model_scope": "full_original",
+      "model_status": "HighsModelStatus.kOptimal",
+      "run_status": "HighsStatus.kOk",
+      "warm_status": null,
+      "model_build_seconds": 0.03840399798355065,
+      "search_seconds": 0.008215468988055363,
+      "best_bound": 2.0,
+      "mip_gap": 0.0,
+      "nodes": 0
+    },
+    "force_exit": false,
+    "objective": 2,
+    "selected_count": 1,
+    "internal_seconds": 0.05701240597409196,
+    "internal_budget_seconds": 55.0
+  },
+  "objective": 2,
+  "selected_count": 1,
+  "independent_exact_feasible": true,
+  "official_numpy_feasible": true,
+  "output_bytes": 83,
+  "worker_end_to_end_seconds": 0.20399745798204094,
+  "total_cpu_seconds": 0.31940399999999997,
+  "max_rss_kib": 35480,
+  "instance_name": "base-k2",
+  "external_end_to_end_seconds": 0.26774358400143683,
+  "worker_exit_code": 0
+}
