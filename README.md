@@ -35,6 +35,12 @@ small cases finish in presolve. large1 costs2428, hard3 seeds1/2/3
 cost1493/1562/1489, and large4/5 produce no whole witness. Frozen v3 remains
 the current entry. [Full results and runnable control](experiments/feasibility-jump/README.md).
 
+The [complete cold SCIP control](research/scip-cold-control-20261122/README.md)
+passes all six original seed1 cases plus BaseK2. SCIP large1 costs657 versus
+v31334; large3 costs567 versus v3240; the other four original costs tie v3.
+All seven return real native full witnesses within60s including both checkers.
+SCIP and v3 remain measured complementary choices; the default entry is unchanged.
+
 ## Hard3 paired seeds: keep the losing seed
 
 | Hard3 seed | Main v3 | Retained Main v1 | Cold HiGHS1.15.1 |
@@ -89,6 +95,7 @@ actions and spending:0.
 
 - [Mechanism and deadline semantics](METHOD.md)
 - [LP certificates and dual-guided repair: negative gate result (2026-11-22)](research/lp-dual-certificate-20261122/README.md)
+- [Complete cold SCIP third control: seven full witnesses and resource trade-offs (2026-11-22)](research/scip-cold-control-20261122/README.md)
 - [Unrounded runs, reused baselines, negative boundaries](RESULTS.md)
 - [All nine v3 raw records](results/2026-11-21/v3/)
 - [v1 snapshot and rejected v2/v2.1](versions/README.md)

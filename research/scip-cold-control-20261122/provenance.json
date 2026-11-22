@@ -1,0 +1,28 @@
+{
+  "software_license": "MIT (../../LICENSE)",
+  "data_and_generated_metrics_license": "CC BY 4.0 (../../ATTRIBUTION.md)",
+  "dataset": "frontieror/FrontierOR",
+  "original_task": "hoffman1993 / Hoffman & Padberg (1993), Solving Airline Crew Scheduling Problems by Branch-and-Cut",
+  "input_files": "Reuse ../../source/; no instance copies in this study",
+  "base_fixture": "Reuse ../../versions/v3/base-contract-fixture.json",
+  "frozen_v3_parent_commit": "926fbb47953d927e34586ace7c3be1bc72fa6d10",
+  "repository_parent_commit": "ab9a6a7698f67b15096e993d3d9ab63220cc33fe",
+  "solver": "Existing OR-Tools 9.15.6755 SCIP 10.0.0 / SoPlex 8.0.0",
+  "numpy_checker_version": "2.5.3",
+  "source_sha256": {
+    "scip_baseline.py": "336063ce2bbec435a280c757bc72fb66f7efc9802b3cf9ec2e23b5f5f6989c83",
+    "original_v3.py": "eb3f39141b36c7768961f707c464ab1a481e0fe14f69ddca9580f41d972a9ea9"
+  },
+  "recorded_inputs": {
+    "base-k2": "f33dd7826cf260bce6fd817af4972a5c4b29326176878574efbdf380ab511a54",
+    "tiny": "5bf883165945600510cba1b218ba49b3ffe2e7bd432cf9706cd4940e73b01c35",
+    "large2": "32cd2a199670ca0bf38c540f0f6b9d0453b942147e7edda2dcb58fb06aa6b0ab",
+    "large1": "75d8c9bb2eee959abf1cf0d6c4eb993346916d4f3b0fa1b8c85b747d35852ceb",
+    "large3": "a742ddd66d78d7a3412237f51398c29a3eb5e28eb6d2d1b1724cfac78ff1c762",
+    "large4": "851a40e1bf3ee8f8ca49dbef89ce7326a65fa98ff2609eb4a0847f084e3b1c1a",
+    "large5": "f97145a9dd23e29efa2bdbde32694e0af137a4e86e20ef6ead7333daea63c29b"
+  },
+  "attribution": "Native optimization capability belongs to SCIP; this study contributes the plain adapter and matched complete measurement/checking",
+  "raw_record_paths": "Historical /data/workspace/... locations remain in unchanged raw run records; reproduction commands use repository-root paths",
+  "raw_record_bytes_preserved": true
+}

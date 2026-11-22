@@ -1,0 +1,33 @@
+presolving:
+(round 1, exhaustive) 0 del vars, 0 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 0 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 2, medium)     18 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+   (1.9s) probing: 51/14982 (0.3%) - 0 fixings, 0 aggregations, 0 implications, 0 bound changes
+   (1.9s) probing aborted: 50/50 successive totally useless probings
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+presolving (3 rounds: 3 fast, 3 medium, 2 exhaustive):
+ 18 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 16 changed sides, 16 changed coefficients
+ 0 implications, 100 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 14982 variables (14982 bin, 0 int, 0 cont) and 100 constraints
+    100 constraints of type <setppc>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 1.87
+initializing seeds to 1504884975 in concurrent solver 'scip-2'
+starting solve in concurrent solver 'scip-1'
+starting solve in concurrent solver 'scip-2'
+ time | mem |  dualbound   | primalbound  |  gap   
+$12.8s| 862M| 6.578892e+00 | 1.800000e+02 |2636.02%
+ 37.9s| 906M| 9.987280e+00 | 1.800000e+02 |1702.29%
+ 47.0s| 907M| 1.013682e+01 | 1.800000e+02 |1675.70%
+concurrent solver 'scip-2' stopped with status time limit reached
+concurrent solver 'scip-1' stopped with status time limit reached
+ 56.5s| 302M| 1.160321e+01 | 1.800000e+02 |1451.30%
+ 56.5s| 302M| 1.160321e+01 | 1.800000e+02 |1451.30%
+
+SCIP Status        : solving was interrupted [time limit reached]
+Solving Time (sec) : 56.50
+Solving Nodes      : 1 (total of 2 nodes in 2 runs)
+Primal Bound       : +1.80000000000000e+02 (1 solutions)
+Dual Bound         : +1.16032052920955e+01
+Gap                : 1451.30 %
+{"metrics": {"solver": "SCIP", "solver_version": "SCIP 10.0.0 [LP solver: SoPlex 8.0.0]", "ortools_version": "9.15.6755", "requested_threads": 2, "set_num_threads_returned": true, "actual_native_thread_count": null, "seed": 1, "seed_parameters": "randomization/randomseedshift = 1\n", "seed_parameters_accepted": true, "model_scope": "full_original", "model_columns": 15000, "model_rows": 100, "coverage_rows": 100, "base_constraint_count": 0, "base_num_bases_schema": null, "model_nnz": 516521, "warm_start": false, "affinity": [0, 1], "ram_limit_bytes": 4294967296, "cpu_limit_seconds": 120, "model_build_and_import_seconds": 0.36829722800757736, "native_time_limit_ms": 54481, "native_status_code": 1, "native_status": "FEASIBLE", "native_returned": true, "native_search_seconds": 56.58036687699496, "native_wall_seconds": 56.797, "nodes": 2, "native_objective": 180.0, "best_bound": 11.603205292095481, "primal_bound_relative_gap": 0.9355377483772473, "gap_definition": "abs(native objective - best bound) / abs(native objective); derived, SCIP printed gap retained by controller", "native_has_feasible_status": true, "recomputed_exact_cover_feasible": true, "recomputed_cost": 180, "native_max_binary_distance": 0.0, "own_wall_seconds": 57.83136613300303, "cpu_user_seconds": 111.96212, "cpu_system_seconds": 0.283814, "peak_rss_kib": 1070520}}

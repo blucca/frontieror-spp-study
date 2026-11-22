@@ -1,0 +1,29 @@
+presolving:
+(round 1, exhaustive) 0 del vars, 0 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 0 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 2, fast)       12447 del vars, 0 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 0 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 3, medium)     12547 del vars, 0 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 4, fast)       14950 del vars, 67 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 33 clqs, 0 implints
+(round 5, fast)       14973 del vars, 78 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 19 clqs, 0 implints
+(round 6, fast)       14980 del vars, 87 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 13 clqs, 0 implints
+(round 7, fast)       14984 del vars, 87 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 13 clqs, 0 implints
+(round 8, fast)       14988 del vars, 89 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 9 clqs, 0 implints
+(round 9, fast)       14988 del vars, 91 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 9 clqs, 0 implints
+(round 10, fast)       14993 del vars, 95 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 5 clqs, 0 implints
+(round 11, fast)       14995 del vars, 97 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 3 clqs, 0 implints
+(round 12, fast)       14998 del vars, 99 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 1 clqs, 0 implints
+(round 13, fast)       14999 del vars, 100 del conss, 0 add conss, 0 chg bounds, 100 chg sides, 100 chg coeffs, 100 upgd conss, 0 impls, 0 clqs, 0 implints
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+presolving (14 rounds: 14 fast, 3 medium, 2 exhaustive):
+ 15000 deleted vars, 100 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 100 changed sides, 100 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+transformed 1/1 original solutions to the transformed problem space
+presolving solved problem
+Presolving Time: 0.06
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 0.08
+Solving Nodes      : 0
+Primal Bound       : +2.29000000000000e+02 (1 solutions)
+Dual Bound         : +2.29000000000000e+02
+Gap                : 0.00 %
+{"metrics": {"solver": "SCIP", "solver_version": "SCIP 10.0.0 [LP solver: SoPlex 8.0.0]", "ortools_version": "9.15.6755", "requested_threads": 2, "set_num_threads_returned": true, "actual_native_thread_count": null, "seed": 1, "seed_parameters": "randomization/randomseedshift = 1\n", "seed_parameters_accepted": true, "model_scope": "full_original", "model_columns": 15000, "model_rows": 100, "coverage_rows": 100, "base_constraint_count": 0, "base_num_bases_schema": null, "model_nnz": 17816, "warm_start": false, "affinity": [0, 1], "ram_limit_bytes": 4294967296, "cpu_limit_seconds": 120, "model_build_and_import_seconds": 0.11573658298584633, "native_time_limit_ms": 54734, "native_status_code": 0, "native_status": "OPTIMAL", "native_returned": true, "native_search_seconds": 0.0919296840147581, "native_wall_seconds": 0.12, "nodes": 0, "native_objective": 229.0, "best_bound": 229.0, "primal_bound_relative_gap": 0.0, "gap_definition": "abs(native objective - best bound) / abs(native objective); derived, SCIP printed gap retained by controller", "native_has_feasible_status": true, "recomputed_exact_cover_feasible": true, "recomputed_cost": 229, "native_max_binary_distance": 0.0, "own_wall_seconds": 0.2594213040138129, "cpu_user_seconds": 0.241498, "cpu_system_seconds": 0.031846, "peak_rss_kib": 98040}}
