@@ -1,0 +1,68 @@
+{
+  "commit": "9d0db3896eafc39bbf26b6989ff465fa964193d8",
+  "files": [
+    {
+      "file": "main/solve.py",
+      "status": 200,
+      "bytes": 19474
+    },
+    {
+      "file": "source/hoffman1993-large_instance_3.json",
+      "status": 200,
+      "bytes": 1171365
+    },
+    {
+      "file": "results/2026-11-21/v3/seed1/large3/solution.json",
+      "status": 200,
+      "bytes": 169095
+    },
+    {
+      "file": "research/rotation-plan-repair-20261123/repair.py",
+      "status": 200,
+      "bytes": 9644
+    },
+    {
+      "file": "research/rotation-plan-repair-20261123/method.py",
+      "status": 200,
+      "bytes": 3178
+    },
+    {
+      "file": "research/rotation-plan-repair-20261123/controls.py",
+      "status": 200,
+      "bytes": 14801
+    },
+    {
+      "file": "research/rotation-plan-repair-20261123/original_v3.py",
+      "status": 200,
+      "bytes": 441
+    },
+    {
+      "file": "research/rotation-plan-repair-20261123/official_check.py",
+      "status": 200,
+      "bytes": 19244
+    },
+    {
+      "file": "research/rotation-plan-repair-20261123/E1.json",
+      "status": 200,
+      "bytes": 35
+    },
+    {
+      "file": "research/rotation-plan-repair-20261123/README.md",
+      "status": 200,
+      "bytes": 2373
+    },
+    {
+      "file": "research/rotation-plan-repair-20261123/replay.py",
+      "status": 200,
+      "bytes": 6487
+    }
+  ],
+  "phase": "ACTUAL_PUBLIC_FIRST_RUN_PASS",
+  "D": 2,
+  "cost": 557,
+  "all_variables": 15000,
+  "primary": "OPTIMAL",
+  "secondary": "OPTIMAL",
+  "double_checker_pass": true,
+  "whole_s": 2.047636178031098
+}

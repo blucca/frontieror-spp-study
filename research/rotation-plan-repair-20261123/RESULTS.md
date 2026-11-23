@@ -73,3 +73,10 @@ until its remaining time limit: cost 1051, FEASIBLE, bound -1e20.
 unrounded stage status/bounds, whole/resource records and source versions.
 `replay.py` runs the corrected matrix; `--initial-scip-adapter` selects the
 archived failure.
+
+## Public source first run
+
+[Commit-pinned public first run](results/public-first-run.json): all eleven
+required public files returned HTTP 200; the complete E1 task returned
+D=2/cost557, both proofs OPTIMAL, all 15,000 variables and both checkers PASS
+in 2.047636 s. This is delivery QA, separate from external owner adoption.
