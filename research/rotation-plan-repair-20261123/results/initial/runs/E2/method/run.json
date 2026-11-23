@@ -1,0 +1,27 @@
+{
+  "event": "E2",
+  "solver": "method",
+  "exit_code": 0,
+  "hard_timeout": false,
+  "solver_process_whole_seconds": 2.5757065860088915,
+  "cpus": [
+    0,
+    1
+  ],
+  "address_space_limit_bytes": 4294967296,
+  "result_written": true,
+  "whole_feasible": true,
+  "D": 4,
+  "cost": 545,
+  "primary": "OPTIMAL",
+  "primary_bound": 4,
+  "primary_seconds": 0.04768843698548153,
+  "secondary": "OPTIMAL",
+  "secondary_bound": 545.0,
+  "secondary_seconds": 1.308539952035062,
+  "lexicographic_complete": true,
+  "failure": null,
+  "official_checker_exit": 0,
+  "whole_seconds": 2.7716459640068933,
+  "resource_pass": true
+}

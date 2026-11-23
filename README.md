@@ -113,3 +113,7 @@ References and observed baseline-cover analyses are evaluation-only materials.
 
 Open an issue with a shareable instance and your current bottleneck. For a whole
 engineering engagement, include the scope, acceptance criteria and budget.
+
+## Published-plan event repair
+
+[Complete rotation repair lab](research/rotation-plan-repair-20261123/README.md): keep a published plan, declare disabled and locked rotations, and obtain a whole feasible replacement with a minimum-old-loss proof and cost-stage result. The fixed three-event study includes all twelve runs, the initial SCIP stage interruption, and the failed two-case half-time gate. The cold Main entry above is unchanged.

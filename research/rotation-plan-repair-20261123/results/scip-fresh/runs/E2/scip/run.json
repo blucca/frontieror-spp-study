@@ -1,0 +1,27 @@
+{
+  "event": "E2",
+  "solver": "scip",
+  "exit_code": 0,
+  "hard_timeout": false,
+  "solver_process_whole_seconds": 54.98851285199635,
+  "cpus": [
+    0,
+    1
+  ],
+  "address_space_limit_bytes": 4294967296,
+  "result_written": true,
+  "whole_feasible": true,
+  "D": 4,
+  "cost": 1051,
+  "primary": "OPTIMAL",
+  "primary_bound": 4.0,
+  "primary_seconds": 15.109482818981633,
+  "secondary": "FEASIBLE",
+  "secondary_bound": -1e+20,
+  "secondary_seconds": 39.380198922997806,
+  "lexicographic_complete": false,
+  "failure": null,
+  "official_checker_exit": 0,
+  "whole_seconds": 55.1368550240295,
+  "resource_pass": true
+}

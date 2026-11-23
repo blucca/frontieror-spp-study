@@ -1,0 +1,87 @@
+presolving:
+(round 1, exhaustive) 1 del vars, 0 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 0 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 2, medium)     20 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 3, fast)       42 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 4, exhaustive) 246 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+   (0.2s) probing: 51/14754 (0.3%) - 0 fixings, 0 aggregations, 0 implications, 0 bound changes
+   (0.2s) probing aborted: 50/50 successive totally useless probings
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+presolving (5 rounds: 5 fast, 4 medium, 3 exhaustive):
+ 246 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 16 changed sides, 16 changed coefficients
+ 0 implications, 100 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 14754 variables (14754 bin, 0 int, 0 cont) and 100 constraints
+    100 constraints of type <setppc>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.24
+initializing seeds to 1504884975 in concurrent solver 'scip-2'
+starting solve in concurrent solver 'scip-1'
+starting solve in concurrent solver 'scip-2'
+concurrent solver 'scip-1' stopped with status optimal solution found
+concurrent solver 'scip-2' stopped with status optimal solution found
+ time | mem |  dualbound   | primalbound  |  gap   
+  3.2s|  99M| 2.000000e+00 | 2.000000e+00 |   0.00%
+  3.2s|  99M| 2.000000e+00 | 2.000000e+00 |   0.00%
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 3.23
+Solving Nodes      : 1
+Primal Bound       : +1.99999999999999e+00 (3 solutions)
+Dual Bound         : +1.99999999999999e+00
+Gap                : 0.00 %
+1/1 feasible solution given by solution candidate storage, new primal bound 8.320000e+02
+
+presolving:
+(round 1, exhaustive) 3 del vars, 0 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 0 chg coeffs, 101 upgd conss, 0 impls, 101 clqs, 0 implints
+(round 2, medium)     22 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 101 clqs, 0 implints
+(round 3, exhaustive) 62 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 101 clqs, 0 implints
+(round 4, exhaustive) 4278 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 10789 clqs, 0 implints
+(round 5, fast)       4278 del vars, 4 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 10789 clqs, 0 implints
+(round 6, exhaustive) 14974 del vars, 4 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 57 clqs, 0 implints
+(round 7, fast)       14974 del vars, 83 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 57 clqs, 0 implints
+(round 8, exhaustive) 14978 del vars, 84 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 48 clqs, 0 implints
+(round 9, fast)       14981 del vars, 85 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 42 clqs, 0 implints
+(round 10, fast)       14983 del vars, 86 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 42 clqs, 0 implints
+(round 11, exhaustive) 14983 del vars, 87 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 42 clqs, 0 implints
+(round 12, exhaustive) 14984 del vars, 87 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 25 clqs, 0 implints
+   (1.0s) probing: 1000/14938 (6.7%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 2000/14938 (13.4%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 3000/14938 (20.1%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 4000/14938 (26.8%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 5000/14938 (33.5%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 6000/14938 (40.2%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 7000/14938 (46.9%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 8000/14938 (53.6%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 9000/14938 (60.2%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 10000/14938 (66.9%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 11000/14938 (73.6%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 12000/14938 (80.3%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 13000/14938 (87.0%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing: 14000/14938 (93.7%) - 14922 fixings, 6 aggregations, 10718 implications, 0 bound changes
+   (1.0s) probing cycle finished: starting next cycle
+(round 13, exhaustive) 15001 del vars, 87 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 101 upgd conss, 0 impls, 0 clqs, 0 implints
+   (1.0s) probing cycle finished: starting next cycle
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+presolving (14 rounds: 14 fast, 10 medium, 9 exhaustive):
+ 15001 deleted vars, 101 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 16 changed sides, 16 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 1 variables (1 bin, 0 int, 0 cont) and 0 constraints
+transformed objective value is always integral (scale: 235)
+Presolving Time: 0.96
+initializing seeds to 1504884975 in concurrent solver 'scip-2'
+starting solve in concurrent solver 'scip-1'
+concurrent solver 'scip-1' stopped with status optimal solution found
+starting solve in concurrent solver 'scip-2'
+concurrent solver 'scip-2' stopped with status optimal solution found
+ time | mem |  dualbound   | primalbound  |  gap   
+  1.0s|  87M| 5.570000e+02 | 5.570000e+02 |   0.00%
+  1.0s|  87M| 5.570000e+02 | 5.570000e+02 |   0.00%
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 0.98
+Solving Nodes      : 0
+Primal Bound       : +5.57000000000000e+02 (2 solutions)
+Dual Bound         : +5.57000000000000e+02
+Gap                : 0.00 %
+{"output": "<workdir>/scip-fresh/runs/E1/scip/result.json", "primary": "OPTIMAL", "secondary": "OPTIMAL", "verified": true}

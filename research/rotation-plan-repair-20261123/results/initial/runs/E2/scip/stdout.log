@@ -1,0 +1,49 @@
+presolving:
+(round 1, exhaustive) 2 del vars, 0 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 0 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 2, medium)     21 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 3, fast)       43 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+(round 4, exhaustive) 247 del vars, 0 del conss, 0 add conss, 0 chg bounds, 16 chg sides, 16 chg coeffs, 100 upgd conss, 0 impls, 100 clqs, 0 implints
+   (0.3s) probing: 51/14753 (0.3%) - 0 fixings, 0 aggregations, 0 implications, 0 bound changes
+   (0.3s) probing aborted: 50/50 successive totally useless probings
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+presolving (5 rounds: 5 fast, 4 medium, 3 exhaustive):
+ 247 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 16 changed sides, 16 changed coefficients
+ 0 implications, 100 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 14753 variables (14753 bin, 0 int, 0 cont) and 100 constraints
+    100 constraints of type <setppc>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.27
+initializing seeds to 1504884975 in concurrent solver 'scip-2'
+starting solve in concurrent solver 'scip-1'
+starting solve in concurrent solver 'scip-2'
+concurrent solver 'scip-1' stopped with status optimal solution found
+concurrent solver 'scip-2' stopped with status optimal solution found
+ time | mem |  dualbound   | primalbound  |  gap   
+ 15.0s|  99M| 4.000000e+00 | 4.000000e+00 |   0.00%
+ 15.0s|  99M| 4.000000e+00 | 4.000000e+00 |   0.00%
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 14.96
+Solving Nodes      : 3
+Primal Bound       : +4.00000000000000e+00 (2 solutions)
+Dual Bound         : +4.00000000000000e+00
+Gap                : 0.00 %
+  [linear] <fixed_removed_old>: <x8903>[B] (+0) +<x289>[B] (+0) +<x14>[B] (+0) +<x1144>[B] (+0) +<x9316>[B] (+0) +<x9635>[B] (+0) +<x14803>[B] (+0) +<x10903>[B] (+0) +<x4659>[B] (+0) +<x9087>[B] (+0) +<x6977>[B] (+0) +<x7016>[B] (+0) +<x10213>[B] (+0) +<x3844>[B] (+0) +<x3684>[B] (+0) +<x10521>[B] (+0) +<x9404>[B] (+0) +<x2692>[B] (+0) +<x3080>[B] (+0) +<x2350>[B] (+0) +<x4561>[B] (+0) +<x8801>[B] (+0) +<x5278>[B] (+0) +<x9954>[B] (+0) +<x10226>[B] (+0) +<x8051>[B] (+0) +<x14529>[B] (+0) == 23;
+;
+violation: left hand side is violated by 23
+1/3 feasible solution given by solution candidate storage, new primal bound 1.051000e+03
+
+presolving:
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolving was interrupted.
+Presolving Time: 0.00
+
+SCIP Status        : solving was interrupted [unknown]
+Solving Time (sec) : 0.04
+Solving Nodes      : 0
+Primal Bound       : +1.05100000000000e+03 (1 solutions)
+   Deactivated symmetry handling methods, since SCIP was built without symmetry detector (SYM=none).
+{"output": "<workdir>/runs/E2/scip/result.json", "primary": "OPTIMAL", "secondary": "FEASIBLE", "verified": true}

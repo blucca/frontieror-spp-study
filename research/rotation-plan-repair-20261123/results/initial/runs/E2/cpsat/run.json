@@ -1,0 +1,27 @@
+{
+  "event": "E2",
+  "solver": "cpsat",
+  "exit_code": 0,
+  "hard_timeout": false,
+  "solver_process_whole_seconds": 3.6316843339591287,
+  "cpus": [
+    0,
+    1
+  ],
+  "address_space_limit_bytes": 4294967296,
+  "result_written": true,
+  "whole_feasible": true,
+  "D": 4,
+  "cost": 545,
+  "primary": "OPTIMAL",
+  "primary_bound": 4.0,
+  "primary_seconds": 1.1846391790313646,
+  "secondary": "OPTIMAL",
+  "secondary_bound": 545.0,
+  "secondary_seconds": 1.2525064049987122,
+  "lexicographic_complete": true,
+  "failure": null,
+  "official_checker_exit": 0,
+  "whole_seconds": 3.785602274001576,
+  "resource_pass": true
+}
